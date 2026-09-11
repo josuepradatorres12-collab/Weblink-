@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weblink+</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+        }
+
+        nav a {
+            color: #fff;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        main {
+            padding: 20px;
+            padding-bottom: 60px;
+            /* deja espacio para el footer fijo */
+        }
+
+        #buscador input {
+            padding: 8px;
+            width: 100%;
+            max-width: 400px;
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+
+        #resultadosBusqueda li {
+            margin-bottom: 8px;
+        }
+
+        details {
+            margin-bottom: 10px;
+            background: #fff;
+            padding: 10px;
+            border-radius: 6px;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Weblink+</h1>
+        <h3>Information and services</h3>
+    </header>
+
+    <nav>
+        <a onclick="mostrarSeccion('inicio')">Inicio</a>
+        <a onclick="mostrarSeccion('buscador')">Buscador</a>
+        <a onclick="mostrarSeccion('problemas')">Problemas</a>
+    </nav>
+
+    <main>
+
+        <!-- ===================== INICIO ===================== -->
+        <div id="inicio" class="seccion">
+            <h2>Bienvenidos a Weblink+</h2>
+
+            <h3>Informática</h3>
+            <ul>
+                <li>
+                    <a href="https://inscripciones.cun.edu.co/programa-ingenieria-de-sistemas-virtual-a">CUN: Ingeniería
+                        de Sistemas</a>
+                    <p>100% virtual — programa para quienes buscan formarse en ingeniería de sistemas con enfoque en
+                        seguridad e infraestructuras digitales.</p>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/espanol/">freeCodeCamp</a>
+                    <p>Plataforma de aprendizaje gratuita para desarrolladores. Aprende programación de forma
+                        interactiva y gratuita.</p>
+                </li>
+                <li>
+                    <a href="https://www.coursera.org/">Coursera</a>
+                    <p>Cursos, especializaciones y programas de grado en colaboración con universidades y empresas
+                        líderes a nivel mundial.</p>
+                </li>
+                <li>
+                    <a href="https://www.udemy.com/">Udemy</a>
+                    <p>Cursos en una amplia variedad de temas, desde programación y diseño hasta desarrollo personal y
+                        negocios.</p>
+                </li>
+                <li>
+                    <a href="https://www.edx.org/">edX</a>
+                    <p>Fundada por Harvard y MIT, ofrece cursos universitarios gratuitos y de pago en múltiples
+                        disciplinas.</p>
+                </li>
+                <li>
+                    <a href="https://www.khanacademy.org/">Khan Academy</a>
+                    <p>Plataforma educativa sin fines de lucro con lecciones en video y ejercicios interactivos.</p>
+                </li>
+            </ul>
+
+            <h3>Medicina</h3>
+            <ul>
+                <li>
+                    <a href="https://www.medicamentosplm.com.co/">Medicamentos PLM</a>
+                    <p>Vademécum farmacéutico colombiano con información detallada sobre medicamentos: composición,
+                        dosis, contraindicaciones e interacciones.</p>
+                </li>
+                <li>
+                    <a href="https://www.kenhub.com/es">Kenhub</a>
+                    <p>Atlas interactivo de anatomía y fisiología con ilustraciones en 3D, videos y cuestionarios de
+                        práctica.</p>
+                </li>
+                <li>
+                    <a href="https://www.mayoclinic.org/es">Mayo Clinic</a>
+                    <p>Uno de los centros médicos más prestigiosos de Estados Unidos, con información confiable sobre
+                        enfermedades y tratamientos.</p>
+                </li>
+                <li>
+                    <a href="https://www.webmd.com/">WebMD</a>
+                    <p>Buscador de síntomas y guías de salud, aunque su contenido está principalmente en inglés.</p>
+                </li>
+                <li>
+                    <a href="https://www.healthline.com/">Healthline</a>
+                    <p>Artículos sobre nutrición, bienestar y enfermedades comunes, redactados de forma clara y
+                        accesible.</p>
+                </li>
+                <li>
+                    <a href="https://www.cdc.gov/">CDC</a>
+                    <p>Entidad oficial de referencia en salud pública, vacunación y recomendaciones sanitarias globales.
+                    </p>
+                </li>
+            </ul>
+
+            <h3>Recetas</h3>
+            <ul>
+                <li>
+                    <a href="https://www.recetasgratis.net/">Recetas Gratis</a>
+                    <p>Comunidad hispanohablante con miles de recetas clasificadas por tipo de plato, ingrediente y
+                        ocasión especial.</p>
+                </li>
+                <li>
+                    <a href="https://www.allrecipes.com/">Allrecipes</a>
+                    <p>Cada receta incluye reseñas, calificaciones y fotos de otros usuarios que ya la prepararon.</p>
+                </li>
+                <li>
+                    <a href="https://www.foodnetwork.com/">Food Network</a>
+                    <p>Recetas creadas por chefs reconocidos internacionalmente y contenido de sus programas de cocina.
+                    </p>
+                </li>
+                <li>
+                    <a href="https://www.bbcgoodfood.com/">BBC Good Food</a>
+                    <p>Enfoque en técnicas culinarias bien explicadas y planificación semanal de comidas saludables.</p>
+                </li>
+                <li>
+                    <a href="https://www.tasteofhome.com/">Taste of Home</a>
+                    <p>Recetas caseras y tradicionales de Estados Unidos, con platos familiares fáciles de preparar.</p>
+                </li>
+                <li>
+                    <a href="https://www.epicurious.com/">Epicurious</a>
+                    <p>Recetas de chefs profesionales, con filtros por ingredientes, tiempo y nivel de dificultad.</p>
+                </li>
+            </ul>
+
+            <h3>Noticieros</h3>
+            <ul>
+                <li>
+                    <a href="https://www.bbc.com/mundo">BBC Mundo</a>
+                    <p>Versión en español de la BBC, con noticias internacionales, análisis y reportajes.</p>
+                </li>
+                <li>
+                    <a href="https://www.cnn.com/">CNN</a>
+                    <p>Cobertura global, incluyendo noticias de última hora, política, negocios y entretenimiento.</p>
+                </li>
+                <li>
+                    <a href="https://www.nytimes.com/">The New York Times</a>
+                    <p>Periódico estadounidense de renombre mundial, con noticias, opinión y análisis.</p>
+                </li>
+                <li>
+                    <a href="https://www.elpais.com/">El País</a>
+                    <p>Periódico español con cobertura de noticias nacionales e internacionales, cultura y opinión.</p>
+                </li>
+                <li>
+                    <a href="https://www.reuters.com/">Reuters</a>
+                    <p>Agencia de noticias internacional con información objetiva sobre eventos globales.</p>
+                </li>
+                <li>
+                    <a href="https://www.noticiascaracol.com/">Noticias Caracol</a>
+                    <p>Medio colombiano con noticias nacionales e internacionales, deportes y entretenimiento.</p>
+                </li>
+            </ul>
+
+            <h3>Entretenimiento</h3>
+            <ul>
+                <li>
+                    <a href="https://pluto.tv/latam/">Pluto TV</a>
+                    <p>Streaming gratuito con canales en vivo y contenido a la carta: películas, series, deportes y más.
+                    </p>
+                </li>
+                <li>
+                    <a href="https://www.crunchyroll.com/es/">Crunchyroll</a>
+                    <p>Servicio especializado en anime, con simulcasts y contenido exclusivo.</p>
+                </li>
+                <li>
+                    <a href="https://tubitv.com/espanol">Tubi TV</a>
+                    <p>Streaming gratuito con clásicos, estrenos recientes y contenido internacional en español.</p>
+                </li>
+                <li>
+                    <a href="https://www.vix.com/">Vix</a>
+                    <p>Streaming gratuito en español: películas, series, telenovelas y programas de entretenimiento.</p>
+                </li>
+                <li>
+                    <a href="https://www.rtve.es/play/internacional/portada/">RTVE</a>
+                    <p>Ideal si te interesa el cine europeo o español, documentales de calidad y contenido cultural.</p>
+                </li>
+            </ul>
+
+            <h1 style="text-align: center; margin-top: 40px;">Más funciones pronto...</h1>
+        </div>
+
+        <!-- ===================== BUSCADOR ===================== -->
+        <div id="buscador" class="seccion" style="display: none;">
+            <h2>Buscar página web</h2>
+            <input type="text" id="inputBuscar" placeholder="Escribe el nombre de una página..."
+                onkeyup="buscarPagina()">
+            <ul id="resultadosBusqueda"></ul>
+        </div>
+
+        <!-- ===================== PROBLEMAS ===================== -->
+        <div id="problemas" class="seccion" style="display: none;">
+            <h2>Problemas comunes</h2>
+            <details>
+                <summary>¿Por qué no cargan las páginas web?</summary>
+                <p>Puede deberse a una conexión a internet inestable, un problema con el servidor del sitio, o que tu
+                    navegador tenga la caché saturada. Intenta recargar la página o revisar tu conexión.</p>
+            </details>
+            <details>
+                <summary>¿Por qué no se abre el enlace?</summary>
+                <p>El sitio pudo haber cambiado de dirección, estar temporalmente caído, o el enlace puede estar roto.
+                    Prueba copiar el enlace directamente en el navegador.</p>
+            </details>
+            <details>
+                <summary>¿Por qué la página se ve desordenada?</summary>
+                <p>Generalmente ocurre porque el navegador no cargó completamente los estilos (CSS). Intenta refrescar
+                    con Ctrl + F5.</p>
+            </details>
+            <details>
+                <summary>¿Por qué me pide iniciar sesión?</summary>
+                <p>Algunas páginas requieren cuenta para acceder a ciertos contenidos, aunque el servicio general sea
+                    gratuito.</p>
+            </details>
+
+            <p style="margin-top: 20px; font-weight: bold;">
+                Si su problema es mayor, se le pide que envíe su sugerencia a
+                <a href="mailto:pradasoftstudios@gmail.com">pradasoftstudios@gmail.com</a>
+                o llame al 311 3582086.
+            </p>
+        </div>
+
+    </main>
+
+    <footer>
+        &copy; 2024 Prada Soft Studios. All rights reserved.
+    </footer>
+
+    <script>
+        // Cambiar entre secciones
+        function mostrarSeccion(id) {
+            document.querySelectorAll('.seccion').forEach(sec => sec.style.display = 'none');
+            document.getElementById(id).style.display = 'block';
+        }
+
+        // Lista de páginas para el buscador
+        const paginas = [
+            { nombre: "CUN: Ingeniería de Sistemas", url: "https://inscripciones.cun.edu.co/programa-ingenieria-de-sistemas-virtual-a" },
+            { nombre: "freeCodeCamp", url: "https://www.freecodecamp.org/espanol/" },
+            { nombre: "Coursera", url: "https://www.coursera.org/" },
+            { nombre: "Udemy", url: "https://www.udemy.com/" },
+            { nombre: "edX", url: "https://www.edx.org/" },
+            { nombre: "Khan Academy", url: "https://www.khanacademy.org/" },
+            { nombre: "Medicamentos PLM", url: "https://www.medicamentosplm.com.co/" },
+            { nombre: "Kenhub", url: "https://www.kenhub.com/es" },
+            { nombre: "Mayo Clinic", url: "https://www.mayoclinic.org/es" },
+            { nombre: "WebMD", url: "https://www.webmd.com/" },
+            { nombre: "Healthline", url: "https://www.healthline.com/" },
+            { nombre: "CDC", url: "https://www.cdc.gov/" },
+            { nombre: "Recetas Gratis", url: "https://www.recetasgratis.net/" },
+            { nombre: "Allrecipes", url: "https://www.allrecipes.com/" },
+            { nombre: "Food Network", url: "https://www.foodnetwork.com/" },
+            { nombre: "BBC Good Food", url: "https://www.bbcgoodfood.com/" },
+            { nombre: "Taste of Home", url: "https://www.tasteofhome.com/" },
+            { nombre: "Epicurious", url: "https://www.epicurious.com/" },
+            { nombre: "BBC Mundo", url: "https://www.bbc.com/mundo" },
+            { nombre: "CNN", url: "https://www.cnn.com/" },
+            { nombre: "The New York Times", url: "https://www.nytimes.com/" },
+            { nombre: "El País", url: "https://www.elpais.com/" },
+            { nombre: "Reuters", url: "https://www.reuters.com/" },
+            { nombre: "Noticias Caracol", url: "https://www.noticiascaracol.com/" },
+            { nombre: "Pluto TV", url: "https://pluto.tv/latam/" },
+            { nombre: "Crunchyroll", url: "https://www.crunchyroll.com/es/" },
+            { nombre: "Tubi TV", url: "https://tubitv.com/espanol" },
+            { nombre: "Vix", url: "https://www.vix.com/" },
+            { nombre: "RTVE", url: "https://www.rtve.es/play/internacional/portada/" }
+        ];
+
+        function buscarPagina() {
+            const texto = document.getElementById('inputBuscar').value.toLowerCase();
+            const resultados = document.getElementById('resultadosBusqueda');
+            resultados.innerHTML = '';
+
+            if (texto.length === 0) return;
+
+            const encontrados = paginas.filter(p => p.nombre.toLowerCase().includes(texto));
+
+            if (encontrados.length === 0) {
+                resultados.innerHTML = '<li>No se encontraron resultados.</li>';
+                return;
+            }
+
+            encontrados.forEach(p => {
+                const li = document.createElement('li');
+                li.innerHTML = `<a href="${p.url}" target="_blank">${p.nombre}</a>`;
+                resultados.appendChild(li);
+            });
+        }
+    </script>
+</body>
+
+</html>
