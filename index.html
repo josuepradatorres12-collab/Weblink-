@@ -45,6 +45,36 @@
             /* deja espacio para el footer fijo */
         }
 
+        #filtrosCategoria {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        #filtrosCategoria button {
+            padding: 8px 14px;
+            border: none;
+            border-radius: 20px;
+            background-color: #444;
+            color: #fff;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+        #filtrosCategoria button:hover {
+            background-color: #555;
+        }
+
+        #filtrosCategoria button.activo {
+            background-color: #333;
+            font-weight: bold;
+        }
+
+        .categoria {
+            scroll-margin-top: 20px;
+        }
+
         #buscador input {
             padding: 8px;
             width: 100%;
@@ -84,7 +114,7 @@
 <body>
     <header>
         <h1>Weblink+</h1>
-        <h3>El enlace hacia todo lo que necesitas</h3>
+        <h3>"El enlace hacia todo lo que necesitas"</h3>
     </header>
 
     <nav>
@@ -99,215 +129,297 @@
         <div id="inicio" class="seccion">
             <h2>Bienvenidos a Weblink+</h2>
 
-            <h3>Informática</h3>
-            <ul>
-                <li>
-                    <a href="https://inscripciones.cun.edu.co/programa-ingenieria-de-sistemas-virtual-a">CUN: Ingeniería
-                        de Sistemas</a>
-                    <p>100% virtual — programa para quienes buscan formarse en ingeniería de sistemas con enfoque en
-                        seguridad e infraestructuras digitales.</p>
-                </li>
-                <li>
-                    <a href="https://www.freecodecamp.org/espanol/">freeCodeCamp</a>
-                    <p>Plataforma de aprendizaje gratuita para desarrolladores. Aprende programación de forma
-                        interactiva y gratuita.</p>
-                </li>
-                <li>
-                    <a href="https://www.coursera.org/">Coursera</a>
-                    <p>Cursos, especializaciones y programas de grado en colaboración con universidades y empresas
-                        líderes a nivel mundial.</p>
-                </li>
-                <li>
-                    <a href="https://www.udemy.com/">Udemy</a>
-                    <p>Cursos en una amplia variedad de temas, desde programación y diseño hasta desarrollo personal y
-                        negocios.</p>
-                </li>
-                <li>
-                    <a href="https://www.edx.org/">edX</a>
-                    <p>Fundada por Harvard y MIT, ofrece cursos universitarios gratuitos y de pago en múltiples
-                        disciplinas.</p>
-                </li>
-                <li>
-                    <a href="https://www.khanacademy.org/">Khan Academy</a>
-                    <p>Plataforma educativa sin fines de lucro con lecciones en video y ejercicios interactivos.</p>
-                </li>
-            </ul>
+            <div id="filtrosCategoria">
+                <button class="activo" onclick="filtrarCategoria('todas', this)">Todas</button>
+                <button onclick="filtrarCategoria('informatica', this)">Informática</button>
+                <button onclick="filtrarCategoria('medicina', this)">Medicina</button>
+                <button onclick="filtrarCategoria('recetas', this)">Recetas</button>
+                <button onclick="filtrarCategoria('noticieros', this)">Noticieros</button>
+                <button onclick="filtrarCategoria('entretenimiento', this)">Entretenimiento</button>
+                <button onclick="filtrarCategoria('deportes', this)">Deportes</button>
+                <button onclick="filtrarCategoria('adultos', this)">Videos 18+</button>
+                <button onclick="filtrarCategoria('emuladores', this)">PS emuladores</button>
+            </div>
 
-            <h3>Medicina</h3>
-            <ul>
-                <li>
-                    <a href="https://www.medicamentosplm.com.co/">Medicamentos PLM</a>
-                    <p>Vademécum farmacéutico colombiano con información detallada sobre medicamentos: composición,
-                        dosis, contraindicaciones e interacciones.</p>
-                </li>
-                <li>
-                    <a href="https://www.kenhub.com/es">Kenhub</a>
-                    <p>Atlas interactivo de anatomía y fisiología con ilustraciones en 3D, videos y cuestionarios de
-                        práctica.</p>
-                </li>
-                <li>
-                    <a href="https://www.mayoclinic.org/es">Mayo Clinic</a>
-                    <p>Uno de los centros médicos más prestigiosos de Estados Unidos, con información confiable sobre
-                        enfermedades y tratamientos.</p>
-                </li>
-                <li>
-                    <a href="https://www.webmd.com/">WebMD</a>
-                    <p>Buscador de síntomas y guías de salud, aunque su contenido está principalmente en inglés.</p>
-                </li>
-                <li>
-                    <a href="https://www.healthline.com/">Healthline</a>
-                    <p>Artículos sobre nutrición, bienestar y enfermedades comunes, redactados de forma clara y
-                        accesible.</p>
-                </li>
-                <li>
-                    <a href="https://www.cdc.gov/">CDC</a>
-                    <p>Entidad oficial de referencia en salud pública, vacunación y recomendaciones sanitarias globales.
-                    </p>
-                </li>
-            </ul>
+            <div class="categoria" data-categoria="informatica">
+                <h3>Informática</h3>
+                <ul>
+                    <li>
+                        <a href="https://inscripciones.cun.edu.co/programa-ingenieria-de-sistemas-virtual-a">CUN:
+                            Ingeniería
+                            de Sistemas</a>
+                        <p>100% virtual — programa para quienes buscan formarse en ingeniería de sistemas con enfoque en
+                            seguridad e infraestructuras digitales.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.freecodecamp.org/espanol/">freeCodeCamp</a>
+                        <p>Plataforma de aprendizaje gratuita para desarrolladores. Aprende programación de forma
+                            interactiva y gratuita.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.coursera.org/">Coursera</a>
+                        <p>Cursos, especializaciones y programas de grado en colaboración con universidades y empresas
+                            líderes a nivel mundial.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.udemy.com/">Udemy</a>
+                        <p>Cursos en una amplia variedad de temas, desde programación y diseño hasta desarrollo personal
+                            y
+                            negocios.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.edx.org/">edX</a>
+                        <p>Fundada por Harvard y MIT, ofrece cursos universitarios gratuitos y de pago en múltiples
+                            disciplinas.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.khanacademy.org/">Khan Academy</a>
+                        <p>Plataforma educativa sin fines de lucro con lecciones en video y ejercicios interactivos.</p>
+                    </li>
+                </ul>
+            </div>
 
-            <h3>Recetas</h3>
-            <ul>
-                <li>
-                    <a href="https://www.recetasgratis.net/">Recetas Gratis</a>
-                    <p>Comunidad hispanohablante con miles de recetas clasificadas por tipo de plato, ingrediente y
-                        ocasión especial.</p>
-                </li>
-                <li>
-                    <a href="https://www.allrecipes.com/">Allrecipes</a>
-                    <p>Cada receta incluye reseñas, calificaciones y fotos de otros usuarios que ya la prepararon.</p>
-                </li>
-                <li>
-                    <a href="https://www.foodnetwork.com/">Food Network</a>
-                    <p>Recetas creadas por chefs reconocidos internacionalmente y contenido de sus programas de cocina.
-                    </p>
-                </li>
-                <li>
-                    <a href="https://www.bbcgoodfood.com/">BBC Good Food</a>
-                    <p>Enfoque en técnicas culinarias bien explicadas y planificación semanal de comidas saludables.</p>
-                </li>
-                <li>
-                    <a href="https://www.tasteofhome.com/">Taste of Home</a>
-                    <p>Recetas caseras y tradicionales de Estados Unidos, con platos familiares fáciles de preparar.</p>
-                </li>
-                <li>
-                    <a href="https://www.epicurious.com/">Epicurious</a>
-                    <p>Recetas de chefs profesionales, con filtros por ingredientes, tiempo y nivel de dificultad.</p>
-                </li>
-            </ul>
+            <div class="categoria" data-categoria="medicina">
+                <h3>Medicina</h3>
+                <ul>
+                    <li>
+                        <a href="https://www.medicamentosplm.com.co/">Medicamentos PLM</a>
+                        <p>Vademécum farmacéutico colombiano con información detallada sobre medicamentos: composición,
+                            dosis, contraindicaciones e interacciones.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.kenhub.com/es">Kenhub</a>
+                        <p>Atlas interactivo de anatomía y fisiología con ilustraciones en 3D, videos y cuestionarios de
+                            práctica.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.mayoclinic.org/es">Mayo Clinic</a>
+                        <p>Uno de los centros médicos más prestigiosos de Estados Unidos, con información confiable
+                            sobre
+                            enfermedades y tratamientos.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.webmd.com/">WebMD</a>
+                        <p>Buscador de síntomas y guías de salud, aunque su contenido está principalmente en inglés.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.healthline.com/">Healthline</a>
+                        <p>Artículos sobre nutrición, bienestar y enfermedades comunes, redactados de forma clara y
+                            accesible.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.cdc.gov/">CDC</a>
+                        <p>Entidad oficial de referencia en salud pública, vacunación y recomendaciones sanitarias
+                            globales.
+                        </p>
+                    </li>
+                </ul>
+            </div>
 
-            <h3>Noticieros</h3>
-            <ul>
-                <li>
-                    <a href="https://www.bbc.com/mundo">BBC Mundo</a>
-                    <p>Versión en español de la BBC, con noticias internacionales, análisis y reportajes.</p>
-                </li>
-                <li>
-                    <a href="https://www.cnn.com/">CNN</a>
-                    <p>Cobertura global, incluyendo noticias de última hora, política, negocios y entretenimiento.</p>
-                </li>
-                <li>
-                    <a href="https://www.nytimes.com/">The New York Times</a>
-                    <p>Periódico estadounidense de renombre mundial, con noticias, opinión y análisis.</p>
-                </li>
-                <li>
-                    <a href="https://www.elpais.com/">El País</a>
-                    <p>Periódico español con cobertura de noticias nacionales e internacionales, cultura y opinión.</p>
-                </li>
-                <li>
-                    <a href="https://www.reuters.com/">Reuters</a>
-                    <p>Agencia de noticias internacional con información objetiva sobre eventos globales.</p>
-                </li>
-                <li>
-                    <a href="https://www.noticiascaracol.com/">Noticias Caracol</a>
-                    <p>Medio colombiano con noticias nacionales e internacionales, deportes y entretenimiento.</p>
-                </li>
-            </ul>
+            <div class="categoria" data-categoria="recetas">
+                <h3>Recetas</h3>
+                <ul>
+                    <li>
+                        <a href="https://www.recetasgratis.net/">Recetas Gratis</a>
+                        <p>Comunidad hispanohablante con miles de recetas clasificadas por tipo de plato, ingrediente y
+                            ocasión especial.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.allrecipes.com/">Allrecipes</a>
+                        <p>Cada receta incluye reseñas, calificaciones y fotos de otros usuarios que ya la prepararon.
+                        </p>
+                    </li>
+                    <li>
+                        <a href="https://www.foodnetwork.com/">Food Network</a>
+                        <p>Recetas creadas por chefs reconocidos internacionalmente y contenido de sus programas de
+                            cocina.
+                        </p>
+                    </li>
+                    <li>
+                        <a href="https://www.bbcgoodfood.com/">BBC Good Food</a>
+                        <p>Enfoque en técnicas culinarias bien explicadas y planificación semanal de comidas saludables.
+                        </p>
+                    </li>
+                    <li>
+                        <a href="https://www.tasteofhome.com/">Taste of Home</a>
+                        <p>Recetas caseras y tradicionales de Estados Unidos, con platos familiares fáciles de preparar.
+                        </p>
+                    </li>
+                    <li>
+                        <a href="https://www.epicurious.com/">Epicurious</a>
+                        <p>Recetas de chefs profesionales, con filtros por ingredientes, tiempo y nivel de dificultad.
+                        </p>
+                    </li>
+                </ul>
+            </div>
 
-            <h3>Entretenimiento</h3>
-            <ul>
-                <li>
-                    <a href="https://pluto.tv/latam/">Pluto TV</a>
-                    <p>Streaming gratuito con canales en vivo y contenido a la carta: películas, series, deportes y más.
-                    </p>
-                </li>
-                <li>
-                    <a href="https://www.crunchyroll.com/es/">Crunchyroll</a>
-                    <p>Servicio especializado en anime, con simulcasts y contenido exclusivo.</p>
-                </li>
-                <li>
-                    <a href="https://tubitv.com/espanol">Tubi TV</a>
-                    <p>Streaming gratuito con clásicos, estrenos recientes y contenido internacional en español.</p>
-                </li>
-                <li>
-                    <a href="https://www.vix.com/">Vix</a>
-                    <p>Streaming gratuito en español: películas, series, telenovelas y programas de entretenimiento.</p>
-                </li>
-                <li>
-                    <a href="https://www.rtve.es/play/internacional/portada/">RTVE</a>
-                    <p>Ideal si te interesa el cine europeo o español, documentales de calidad y contenido cultural.</p>
-                </li>
-            </ul>
-            <h3>Deportes</h3>
-            <ul>
-                <li>
-                    <a href="https://www.goal.com/">Goal</a>
-                    <p>Noticias y análisis de deportes de todo el mundo, con cobertura en vivo y contenido exclusivo.
-                    </p>
-                </li>
-                <li>
-                    <a href="https://www.espn.com/">ESPN</a>
-                    <p>Plataforma de deportes con noticias, resultados en vivo, análisis y contenido especializado.</p>
-                </li>
-                <li>
-                    <a href="https://www.sports.yahoo.com/">Yahoo Sports</a>
-                    <p>Noticias deportivas, resultados en vivo y estadísticas de una amplia variedad de deportes.</p>
-                </li>
-                <li>
-                    <a href="https://www.skysports.com/">Sky Sports</a>
-                    <p>Cobertura de deportes internacionales, incluyendo fútbol, cricket, golf y más.</p>
-                </li>
-                <li>
-                    <a href="https://www.bbc.com/sport">BBC Sport</a>
-                    <p>Noticias deportivas, resultados y análisis de eventos deportivos a nivel mundial.</p>
-                </li>
-                <li>
-                    <a href="https://www.winsports.co/">WinSports</a>
-                    <p>plataforma Latinoamericana de deportes, con cobertura de fútbol local e internacional, y otros
-                        deportes.</p>
-                </li>
-            </ul>
+            <div class="categoria" data-categoria="noticieros">
+                <h3>Noticieros</h3>
+                <ul>
+                    <li>
+                        <a href="https://www.bbc.com/mundo">BBC Mundo</a>
+                        <p>Versión en español de la BBC, con noticias internacionales, análisis y reportajes.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.cnn.com/">CNN</a>
+                        <p>Cobertura global, incluyendo noticias de última hora, política, negocios y entretenimiento.
+                        </p>
+                    </li>
+                    <li>
+                        <a href="https://www.nytimes.com/">The New York Times</a>
+                        <p>Periódico estadounidense de renombre mundial, con noticias, opinión y análisis.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.elpais.com/">El País</a>
+                        <p>Periódico español con cobertura de noticias nacionales e internacionales, cultura y opinión.
+                        </p>
+                    </li>
+                    <li>
+                        <a href="https://www.reuters.com/">Reuters</a>
+                        <p>Agencia de noticias internacional con información objetiva sobre eventos globales.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.noticiascaracol.com/">Noticias Caracol</a>
+                        <p>Medio colombiano con noticias nacionales e internacionales, deportes y entretenimiento.</p>
+                    </li>
+                </ul>
+            </div>
 
-            <h3>Videos 18+</h3>
-            <ul>
-                <li>
-                    <a href="https://www.pornhub.com/">Pornhub</a>
-                    <p>Uno de los sitios de contenido para adultos más grandes del mundo, con una amplia variedad de
-                        categorías.</p>
-                </li>
-                <li>
-                    <a href="https://www.xvideos.com/">XVideos</a>
-                    <p>Plataforma popular con videos para adultos, incluyendo contenido amateur y profesional.</p>
-                </li>
-                <li>
-                    <a href="https://www.xhamster.com/">xHamster</a>
-                    <p>Ofrece una gran cantidad de videos para adultos, con opciones de búsqueda avanzada y categorías
-                        diversas.</p>
-                </li>
-                <li>
-                    <a href="https://www.redtube.com/">RedTube</a>
-                    <p>Sitio web de videos para adultos con una amplia gama de contenido y categorías.</p>
-                </li>
-                <li>
-                    <a href="https://www.youjizz.com/">YouJizz</a>
-                    <p>Plataforma de videos para adultos con contenido variado y opciones de búsqueda por categoría.</p>
-                </li>
-                <li>
-                    <a href="https://www.XNXX.com/">XNXX</a>
-                    <p>Ofrece una amplia selección de videos para adultos, con contenido en alta definición y diversas
-                        categorías.</p>
-                </li>
-            </ul>
+            <div class="categoria" data-categoria="entretenimiento">
+                <h3>Entretenimiento</h3>
+                <ul>
+                    <li>
+                        <a href="https://pluto.tv/latam/">Pluto TV</a>
+                        <p>Streaming gratuito con canales en vivo y contenido a la carta: películas, series, deportes y
+                            más.
+                        </p>
+                    </li>
+                    <li>
+                        <a href="https://www.crunchyroll.com/es/">Crunchyroll</a>
+                        <p>Servicio especializado en anime, con simulcasts y contenido exclusivo.</p>
+                    </li>
+                    <li>
+                        <a href="https://tubitv.com/espanol">Tubi TV</a>
+                        <p>Streaming gratuito con clásicos, estrenos recientes y contenido internacional en español.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.vix.com/">Vix</a>
+                        <p>Streaming gratuito en español: películas, series, telenovelas y programas de entretenimiento.
+                        </p>
+                    </li>
+                    <li>
+                        <a href="https://www.rtve.es/play/internacional/portada/">RTVE</a>
+                        <p>Ideal si te interesa el cine europeo o español, documentales de calidad y contenido cultural.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="categoria" data-categoria="deportes">
+                <h3>Deportes</h3>
+                <ul>
+                    <li>
+                        <a href="https://www.goal.com/">Goal</a>
+                        <p>Noticias y análisis de deportes de todo el mundo, con cobertura en vivo y contenido
+                            exclusivo.
+                        </p>
+                    </li>
+                    <li>
+                        <a href="https://www.espn.com/">ESPN</a>
+                        <p>Plataforma de deportes con noticias, resultados en vivo, análisis y contenido especializado.
+                        </p>
+                    </li>
+                    <li>
+                        <a href="https://www.sports.yahoo.com/">Yahoo Sports</a>
+                        <p>Noticias deportivas, resultados en vivo y estadísticas de una amplia variedad de deportes.
+                        </p>
+                    </li>
+                    <li>
+                        <a href="https://www.skysports.com/">Sky Sports</a>
+                        <p>Cobertura de deportes internacionales, incluyendo fútbol, cricket, golf y más.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.bbc.com/sport">BBC Sport</a>
+                        <p>Noticias deportivas, resultados y análisis de eventos deportivos a nivel mundial.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.winsports.co/">WinSports</a>
+                        <p>plataforma Latinoamericana de deportes, con cobertura de fútbol local e internacional, y
+                            otros
+                            deportes.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="categoria" data-categoria="adultos">
+                <h3>Videos 18+</h3>
+                <ul>
+                    <li>
+                        <a href="https://www.pornhub.com/">Pornhub</a>
+                        <p>Uno de los sitios de contenido para adultos más grandes del mundo, con una amplia variedad de
+                            categorías.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.xvideos.com/">XVideos</a>
+                        <p>Plataforma popular con videos para adultos, incluyendo contenido amateur y profesional.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.xhamster.com/">xHamster</a>
+                        <p>Ofrece una gran cantidad de videos para adultos, con opciones de búsqueda avanzada y
+                            categorías
+                            diversas.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.redtube.com/">RedTube</a>
+                        <p>Sitio web de videos para adultos con una amplia gama de contenido y categorías.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.youjizz.com/">YouJizz</a>
+                        <p>Plataforma de videos para adultos con contenido variado y opciones de búsqueda por categoría.
+                        </p>
+                    </li>
+                    <li>
+                        <a href="https://www.XNXX.com/">XNXX</a>
+                        <p>Ofrece una amplia selección de videos para adultos, con contenido en alta definición y
+                            diversas
+                            categorías.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="categoria" data-categoria="emuladores">
+                <h3>PS Emuladores</h3>
+                <ul>
+                    <li>
+                        <a href="https://www.filehorse.com/es/download-pcsx2-ps2-emulator/">PCSX2</a>
+                        <p>Comunidad de entusiastas de PlayStation que ofrece emuladores, herramientas y tutoriales para
+                            consolas PlayStation 2.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.emulator-zone.com/doc.php/psx/pcsx.html">PCSX</a>
+                        <p>Emulador de PlayStation 1 que permite jugar a los clásicos de la consola en PC con soporte
+                            para
+                            plugins y configuraciones avanzadas.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.rpcs3.net/">RPCS3</a>
+                        <p>Emulador de PlayStation 3 que permite ejecutar juegos de PS3 en PC con soporte para gráficos
+                            avanzados y configuraciones personalizadas.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.ppsspp.org/">PPSSPP</a>
+                        <p>Emulador de PlayStation Portable (PSP) que permite jugar a los juegos de PSP en PC y
+                            dispositivos
+                            móviles con soporte para alta resolución y controles personalizables.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.citra-emu.org/">Citra</a>
+                        <p>Emulador de Nintendo 3DS que permite jugar a los juegos de 3DS en PC con soporte para
+                            gráficos
+                            mejorados y funciones de red.</p>
+                    </li>
+                </ul>
+            </div>
 
             <h1 style="text-align: center; margin-top: 40px;">Más funciones pronto...</h1>
         </div>
@@ -325,22 +437,26 @@
             <h2>Problemas comunes</h2>
             <details>
                 <summary>¿Por qué no cargan las páginas web?</summary>
-                <p>Puede deberse a una conexión a internet inestable, un problema con el servidor del sitio, o que tu
+                <p>Puede deberse a una conexión a internet inestable, un problema con el servidor del sitio, o que
+                    tu
                     navegador tenga la caché saturada. Intenta recargar la página o revisar tu conexión.</p>
             </details>
             <details>
                 <summary>¿Por qué no se abre el enlace?</summary>
-                <p>El sitio pudo haber cambiado de dirección, estar temporalmente caído, o el enlace puede estar roto.
+                <p>El sitio pudo haber cambiado de dirección, estar temporalmente caído, o el enlace puede estar
+                    roto.
                     Prueba copiar el enlace directamente en el navegador.</p>
             </details>
             <details>
                 <summary>¿Por qué la página se ve desordenada?</summary>
-                <p>Generalmente ocurre porque el navegador no cargó completamente los estilos (CSS). Intenta refrescar
+                <p>Generalmente ocurre porque el navegador no cargó completamente los estilos (CSS). Intenta
+                    refrescar
                     con Ctrl + F5.</p>
             </details>
             <details>
                 <summary>¿Por qué me pide iniciar sesión?</summary>
-                <p>Algunas páginas requieren cuenta para acceder a ciertos contenidos, aunque el servicio general sea
+                <p>Algunas páginas requieren cuenta para acceder a ciertos contenidos, aunque el servicio general
+                    sea
                     gratuito.</p>
             </details>
 
@@ -349,24 +465,12 @@
                 <a href="mailto:pradasoftstudios@gmail.com">pradasoftstudios@gmail.com</a>
                 o llame al 311 3582086. (es un numero colombiano pero igual sirve en otros paises)
             </p>
-            <p>Las lineas estan disponibles de lunes a sabado en los siguientes horarios:
-            <ul>
-                <li>colombia: 2PM-9PM</li>
-                <li>mexico: 1PM-8PM</li>
-                <li>argentina: 4PM-11PM</li>
-                <li>chile: 4PM-11PM</li>
-                <li>peru: 2PM-9PM</li>
-                <li>venezuela: 3PM-10PM</li>
-                <li>panama: 2PM-9PM</li>
-                <li>brazil: 4PM-11PM</li>
-            </ul>
-            </p>
         </div>
 
     </main>
 
     <footer>
-        &copy; 2026 Prada Soft Studios. All rights reserved.
+        &copy; 2024 Prada Soft Studios. All rights reserved.
     </footer>
 
     <script>
@@ -374,6 +478,20 @@
         function mostrarSeccion(id) {
             document.querySelectorAll('.seccion').forEach(sec => sec.style.display = 'none');
             document.getElementById(id).style.display = 'block';
+        }
+
+        // Filtrar bloques de categoría en Inicio
+        function filtrarCategoria(categoria, boton) {
+            document.querySelectorAll('#filtrosCategoria button').forEach(b => b.classList.remove('activo'));
+            boton.classList.add('activo');
+
+            document.querySelectorAll('.categoria').forEach(bloque => {
+                if (categoria === 'todas' || bloque.dataset.categoria === categoria) {
+                    bloque.style.display = 'block';
+                } else {
+                    bloque.style.display = 'none';
+                }
+            });
         }
 
         // Lista de páginas para el buscador
@@ -419,6 +537,11 @@
             { nombre: "RedTube", url: "https://www.redtube.com/" },
             { nombre: "YouJizz", url: "https://www.youjizz.com/" },
             { nombre: "XNXX", url: "https://www.XNXX.com/" },
+            { nombre: "PCSX2", url: "https://www.filehorse.com/es/download-pcsx2-ps2-emulator/" },
+            { nombre: "PCSX", url: "https://www.emulator-zone.com/doc.php/psx/pcsx.html" },
+            { nombre: "RPCS3", url: "https://www.rpcs3.net/" },
+            { nombre: "PPSSPP", url: "https://www.ppsspp.org/" },
+            { nombre: "Citra", url: "https://www.citra-emu.org/" },
         ];
 
         function buscarPagina() {
