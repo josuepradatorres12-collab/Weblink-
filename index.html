@@ -7,6 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weblink+</title>
     <style>
+        #botonSubir {
+            position: fixed;
+            bottom: 70px;
+            right: 20px;
+            background-color: #444;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            font-size: 1.3em;
+            cursor: pointer;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        #botonSubir.visible {
+            display: block;
+            opacity: 1;
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -139,7 +161,6 @@
                 <button onclick="filtrarCategoria('deportes', this)">Deportes</button>
                 <button onclick="filtrarCategoria('adultos', this)">Videos 18+</button>
                 <button onclick="filtrarCategoria('emuladores', this)">Emuladores</button>
-
             </div>
 
             <div class="categoria" data-categoria="informatica">
@@ -616,6 +637,7 @@
                         <a href="https://www.epicurious.com/recipes-menus/drinks">Epicurious - Bebidas</a>
                         <p>Recetas de bebidas, con opciones creativas y gourmet.</p>
                     </li>
+                </ul>
             </div>
 
             <div class="categoria" data-categoria="noticieros">
@@ -641,7 +663,7 @@
                             circundante.</p>
                     </li>
                 </ul>
-                <H4>2) Venezuela</H4>
+                <h4>2) Venezuela</h4>
                 <ul>
                     <li>
                         <a href="https://www.ntn24.com/">NTN24</a>
@@ -669,7 +691,9 @@
                             entretenimiento.
                         </p>
                     </li>
-                    <h4>3) Ecuador</h4>
+                </ul>
+                <h4>3) Ecuador</h4>
+                <ul>
                     <li>
                         <a href="https://www.elcomercio.com/">El Comercio</a>
                         <p>Periódico ecuatoriano con noticias nacionales e internacionales, opinión y análisis político.
@@ -681,17 +705,19 @@
                             política,
                             economía y cultura.</p>
                     </li>
+                    <li>
+                        <a href="https://www.lahora.com.ec/">La Hora</a>
+                        <p>Periódico ecuatoriano con noticias locales, nacionales e internacionales, incluyendo
+                            política,
+                            economía y cultura.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.eltelegrafo.com.ec/">El Telégrafo</a>
+                        <p>Periódico ecuatoriano con noticias locales, nacionales e internacionales, incluyendo
+                            política,
+                            economía y cultura.</p>
+                    </li>
                 </ul>
-                <li>
-                    <a href="https://www.lahora.com.ec/">La Hora</a>
-                    <p>Periódico ecuatoriano con noticias locales, nacionales e internacionales, incluyendo política,
-                        economía y cultura.</p>
-                </li>
-                <li>
-                    <a href="https://www.eltelegrafo.com.ec/">El Telégrafo</a>
-                    <p>Periódico ecuatoriano con noticias locales, nacionales e internacionales, incluyendo política,
-                        economía y cultura.</p>
-                </li>
                 <h4>4) México</h4>
                 <ul>
                     <li>
@@ -779,11 +805,36 @@
                         <a href="https://www.elgrafico.com/">El Gráfico</a>
                         <p>Portal de noticias salvadoreño con cobertura de deportes, entretenimiento y sociedad.</p>
                     </li>
-
+                </ul>
+                <h4>Internacionales</h4>
+                <ul>
+                    <li>
+                        <a href="https://www.bbc.com/mundo">BBC Mundo</a>
+                        <p>Servicio de noticias en español de la BBC, con cobertura internacional y análisis de
+                            actualidad.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.cnn.com/">CNN</a>
+                        <p>Cadena de noticias estadounidense con cobertura internacional, incluyendo política,
+                            economía y
+                            entretenimiento.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.aljazeera.com/">Al Jazeera</a>
+                        <p>Cadena de noticias internacional con sede en Qatar, con cobertura global y enfoque en
+                            Oriente
+                            Medio.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.reuters.com/">Reuters</a>
+                        <p>Agencia de noticias internacional con cobertura global, incluyendo política, economía y
+                            negocios.</p>
+                    </li>
+                </ul>
             </div>
 
             <div class="categoria" data-categoria="entretenimiento">
-                <h3>Entretenimiento</h3>
+                <h2>Entretenimiento</h2>
                 <ul>
                     <li>
                         <a href="https://pluto.tv/latam/">Pluto TV</a>
@@ -814,73 +865,154 @@
 
             <div class="categoria" data-categoria="deportes">
                 <h3>Deportes</h3>
+                <h4>1)Futbol</h4>
                 <ul>
-                    <li>
-                        <a href="https://www.goal.com/">Goal</a>
-                        <p>Noticias y análisis de deportes de todo el mundo, con cobertura en vivo y contenido
-                            exclusivo.
-                        </p>
-                    </li>
-                    <li>
-                        <a href="https://www.espn.com/">ESPN</a>
-                        <p>Plataforma de deportes con noticias, resultados en vivo, análisis y contenido especializado.
-                        </p>
-                    </li>
-                    <li>
-                        <a href="https://www.sports.yahoo.com/">Yahoo Sports</a>
-                        <p>Noticias deportivas, resultados en vivo y estadísticas de una amplia variedad de deportes.
-                        </p>
-                    </li>
-                    <li>
-                        <a href="https://www.skysports.com/">Sky Sports</a>
-                        <p>Cobertura de deportes internacionales, incluyendo fútbol, cricket, golf y más.</p>
-                    </li>
-                    <li>
-                        <a href="https://www.bbc.com/sport">BBC Sport</a>
-                        <p>Noticias deportivas, resultados y análisis de eventos deportivos a nivel mundial.</p>
-                    </li>
-                    <li>
-                        <a href="https://www.winsports.co/">WinSports</a>
-                        <p>plataforma Latinoamericana de deportes, con cobertura de fútbol local e internacional, y
-                            otros
-                            deportes.</p>
-
-                    </li>
                     <li>
                         <a href="https://www.fifa.com/">FIFA</a>
                         <p>La página oficial de la Federación Internacional de Fútbol Asociación, con noticias,
-                            resultados
-                            y
-                            estadísticas de torneos y selecciones nacionales.</p>
+                            resultados y
+                            eventos de fútbol a nivel mundial.</p>
                     </li>
+                    <li>
+                        <a href="https://www.uefa.com/">UEFA</a>
+                        <p>La página oficial de la Unión de Asociaciones Europeas de Fútbol, con información sobre
+                            competiciones europeas y noticias del fútbol europeo.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.laliga.com/">LaLiga</a>
+                        <p>La página oficial de la Liga de Fútbol Profesional de España, con noticias, resultados y
+                            estadísticas de los equipos y jugadores.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.premierleague.com/">Premier League</a>
+                        <p>La página oficial de la Premier League de Inglaterra, con noticias, resultados y estadísticas
+                            de los equipos y jugadores.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.bundesliga.com/en/">Bundesliga</a>
+                        <p>La página oficial de la Bundesliga de Alemania, con noticias, resultados y estadísticas de
+                            los
+                            equipos y jugadores.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.seriea.com/">Serie A</a>
+                        <p>La página oficial de la Serie A de Italia, con noticias, resultados y estadísticas de los
+                            equipos y jugadores.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.ligue1.com/">Ligue 1</a>
+                        <p>La página oficial de la Ligue 1 de Francia, con noticias, resultados y estadísticas de los
+                            equipos y jugadores.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.winsports.co/">WinSports</a>
+                        <p>La página oficial de la Confederación de Norteamérica, Centroamérica y el Caribe de Fútbol,
+                            con
+                            información sobre competiciones regionales y noticias del fútbol en la región.</p>
+                    </li>
+                </ul>
+                <h4>2)basketball</h4>
+                <ul>
                     <li>
                         <a href="https://www.nba.com/">NBA</a>
                         <p>La página oficial de la National Basketball Association, con noticias, resultados y
                             estadísticas
-                            de
-                            la liga de baloncesto profesional de Estados Unidos.</p>
+                            de los equipos y jugadores.</p>
                     </li>
                     <li>
-                        <a href="https://www.nfl.com/">NFL</a>
-                        <p>La página oficial de la National Football League, con noticias, resultados y estadísticas de
-                            la
-                            liga de fútbol americano profesional de Estados Unidos.</p>
-
+                        <a href="https://www.fiba.basketball/">FIBA</a>
+                        <p>La página oficial de la Federación Internacional de Baloncesto, con información sobre
+                            competiciones internacionales y noticias del baloncesto mundial.</p>
                     </li>
+                    <li>
+                        <a href="https://www.euroleague.net/">EuroLeague</a>
+                        <p>La página oficial de la Euroliga de Baloncesto, con noticias, resultados y estadísticas de
+                            los
+                            equipos y jugadores europeos.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.nba.com/nba-g-league">NBA G League</a>
+                        <p>La página oficial de la NBA G League, con noticias, resultados y estadísticas de los equipos
+                            y
+                            jugadores de la liga de desarrollo de la NBA.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.wnba.com/">WNBA</a>
+                        <p>La página oficial de la Women's National Basketball Association, con noticias, resultados y
+                            estadísticas de los equipos y jugadoras de la liga femenina de baloncesto.</p>
+                    </li>
+                </ul>
+                <h4>3) beisbol</h4>
+                <ul>
                     <li>
                         <a href="https://www.mlb.com/">MLB</a>
-                        <p>La página oficial de la Major League Baseball, con noticias, resultados y estadísticas de la
-                            liga de béisbol profesional de Estados Unidos.</p>
+                        <p>La página oficial de la Major League Baseball, con noticias, resultados y estadísticas de los
+                            equipos y jugadores de béisbol profesional en Estados Unidos.</p>
                     </li>
                     <li>
-                        <a href="https://www.nhl.com/">NHL</a>
-                        <p>La página oficial de la National Hockey League, con noticias, resultados y estadísticas de la
-                            liga de hockey sobre hielo profesional de Estados Unidos y Canadá.</p>
+                        <a href="https://www.npb.jp/">NPB</a>
+                        <p>La página oficial de la Nippon Professional Baseball, con noticias, resultados y estadísticas
+                            de los equipos y jugadores de béisbol profesional en Japón.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.koreabaseball.com/">KBO</a>
+                        <p>La página oficial de la Korea Baseball Organization, con noticias, resultados y estadísticas
+                            de los equipos y jugadores de béisbol profesional en Corea del Sur.</p>
+                    </li>
+                </ul>
+                <h4>4) f1</h4>
+                <ul>
+                    <li>
+                        <a href="https://www.formula1.com/">Formula 1</a>
+                        <p>La página oficial de la Fórmula 1, con noticias, resultados y estadísticas de los equipos y
+                            pilotos de la categoría reina del automovilismo.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.fia.com/">FIA</a>
+                        <p>La página oficial de la Federación Internacional del Automóvil, con información sobre
+                            regulaciones,
+                            competiciones y noticias del automovilismo mundial.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.indycar.com/">IndyCar</a>
+                        <p>La página oficial de la IndyCar Series, con noticias, resultados y estadísticas de los
+                            equipos
+                            y
+                            pilotos de la categoría de monoplazas en Estados Unidos.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.nascar.com/">NASCAR</a>
+                        <p>La página oficial de la National Association for Stock Car Auto Racing, con noticias,
+                            resultados
+                            y
+                            estadísticas de los equipos y pilotos de carreras de autos stock en Estados Unidos.</p>
+                    </li>
+                </ul>
+                <h4>5)box</h4>
+                <ul>
+                    <li>
+                        <a href="https://www.wbcboxing.com/">WBC</a>
+                        <p>La página oficial del Consejo Mundial de Boxeo, con noticias, resultados y rankings de
+                            boxeo
+                            profesional a nivel mundial.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.wba-boxing.com/">WBA</a>
+                        <p>La página oficial de la Asociación Mundial de Boxeo, con noticias, resultados y rankings
+                            de
+                            boxeo profesional a nivel mundial.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.ibf-usba-boxing.com/">IBF</a>
+                        <p>La página oficial de la Federación Internacional de Boxeo, con noticias, resultados y
+                            rankings
+                            de boxeo profesional a nivel mundial.</p>
                     </li>
                 </ul>
             </div>
 
             <div class="categoria" data-categoria="adultos">
+                <h2>ESTAS PAGINAS SON PARA MAYORES DE 18 AÑOS SI ENTRA ES SU RESPONSABILIDAD</h2>
                 <h3>Videos 18+</h3>
                 <ul>
                     <li>
@@ -917,7 +1049,8 @@
             </div>
 
             <div class="categoria" data-categoria="emuladores">
-                <h3>PS Emuladores</h3>
+                <h2>Emuladores</h2>
+                <h4>1) PS Emuladores</h4>
                 <ul>
                     <li>
                         <a href="https://www.filehorse.com/es/download-pcsx2-ps2-emulator/">PCSX2</a>
@@ -942,10 +1075,8 @@
                             móviles con soporte para alta resolución y controles personalizables.</p>
                     </li>
                 </ul>
-            </div>
 
-            <div class="categoria" data-categoria="nintendo">
-                <h3>Nintendo emulador</h3>
+                <h4>2)Nintendo emulador</h4>
                 <ul>
                     <li>
                         <a href="https://www.citra-emu.org/">Citra</a>
@@ -975,7 +1106,14 @@
                             href="https://www-pj64--emu-com.translate.goog/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tcl,sc">Project64</a>
                         <p>Emulador de Nintendo 64 que permite jugar a los juegos de N64 en PC con soporte para plugins
                             y configuraciones avanzadas.</p>
+
                     </li>
+                    <li>
+                        <a href="https://www.mupen64plus.org/">Mupen64Plus</a>
+                        <p>Otro emulador de Nintendo 64 que ofrece compatibilidad con una amplia gama de juegos y
+                            características avanzadas.</p>
+                    </li>
+
                 </ul>
             </div>
 
@@ -1023,6 +1161,7 @@
                 <a href="mailto:pradasoftwaretechnology7@gmail.com">pradasoftwaretechnology7@gmail.com
                 </a>
                 o llame al 311 3582086.
+            </p>
         </div>
 
     </main>
@@ -1030,6 +1169,8 @@
     <footer>
         &copy; 2024 Prada Soft Studios. All rights reserved.
     </footer>
+
+    <button id="botonSubir" onclick="subirArriba()">↑</button>
 
     <script>
         // Cambiar entre secciones
@@ -1052,7 +1193,21 @@
             });
         }
 
-        // Nombres visibles de cada categoría (para que el buscador reconozca "Entretenimiento", "PS emuladores", etc.)
+        // Botón de volver arriba
+        window.addEventListener('scroll', () => {
+            const boton = document.getElementById('botonSubir');
+            if (window.scrollY > 300) {
+                boton.classList.add('visible');
+            } else {
+                boton.classList.remove('visible');
+            }
+        });
+
+        function subirArriba() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Nombres visibles de cada categoría (para que el buscador reconozca "Entretenimiento", "Emuladores", etc.)
         const nombresCategorias = {
             informatica: "Informática",
             medicina: "Medicina",
@@ -1061,8 +1216,7 @@
             entretenimiento: "Entretenimiento",
             deportes: "Deportes",
             adultos: "Videos 18+",
-            emuladores: "PS emuladores",
-            nintendo: "Nintendo emulador"
+            emuladores: "Emuladores"
         };
 
         // Quita tildes para comparar sin importar acentos (ej: "informatica" === "informática")
@@ -1081,12 +1235,48 @@
             { nombre: "Udemy", url: "https://www.udemy.com/", categoria: "informatica" },
             { nombre: "edX", url: "https://www.edx.org/", categoria: "informatica" },
             { nombre: "Khan Academy", url: "https://www.khanacademy.org/", categoria: "informatica" },
+            { nombre: "Codefinity", url: "https://codefinity.com/", categoria: "informatica" },
+            { nombre: "JetBrains", url: "https://www.jetbrains.com/", categoria: "informatica" },
+            { nombre: "Sublime Text", url: "https://www.sublimetext.com/", categoria: "informatica" },
+            { nombre: "Visual Studio Code", url: "https://code.visualstudio.com/", categoria: "informatica" },
+            { nombre: "Eclipse", url: "https://www.eclipse.org/", categoria: "informatica" },
+            { nombre: "PyCharm", url: "https://www.jetbrains.com/pycharm/", categoria: "informatica" },
+            { nombre: "Atom", url: "https://atom-editor.cc/", categoria: "informatica" },
+            { nombre: "Notepad++", url: "https://notepad-plus-plus.org/", categoria: "informatica" },
+            { nombre: "Python", url: "https://www.python.org/", categoria: "informatica" },
+            { nombre: "Java", url: "https://www.java.com/", categoria: "informatica" },
+            { nombre: "JavaScript", url: "https://www.javascript.com/", categoria: "informatica" },
+            { nombre: "PHP", url: "https://www.php.net/", categoria: "informatica" },
+            { nombre: "Ruby", url: "https://www.ruby-lang.org/", categoria: "informatica" },
+            { nombre: "Rust", url: "https://www.rust-lang.org/", categoria: "informatica" },
+            { nombre: "Go (Golang)", url: "https://www.go.dev/", categoria: "informatica" },
+            { nombre: "Scala", url: "https://www.scala-lang.org/", categoria: "informatica" },
+            { nombre: "Haskell", url: "https://www.haskell.org/", categoria: "informatica" },
+            { nombre: "Elixir", url: "https://www.elixir-lang.org/", categoria: "informatica" },
+            { nombre: "Adobe Photoshop", url: "https://www.adobe.com/products/photoshop.html", categoria: "informatica" },
+            { nombre: "Adobe Illustrator", url: "https://www.adobe.com/products/illustrator.html", categoria: "informatica" },
+            { nombre: "Adobe InDesign", url: "https://www.adobe.com/products/indesign.html", categoria: "informatica" },
+            { nombre: "Sketch", url: "https://www.sketch.com/", categoria: "informatica" },
+            { nombre: "Figma", url: "https://www.figma.com/", categoria: "informatica" },
+            { nombre: "Canva", url: "https://www.canva.com/", categoria: "informatica" },
+            { nombre: "Adobe Premiere Pro", url: "https://www.adobe.com/products/premiere.html", categoria: "informatica" },
+            { nombre: "Final Cut Pro", url: "https://www.finalcutpro.com/", categoria: "informatica" },
+            { nombre: "DaVinci Resolve", url: "https://www.davinci-resolve.com/", categoria: "informatica" },
+            { nombre: "HitFilm Express", url: "https://www.hitfilm.com/", categoria: "informatica" },
             { nombre: "Medicamentos PLM", url: "https://www.medicamentosplm.com.co/", categoria: "medicina" },
             { nombre: "Kenhub", url: "https://www.kenhub.com/es", categoria: "medicina" },
             { nombre: "Mayo Clinic", url: "https://www.mayoclinic.org/es", categoria: "medicina" },
             { nombre: "WebMD", url: "https://www.webmd.com/", categoria: "medicina" },
             { nombre: "Healthline", url: "https://www.healthline.com/", categoria: "medicina" },
             { nombre: "CDC", url: "https://www.cdc.gov/", categoria: "medicina" },
+            { nombre: "PubMed", url: "https://pubmed.ncbi.nlm.nih.gov/", categoria: "medicina" },
+            { nombre: "ScienceDirect", url: "https://www.sciencedirect.com/", categoria: "medicina" },
+            { nombre: "Nature", url: "https://www.nature.com/", categoria: "medicina" },
+            { nombre: "Medical News Today", url: "https://www.medicalnewstoday.com/", categoria: "medicina" },
+            { nombre: "MyFitnessPal", url: "https://www.myfitnesspal.com/", categoria: "medicina" },
+            { nombre: "Headspace", url: "https://www.headspace.com/", categoria: "medicina" },
+            { nombre: "Sleep Cycle", url: "https://www.sleepcycle.com/", categoria: "medicina" },
+            { nombre: "Fitbit", url: "https://www.fitbit.com/", categoria: "medicina" },
             { nombre: "Recetas Gratis", url: "https://www.recetasgratis.net/", categoria: "recetas" },
             { nombre: "Allrecipes", url: "https://www.allrecipes.com/", categoria: "recetas" },
             { nombre: "Food Network", url: "https://www.foodnetwork.com/", categoria: "recetas" },
@@ -1095,26 +1285,66 @@
             { nombre: "Epicurious", url: "https://www.epicurious.com/", categoria: "recetas" },
             { nombre: "BBC Mundo", url: "https://www.bbc.com/mundo", categoria: "noticieros" },
             { nombre: "CNN", url: "https://www.cnn.com/", categoria: "noticieros" },
+            { nombre: "Al Jazeera", url: "https://www.aljazeera.com/", categoria: "noticieros" },
             { nombre: "The New York Times", url: "https://www.nytimes.com/", categoria: "noticieros" },
             { nombre: "El País", url: "https://www.elpais.com/", categoria: "noticieros" },
             { nombre: "Reuters", url: "https://www.reuters.com/", categoria: "noticieros" },
             { nombre: "Noticias Caracol", url: "https://www.noticiascaracol.com/", categoria: "noticieros" },
+            { nombre: "Canal RCN", url: "https://www.canalrcn.com/", categoria: "noticieros" },
+            { nombre: "Canal 1", url: "https://www.canal1.com.co/", categoria: "noticieros" },
+            { nombre: "Canal Capital", url: "https://www.canalcapital.gov.co/", categoria: "noticieros" },
+            { nombre: "NTN24", url: "https://www.ntn24.com/", categoria: "noticieros" },
+            { nombre: "Globovisión", url: "https://www.globovision.com/", categoria: "noticieros" },
+            { nombre: "El Nacional", url: "https://www.el-nacional.com/", categoria: "noticieros" },
+            { nombre: "El Nuevo Día", url: "https://www.elnuevodia.com/", categoria: "noticieros" },
+            { nombre: "La Patilla", url: "https://www.lapatilla.com/", categoria: "noticieros" },
+            { nombre: "El Comercio (Ecuador)", url: "https://www.elcomercio.com/", categoria: "noticieros" },
+            { nombre: "El Universo", url: "https://www.eluniverso.com/", categoria: "noticieros" },
+            { nombre: "La Hora", url: "https://www.lahora.com.ec/", categoria: "noticieros" },
+            { nombre: "El Telégrafo", url: "https://www.eltelegrafo.com.ec/", categoria: "noticieros" },
+            { nombre: "El Universal (México)", url: "https://www.eluniversal.com.mx/", categoria: "noticieros" },
+            { nombre: "Excélsior", url: "https://www.excelsior.com.mx/", categoria: "noticieros" },
+            { nombre: "Milenio", url: "https://www.milenio.com/", categoria: "noticieros" },
+            { nombre: "La Nación", url: "https://www.lanacion.com.ar/", categoria: "noticieros" },
+            { nombre: "Clarín", url: "https://www.clarin.com/", categoria: "noticieros" },
+            { nombre: "Página/12", url: "https://www.pagina12.com.ar/", categoria: "noticieros" },
+            { nombre: "La Tercera", url: "https://www.latercera.com/", categoria: "noticieros" },
+            { nombre: "El Mostrador", url: "https://www.elmostrador.cl/", categoria: "noticieros" },
+            { nombre: "Emol", url: "https://www.emol.com/", categoria: "noticieros" },
+            { nombre: "El Comercio (Perú)", url: "https://elcomercio.pe/", categoria: "noticieros" },
+            { nombre: "RPP Noticias", url: "https://rpp.pe/", categoria: "noticieros" },
+            { nombre: "La República", url: "https://www.larepublica.pe/", categoria: "noticieros" },
+            { nombre: "El Diario de Hoy", url: "https://www.elsalvador.com/", categoria: "noticieros" },
+            { nombre: "La Prensa Gráfica", url: "https://www.laprensagrafica.com/", categoria: "noticieros" },
+            { nombre: "El Gráfico", url: "https://www.elgrafico.com/", categoria: "noticieros" },
             { nombre: "Pluto TV", url: "https://pluto.tv/latam/", categoria: "entretenimiento" },
             { nombre: "Crunchyroll", url: "https://www.crunchyroll.com/es/", categoria: "entretenimiento" },
             { nombre: "Tubi TV", url: "https://tubitv.com/espanol", categoria: "entretenimiento" },
             { nombre: "Vix", url: "https://www.vix.com/", categoria: "entretenimiento" },
             { nombre: "RTVE", url: "https://www.rtve.es/play/internacional/portada/", categoria: "entretenimiento" },
-            { nombre: "Goal", url: "https://www.goal.com/", categoria: "deportes" },
-            { nombre: "ESPN", url: "https://www.espn.com/", categoria: "deportes" },
-            { nombre: "Yahoo Sports", url: "https://www.sports.yahoo.com/", categoria: "deportes" },
             { nombre: "FIFA", url: "https://www.fifa.com/", categoria: "deportes" },
-            { nombre: "NBA", url: "https://www.nba.com/", categoria: "deportes" },
-            { nombre: "NFL", url: "https://www.nfl.com/", categoria: "deportes" },
-            { nombre: "MLB", url: "https://www.mlb.com/", categoria: "deportes" },
-            { nombre: "NHL", url: "https://www.nhl.com/", categoria: "deportes" },
-            { nombre: "Sky Sports", url: "https://www.skysports.com/", categoria: "deportes" },
-            { nombre: "BBC Sport", url: "https://www.bbc.com/sport", categoria: "deportes" },
+            { nombre: "UEFA", url: "https://www.uefa.com/", categoria: "deportes" },
+            { nombre: "LaLiga", url: "https://www.laliga.com/", categoria: "deportes" },
+            { nombre: "Premier League", url: "https://www.premierleague.com/", categoria: "deportes" },
+            { nombre: "Bundesliga", url: "https://www.bundesliga.com/en/", categoria: "deportes" },
+            { nombre: "Serie A", url: "https://www.seriea.com/", categoria: "deportes" },
+            { nombre: "Ligue 1", url: "https://www.ligue1.com/", categoria: "deportes" },
             { nombre: "WinSports", url: "https://www.winsports.co/", categoria: "deportes" },
+            { nombre: "NBA", url: "https://www.nba.com/", categoria: "deportes" },
+            { nombre: "FIBA", url: "https://www.fiba.basketball/", categoria: "deportes" },
+            { nombre: "EuroLeague", url: "https://www.euroleague.net/", categoria: "deportes" },
+            { nombre: "NBA G League", url: "https://www.nba.com/nba-g-league", categoria: "deportes" },
+            { nombre: "WNBA", url: "https://www.wnba.com/", categoria: "deportes" },
+            { nombre: "MLB", url: "https://www.mlb.com/", categoria: "deportes" },
+            { nombre: "NPB", url: "https://www.npb.jp/", categoria: "deportes" },
+            { nombre: "KBO", url: "https://www.koreabaseball.com/", categoria: "deportes" },
+            { nombre: "Formula 1", url: "https://www.formula1.com/", categoria: "deportes" },
+            { nombre: "FIA", url: "https://www.fia.com/", categoria: "deportes" },
+            { nombre: "IndyCar", url: "https://www.indycar.com/", categoria: "deportes" },
+            { nombre: "NASCAR", url: "https://www.nascar.com/", categoria: "deportes" },
+            { nombre: "WBC", url: "https://www.wbcboxing.com/", categoria: "deportes" },
+            { nombre: "WBA", url: "https://www.wba-boxing.com/", categoria: "deportes" },
+            { nombre: "IBF", url: "https://www.ibf-usba-boxing.com/", categoria: "deportes" },
             { nombre: "Pornhub", url: "https://www.pornhub.com/", categoria: "adultos" },
             { nombre: "XVideos", url: "https://www.xvideos.com/", categoria: "adultos" },
             { nombre: "xHamster", url: "https://www.xhamster.com/", categoria: "adultos" },
@@ -1125,12 +1355,12 @@
             { nombre: "PCSX", url: "https://www.emulator-zone.com/doc.php/psx/pcsx.html", categoria: "emuladores" },
             { nombre: "RPCS3", url: "https://www.rpcs3.net/", categoria: "emuladores" },
             { nombre: "PPSSPP", url: "https://www.ppsspp.org/", categoria: "emuladores" },
-            { nombre: "Citra", url: "https://www.citra-emu.org/", categoria: "nintendo" },
-            { nombre: "Yuzu", url: "https://yuzu-emu.org/", categoria: "nintendo" },
-            { nombre: "Ryujinx", url: "https://ryujinx.org/", categoria: "nintendo" },
-            { nombre: "Dolphin", url: "https://www.dolphin-emu.org/", categoria: "nintendo" },
-            { nombre: "Project64", url: "https://www-pj64--emu-com.translate.goog/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tcl,sc", categoria: "nintendo" },
-
+            { nombre: "Citra", url: "https://www.citra-emu.org/", categoria: "emuladores" },
+            { nombre: "Yuzu", url: "https://yuzu-emu.org/", categoria: "emuladores" },
+            { nombre: "Ryujinx", url: "https://ryujinx.org/", categoria: "emuladores" },
+            { nombre: "Dolphin", url: "https://www.dolphin-emu.org/", categoria: "emuladores" },
+            { nombre: "Project64", url: "https://www-pj64--emu-com.translate.goog/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tcl,sc", categoria: "emuladores" },
+            { nombre: "Mupen64Plus", url: "https://www.mupen64plus.org/", categoria: "emuladores" },
         ];
 
         function buscarPagina() {
@@ -1141,7 +1371,7 @@
 
             if (texto.length === 0) return;
 
-            // 1. ¿El texto coincide con el nombre de una categoría? (ej: "entretenimiento", "ps emuladores")
+            // 1. ¿El texto coincide con el nombre de una categoría? (ej: "entretenimiento", "emuladores")
             const categoriaCoincidente = Object.keys(nombresCategorias).find(clave =>
                 normalizar(clave).includes(texto) || normalizar(nombresCategorias[clave]).includes(texto)
             );
