@@ -7,6 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weblink+</title>
     <style>
+        #destacadoDelDia {
+            background-color: #333;
+            color: #fff;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 1em;
+        }
+
+        #destacadoDelDia a {
+            color: #ffd166;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        #destacadoDelDia a:hover {
+            text-decoration: underline;
+        }
+
         #botonSubir {
             position: fixed;
             bottom: 70px;
@@ -151,16 +170,18 @@
         <div id="inicio" class="seccion">
             <h2>Bienvenidos a Weblink+</h2>
 
+            <div id="destacadoDelDia"></div>
+
             <div id="filtrosCategoria">
-                <button class="activo" onclick="filtrarCategoria('todas', this)">Todas</button>
-                <button onclick="filtrarCategoria('informatica', this)">Informática</button>
-                <button onclick="filtrarCategoria('medicina', this)">Medicina</button>
-                <button onclick="filtrarCategoria('recetas', this)">Recetas</button>
-                <button onclick="filtrarCategoria('noticieros', this)">Noticieros</button>
-                <button onclick="filtrarCategoria('entretenimiento', this)">Entretenimiento</button>
-                <button onclick="filtrarCategoria('deportes', this)">Deportes</button>
-                <button onclick="filtrarCategoria('adultos', this)">Videos 18+</button>
-                <button onclick="filtrarCategoria('emuladores', this)">Emuladores</button>
+                <button class="activo" onclick="filtrarCategoria('todas', this)">🛜Todas</button>
+                <button onclick="filtrarCategoria('informatica', this)">💻Informática</button>
+                <button onclick="filtrarCategoria('medicina', this)">🏥Medicina</button>
+                <button onclick="filtrarCategoria('recetas', this)">🍳Recetas</button>
+                <button onclick="filtrarCategoria('noticieros', this)">📰Noticieros</button>
+                <button onclick="filtrarCategoria('entretenimiento', this)">🎬Entretenimiento</button>
+                <button onclick="filtrarCategoria('deportes', this)">⚽Deportes</button>
+                <button onclick="filtrarCategoria('adultos', this)">🔞Videos 18+</button>
+                <button onclick="filtrarCategoria('emuladores', this)">🕹️Emuladores</button>
             </div>
 
             <div class="categoria" data-categoria="informatica">
@@ -1115,6 +1136,25 @@
                     </li>
 
                 </ul>
+                <h4>3) PS3</h4>
+                <li>
+                    <a href="https://rpcs3.net/">RPCS3</a>
+                    <p>RPCS3 es un emulador y depurador multiplataforma de código abierto para la Sony PlayStation 3,
+                        escrito en C++ para Windows, Linux, macOS y FreeBSD.</P>
+
+                </li>
+                <li>
+                    <a href="https://www.playstation.com/en-us/support/hardware/ps3-system-software/">PlayStation 3
+                        System Software</a>
+                    <p>El software del sistema PlayStation 3 es el firmware oficial desarrollado por Sony para la
+                        consola PlayStation 3. Proporciona la interfaz de usuario, las funciones del sistema y las
+                        actualizaciones de seguridad.</P>
+                </li>
+                <li>
+                    <a href="https://ps3-simulator.uptodown.com/android">PS3 Simulator</a>
+                    <p>Un emulador de la PlayStation 3 para dispositivos Android que permite jugar a los juegos de la
+                        consola en tu teléfono o tableta.</p>
+                </li>
             </div>
 
             <h1 style="text-align: center; margin-top: 40px;">Más funciones pronto...</h1>
@@ -1126,6 +1166,12 @@
             <input type="text" id="inputBuscar" placeholder="Escribe el nombre de una página o categoría..."
                 onkeyup="buscarPagina()">
             <ul id="resultadosBusqueda"></ul>
+
+            <h2>Si no encuentra la página puede buscarla en <a href="https://www.google.com/">Google</a> O envienos una
+                recomendación a <a
+                    href="mailto:pradasoftwaretechnology7@gmail.com">pradasoftwaretechnology7@gmail.com</a> o llame al
+                311 3582086.</h2>
+
         </div>
 
         <!-- ===================== PROBLEMAS ===================== -->
@@ -1167,7 +1213,7 @@
     </main>
 
     <footer>
-        &copy; 2024 Prada Soft Studios. All rights reserved.
+        &copy; 2026 Prada Soft Studios. All rights reserved.
     </footer>
 
     <button id="botonSubir" onclick="subirArriba()">↑</button>
@@ -1361,7 +1407,18 @@
             { nombre: "Dolphin", url: "https://www.dolphin-emu.org/", categoria: "emuladores" },
             { nombre: "Project64", url: "https://www-pj64--emu-com.translate.goog/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tcl,sc", categoria: "emuladores" },
             { nombre: "Mupen64Plus", url: "https://www.mupen64plus.org/", categoria: "emuladores" },
+            { nombre: "PlayStation 3 System Software", url: "https://www.playstation.com/en-us/support/hardware/ps3-system-software/", categoria: "emuladores" },
+            { nombre: "PS3 Simulator", url: "https://ps3-simulator.uptodown.com/android", categoria: "emuladores" },
+            { nombre: "RPCS3", url: "https://rpcs3.net/", categoria: "emuladores" },
         ];
+
+        // Destacado del día: cambia automáticamente según la fecha, igual para todos los visitantes ese día
+        const diaDelAño = Math.floor((new Date() - new Date(new Date().getFullYear(), 0, 0)) / 86400000);
+        const indice = diaDelAño % paginas.length;
+        const destacado = paginas[indice];
+
+        document.getElementById('destacadoDelDia').innerHTML =
+            `🌟 Destacado de hoy: <a href="${destacado.url}" target="_blank">${destacado.nombre}</a>`;
 
         function buscarPagina() {
             const textoOriginal = document.getElementById('inputBuscar').value;
