@@ -89,8 +89,7 @@
             margin-bottom: 15px;
         }
 
-        #barraUtilidades button,
-        #barraUtilidades select {
+        #barraUtilidades button, #barraUtilidades select {
             padding: 6px 12px;
             border: none;
             border-radius: 15px;
@@ -122,6 +121,182 @@
             font-style: italic;
             margin-bottom: 10px;
             color: #555;
+        }
+
+        /* Minijuegos */
+        #tabsJuegos {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        #tabsJuegos button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 20px;
+            background-color: #444;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #tabsJuegos button.activo {
+            background-color: #333;
+            font-weight: bold;
+        }
+
+        .juego {
+            display: none;
+        }
+
+        .juego.activo {
+            display: block;
+        }
+
+        #tableroSudoku {
+            display: grid;
+            grid-template-columns: repeat(9, 36px);
+            grid-template-rows: repeat(9, 36px);
+            gap: 1px;
+            background-color: #333;
+            width: fit-content;
+            margin-bottom: 15px;
+        }
+
+        #tableroSudoku input {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            font-size: 1.1em;
+            border: none;
+            box-sizing: border-box;
+        }
+
+        #tableroSudoku input:disabled {
+            background-color: #ddd;
+            font-weight: bold;
+            color: #222;
+        }
+
+        #tableroSudoku input.borde-derecho {
+            border-right: 3px solid #333;
+        }
+
+        #tableroSudoku input.borde-abajo {
+            border-bottom: 3px solid #333;
+        }
+
+        #tableroSudoku input.error {
+            background-color: #ffcdd2;
+        }
+
+        .accionesJuego {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .accionesJuego button {
+            padding: 8px 14px;
+            border: none;
+            border-radius: 20px;
+            background-color: #444;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #mensajeSudoku, #mensajeWordle {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        #tableroWordle {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 15px;
+        }
+
+        .fila-wordle {
+            display: flex;
+            gap: 6px;
+        }
+
+        .celda-wordle {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3em;
+            font-weight: bold;
+            text-transform: uppercase;
+            background-color: #eee;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .celda-wordle.correcta {
+            background-color: #6aaa64;
+            color: #fff;
+            border-color: #6aaa64;
+        }
+
+        .celda-wordle.presente {
+            background-color: #c9b458;
+            color: #fff;
+            border-color: #c9b458;
+        }
+
+        .celda-wordle.ausente {
+            background-color: #787c7e;
+            color: #fff;
+            border-color: #787c7e;
+        }
+
+        #inputWordle {
+            padding: 8px;
+            font-size: 1em;
+            text-transform: uppercase;
+            margin-right: 8px;
+        }
+
+        #marcadorRPS, #resultadoRPS {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        #tableroMemorama {
+            display: grid;
+            grid-template-columns: repeat(4, 70px);
+            grid-template-rows: repeat(4, 70px);
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .carta-memorama {
+            width: 70px;
+            height: 70px;
+            background-color: #444;
+            color: transparent;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8em;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .carta-memorama.volteada, .carta-memorama.encontrada {
+            background-color: #fff;
+            color: #000;
+            border: 2px solid #444;
+        }
+
+        .carta-memorama.encontrada {
+            background-color: #c8e6c9;
+            border-color: #6aaa64;
+            cursor: default;
         }
 
         #botonSubir {
@@ -259,6 +434,7 @@
     <nav>
         <a onclick="mostrarSeccion('inicio')">Inicio</a>
         <a onclick="mostrarSeccion('buscador')">Buscador</a>
+        <a onclick="mostrarSeccion('minijuegos')">Minijuegos</a>
         <a onclick="mostrarSeccion('problemas')">Problemas</a>
     </nav>
 
@@ -299,774 +475,722 @@
             <div class="categoria" data-categoria="informatica">
                 <h2>Informática</h2>
                 <details class="subcategoria">
-                    <summary>1)cursos en línea</summary>
-                    <ul>
-                        <li>
-                            <a href="https://inscripciones.cun.edu.co/programa-ingenieria-de-sistemas-virtual-a">CUN:
-                                Ingeniería
-                                de Sistemas</a>
-                            <p>100% virtual — programa para quienes buscan formarse en ingeniería de sistemas con
-                                enfoque en
-                                seguridad e infraestructuras digitales.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.freecodecamp.org/espanol/">freeCodeCamp</a>
-                            <p>Plataforma de aprendizaje gratuita para desarrolladores. Aprende programación de forma
-                                interactiva y gratuita.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.coursera.org/">Coursera</a>
-                            <p>Cursos, especializaciones y programas de grado en colaboración con universidades y
-                                empresas
-                                líderes a nivel mundial.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.udemy.com/">Udemy</a>
-                            <p>Cursos en una amplia variedad de temas, desde programación y diseño hasta desarrollo
-                                personal
-                                y
-                                negocios.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.edx.org/">edX</a>
-                            <p>Fundada por Harvard y MIT, ofrece cursos universitarios gratuitos y de pago en múltiples
-                                disciplinas.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.khanacademy.org/">Khan Academy</a>
-                            <p>Plataforma educativa sin fines de lucro con lecciones en video y ejercicios interactivos.
-                            </p>
-                        </li>
-                    </ul>
+                <summary>1)cursos en línea</summary>
+                <ul>
+                    <li>
+                        <a href="https://inscripciones.cun.edu.co/programa-ingenieria-de-sistemas-virtual-a">CUN:
+                            Ingeniería
+                            de Sistemas</a>
+                        <p>100% virtual — programa para quienes buscan formarse en ingeniería de sistemas con enfoque en
+                            seguridad e infraestructuras digitales.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.freecodecamp.org/espanol/">freeCodeCamp</a>
+                        <p>Plataforma de aprendizaje gratuita para desarrolladores. Aprende programación de forma
+                            interactiva y gratuita.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.coursera.org/">Coursera</a>
+                        <p>Cursos, especializaciones y programas de grado en colaboración con universidades y empresas
+                            líderes a nivel mundial.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.udemy.com/">Udemy</a>
+                        <p>Cursos en una amplia variedad de temas, desde programación y diseño hasta desarrollo personal
+                            y
+                            negocios.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.edx.org/">edX</a>
+                        <p>Fundada por Harvard y MIT, ofrece cursos universitarios gratuitos y de pago en múltiples
+                            disciplinas.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.khanacademy.org/">Khan Academy</a>
+                        <p>Plataforma educativa sin fines de lucro con lecciones en video y ejercicios interactivos.</p>
+                    </li>
+                </ul>
                 </details>
                 <details class="subcategoria">
-                    <summary>2)software</summary>
-                    <ul>
-                        <li>
-                            <a
-                                href="https://codefinity.com/get-started/spa/v8_new_brl?gclid=Cj0KCQjw8JPVBhD-ARIsAO691sEMw-LoXaljg_yVM89cIw2dA6nYDpE3V7aoDvKEt2-zMSNqVmiiL1YaAoZ3EALw_wcB&ad_id=720198247386&dki=Freecodecamp&gad_source=1&utm_campaign=21415070126&utm_term=freecodecamp&utm_medium=cpc&gad_campaignid=21415070126&utm_source=google&gbraid=0AAAAABTeUgSlTvkZ6Ycs968X9TyCevnj5&utm_content=162332657925">Codefinity</a>
-                            <p>Plataforma de desarrollo de software que ofrece cursos y recursos para aprender a
-                                programar y
-                                crear aplicaciones web y móviles.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.jetbrains.com/">JetBrains</a>
-                            <p>Empresa de software que desarrolla herramientas de desarrollo integradas (IDEs) para
-                                programadores, incluyendo IntelliJ IDEA, PyCharm y WebStorm.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.sublimetext.com/">Sublime Text</a>
-                            <p>Editor de texto y código fuente ligero y rápido, con soporte para múltiples lenguajes de
-                                programación y personalización mediante plugins.</p>
-                        </li>
-                        <li>
-                            <a href="https://code.visualstudio.com/">Visual Studio Code</a>
-                            <p>Editor de código fuente gratuito y de código abierto desarrollado por Microsoft, con
-                                soporte
-                                para depuración, control de versiones y extensiones.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.eclipse.org/">Eclipse</a>
-                            <p>Plataforma de desarrollo de software de código abierto, principalmente utilizada para
-                                desarrollar aplicaciones Java, pero también compatible con otros lenguajes mediante
-                                plugins.
-                            </p>
-                        </li>
+                <summary>2)software</summary>
+                <ul>
+                    <li>
+                        <a
+                            href="https://codefinity.com/get-started/spa/v8_new_brl?gclid=Cj0KCQjw8JPVBhD-ARIsAO691sEMw-LoXaljg_yVM89cIw2dA6nYDpE3V7aoDvKEt2-zMSNqVmiiL1YaAoZ3EALw_wcB&ad_id=720198247386&dki=Freecodecamp&gad_source=1&utm_campaign=21415070126&utm_term=freecodecamp&utm_medium=cpc&gad_campaignid=21415070126&utm_source=google&gbraid=0AAAAABTeUgSlTvkZ6Ycs968X9TyCevnj5&utm_content=162332657925">Codefinity</a>
+                        <p>Plataforma de desarrollo de software que ofrece cursos y recursos para aprender a programar y
+                            crear aplicaciones web y móviles.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.jetbrains.com/">JetBrains</a>
+                        <p>Empresa de software que desarrolla herramientas de desarrollo integradas (IDEs) para
+                            programadores, incluyendo IntelliJ IDEA, PyCharm y WebStorm.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.sublimetext.com/">Sublime Text</a>
+                        <p>Editor de texto y código fuente ligero y rápido, con soporte para múltiples lenguajes de
+                            programación y personalización mediante plugins.</p>
+                    </li>
+                    <li>
+                        <a href="https://code.visualstudio.com/">Visual Studio Code</a>
+                        <p>Editor de código fuente gratuito y de código abierto desarrollado por Microsoft, con soporte
+                            para depuración, control de versiones y extensiones.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.eclipse.org/">Eclipse</a>
+                        <p>Plataforma de desarrollo de software de código abierto, principalmente utilizada para
+                            desarrollar aplicaciones Java, pero también compatible con otros lenguajes mediante plugins.
+                        </p>
+                    </li>
 
-                    </ul>
+                </ul>
                 </details>
                 <details class="subcategoria">
-                    <summary>3)Editor de código</summary>
-                    <ul>
-                        <li>
-                            <a href="https://code.visualstudio.com/">Visual Studio Code</a>
-                            <p>Editor de código fuente gratuito y de código abierto desarrollado por Microsoft, con
-                                soporte
-                                para depuración, control de versiones y extensiones.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.sublimetext.com/">Sublime Text</a>
-                            <p>Editor de texto y código fuente ligero y rápido, con soporte para múltiples lenguajes de
-                                programación y personalización mediante plugins.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.jetbrains.com/pycharm/">PyCharm</a>
-                            <p>IDE especializado en desarrollo en Python, con herramientas avanzadas para depuración,
-                                pruebas y análisis de código.</p>
-                        </li>
-                        <li>
-                            <a href="https://atom-editor.cc/">Atom</a>
-                            <p>Editor de texto y código fuente de código abierto desarrollado por GitHub, con soporte
-                                para
-                                múltiples lenguajes de programación y personalización mediante paquetes.</p>
-                        </li>
-                        <li>
-                            <a href="https://notepad-plus-plus.org/">Notepad++</a>
-                            <p>Editor de texto y código fuente ligero y rápido, con soporte para múltiples lenguajes de
-                                programación y personalización mediante plugins.</p>
-                        </li>
-                    </ul>
+                <summary>3)Editor de código</summary>
+                <ul>
+                    <li>
+                        <a href="https://code.visualstudio.com/">Visual Studio Code</a>
+                        <p>Editor de código fuente gratuito y de código abierto desarrollado por Microsoft, con soporte
+                            para depuración, control de versiones y extensiones.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.sublimetext.com/">Sublime Text</a>
+                        <p>Editor de texto y código fuente ligero y rápido, con soporte para múltiples lenguajes de
+                            programación y personalización mediante plugins.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.jetbrains.com/pycharm/">PyCharm</a>
+                        <p>IDE especializado en desarrollo en Python, con herramientas avanzadas para depuración,
+                            pruebas y análisis de código.</p>
+                    </li>
+                    <li>
+                        <a href="https://atom-editor.cc/">Atom</a>
+                        <p>Editor de texto y código fuente de código abierto desarrollado por GitHub, con soporte para
+                            múltiples lenguajes de programación y personalización mediante paquetes.</p>
+                    </li>
+                    <li>
+                        <a href="https://notepad-plus-plus.org/">Notepad++</a>
+                        <p>Editor de texto y código fuente ligero y rápido, con soporte para múltiples lenguajes de
+                            programación y personalización mediante plugins.</p>
+                    </li>
+                </ul>
                 </details>
                 <details class="subcategoria">
-                    <summary>4)Programas básicos</summary>
-                    <ul>
-                        <li>
-                            <a href="https://www.python.org/">Python</a>
-                            <p>Lenguaje de programación de alto nivel, fácil de aprender y ampliamente utilizado en
-                                desarrollo web, análisis de datos, inteligencia artificial y automatización.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.java.com/">Java</a>
-                            <p>Lenguaje de programación orientado a objetos, ampliamente utilizado en aplicaciones
-                                empresariales, desarrollo móvil y sistemas embebidos.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.javascript.com/">JavaScript</a>
-                            <p>Lenguaje de programación interpretado, principalmente utilizado para desarrollo web y
-                                aplicaciones interactivas en el navegador.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.php.net/">PHP</a>
-                            <p>Lenguaje de programación del lado del servidor, ampliamente utilizado para desarrollo web
-                                y
-                                creación de sitios dinámicos.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.ruby-lang.org/">Ruby</a>
-                            <p>Lenguaje de programación dinámico y orientado a objetos, conocido por su sintaxis
-                                elegante y
-                                su uso en el desarrollo web con el framework Ruby on Rails.</p>
-                        </li>
-                    </ul>
+                <summary>4)Programas básicos</summary>
+                <ul>
+                    <li>
+                        <a href="https://www.python.org/">Python</a>
+                        <p>Lenguaje de programación de alto nivel, fácil de aprender y ampliamente utilizado en
+                            desarrollo web, análisis de datos, inteligencia artificial y automatización.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.java.com/">Java</a>
+                        <p>Lenguaje de programación orientado a objetos, ampliamente utilizado en aplicaciones
+                            empresariales, desarrollo móvil y sistemas embebidos.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.javascript.com/">JavaScript</a>
+                        <p>Lenguaje de programación interpretado, principalmente utilizado para desarrollo web y
+                            aplicaciones interactivas en el navegador.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.php.net/">PHP</a>
+                        <p>Lenguaje de programación del lado del servidor, ampliamente utilizado para desarrollo web y
+                            creación de sitios dinámicos.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.ruby-lang.org/">Ruby</a>
+                        <p>Lenguaje de programación dinámico y orientado a objetos, conocido por su sintaxis elegante y
+                            su uso en el desarrollo web con el framework Ruby on Rails.</p>
+                    </li>
+                </ul>
                 </details>
                 <details class="subcategoria">
-                    <summary>5)Programas avanzados</summary>
-                    <ul>
-                        <li>
-                            <a href="https://www.rust-lang.org/">Rust</a>
-                            <p>Lenguaje de programación de sistemas enfocado en seguridad y rendimiento, utilizado en
-                                desarrollo de software de bajo nivel y aplicaciones concurrentes.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.go.dev/">Go (Golang)</a>
-                            <p>Lenguaje de programación desarrollado por Google, conocido por su simplicidad, eficiencia
-                                y
-                                soporte para concurrencia, utilizado en desarrollo web y sistemas distribuidos.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.scala-lang.org/">Scala</a>
-                            <p>Lenguaje de programación que combina características de programación funcional y
-                                orientada a
-                                objetos, utilizado en desarrollo web, análisis de datos y sistemas distribuidos.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.haskell.org/">Haskell</a>
-                            <p>Lenguaje de programación puramente funcional, conocido por su fuerte tipado y evaluación
-                                perezosa, utilizado en investigación, desarrollo web y análisis de datos.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.elixir-lang.org/">Elixir</a>
-                            <p>Lenguaje de programación funcional y concurrente basado en Erlang, utilizado en
-                                desarrollo
-                                web, sistemas distribuidos y aplicaciones en tiempo real.</p>
-                        </li>
-                    </ul>
+                <summary>5)Programas avanzados</summary>
+                <ul>
+                    <li>
+                        <a href="https://www.rust-lang.org/">Rust</a>
+                        <p>Lenguaje de programación de sistemas enfocado en seguridad y rendimiento, utilizado en
+                            desarrollo de software de bajo nivel y aplicaciones concurrentes.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.go.dev/">Go (Golang)</a>
+                        <p>Lenguaje de programación desarrollado por Google, conocido por su simplicidad, eficiencia y
+                            soporte para concurrencia, utilizado en desarrollo web y sistemas distribuidos.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.scala-lang.org/">Scala</a>
+                        <p>Lenguaje de programación que combina características de programación funcional y orientada a
+                            objetos, utilizado en desarrollo web, análisis de datos y sistemas distribuidos.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.haskell.org/">Haskell</a>
+                        <p>Lenguaje de programación puramente funcional, conocido por su fuerte tipado y evaluación
+                            perezosa, utilizado en investigación, desarrollo web y análisis de datos.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.elixir-lang.org/">Elixir</a>
+                        <p>Lenguaje de programación funcional y concurrente basado en Erlang, utilizado en desarrollo
+                            web, sistemas distribuidos y aplicaciones en tiempo real.</p>
+                    </li>
+                </ul>
                 </details>
                 <details class="subcategoria">
-                    <summary>6)Programas de diseño</summary>
-                    <ul>
-                        <li>
-                            <a href="https://www.adobe.com/products/photoshop.html">Adobe Photoshop</a>
-                            <p>Software de edición de imágenes y diseño gráfico ampliamente utilizado en la industria
-                                creativa.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.adobe.com/products/illustrator.html">Adobe Illustrator</a>
-                            <p>Software de diseño vectorial utilizado para crear ilustraciones, logotipos y gráficos
-                                escalables.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.adobe.com/products/indesign.html">Adobe InDesign</a>
-                            <p>Software de maquetación y diseño editorial utilizado para crear revistas, libros y
-                                materiales
-                                impresos.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.sketch.com/">Sketch</a>
-                            <p>Herramienta de diseño digital enfocada en la creación de interfaces de usuario y
-                                prototipos
-                                interactivos.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.figma.com/">Figma</a>
-                            <p>Plataforma de diseño colaborativo basada en la nube, utilizada para crear interfaces,
-                                prototipos y diseños web.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.canva.com/">Canva</a>
-                            <p>Herramienta de diseño gráfico en línea que permite crear diseños para redes sociales,
-                                presentaciones y materiales de marketing de manera sencilla.</p>
-                        </li>
-                    </ul>
+                <summary>6)Programas de diseño</summary>
+                <ul>
+                    <li>
+                        <a href="https://www.adobe.com/products/photoshop.html">Adobe Photoshop</a>
+                        <p>Software de edición de imágenes y diseño gráfico ampliamente utilizado en la industria
+                            creativa.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.adobe.com/products/illustrator.html">Adobe Illustrator</a>
+                        <p>Software de diseño vectorial utilizado para crear ilustraciones, logotipos y gráficos
+                            escalables.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.adobe.com/products/indesign.html">Adobe InDesign</a>
+                        <p>Software de maquetación y diseño editorial utilizado para crear revistas, libros y materiales
+                            impresos.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.sketch.com/">Sketch</a>
+                        <p>Herramienta de diseño digital enfocada en la creación de interfaces de usuario y prototipos
+                            interactivos.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.figma.com/">Figma</a>
+                        <p>Plataforma de diseño colaborativo basada en la nube, utilizada para crear interfaces,
+                            prototipos y diseños web.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.canva.com/">Canva</a>
+                        <p>Herramienta de diseño gráfico en línea que permite crear diseños para redes sociales,
+                            presentaciones y materiales de marketing de manera sencilla.</p>
+                    </li>
+                </ul>
                 </details>
                 <details class="subcategoria">
-                    <summary>7)Programas de edición de video</summary>
-                    <ul>
-                        <li>
-                            <a href="https://www.adobe.com/products/premiere.html">Adobe Premiere Pro</a>
-                            <p>Software de edición de video profesional, utilizado para la creación y edición de
-                                contenido
-                                audiovisual.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.finalcutpro.com/">Final Cut Pro</a>
-                            <p>Software de edición de video para Mac, conocido por su rendimiento y capacidad de edición
-                                avanzada.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.davinci-resolve.com/">DaVinci Resolve</a>
-                            <p>Software de edición de video y color grading, utilizado por profesionales en la industria
-                                del
-                                cine y la televisión.</p>
-                        </li>
+                <summary>7)Programas de edición de video</summary>
+                <ul>
+                    <li>
+                        <a href="https://www.adobe.com/products/premiere.html">Adobe Premiere Pro</a>
+                        <p>Software de edición de video profesional, utilizado para la creación y edición de contenido
+                            audiovisual.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.finalcutpro.com/">Final Cut Pro</a>
+                        <p>Software de edición de video para Mac, conocido por su rendimiento y capacidad de edición
+                            avanzada.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.davinci-resolve.com/">DaVinci Resolve</a>
+                        <p>Software de edición de video y color grading, utilizado por profesionales en la industria del
+                            cine y la televisión.</p>
+                    </li>
 
-                        <li>
-                            <a href="https://www.hitfilm.com/">HitFilm Express</a>
-                            <p>Software de edición de video gratuito con herramientas de efectos visuales y composición.
-                            </p>
-                        </li>
-                    </ul>
+                    <li>
+                        <a href="https://www.hitfilm.com/">HitFilm Express</a>
+                        <p>Software de edición de video gratuito con herramientas de efectos visuales y composición.</p>
+                    </li>
+                </ul>
                 </details>
             </div>
             <div class="categoria" data-categoria="medicina">
                 <h2>Medicina</h2>
                 <details class="subcategoria">
-                    <summary>1)Recursos médicos</summary>
-                    <ul>
-                        <li>
-                            <a href="https://www.medicamentosplm.com.co/">Medicamentos PLM</a>
-                            <p>Vademécum farmacéutico colombiano con información detallada sobre medicamentos:
-                                composición,
-                                dosis, contraindicaciones e interacciones.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.kenhub.com/es">Kenhub</a>
-                            <p>Atlas interactivo de anatomía y fisiología con ilustraciones en 3D, videos y
-                                cuestionarios de
-                                práctica.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.mayoclinic.org/es">Mayo Clinic</a>
-                            <p>Uno de los centros médicos más prestigiosos de Estados Unidos, con información confiable
-                                sobre
-                                enfermedades y tratamientos.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.webmd.com/">WebMD</a>
-                            <p>Buscador de síntomas y guías de salud, aunque su contenido está principalmente en inglés.
-                            </p>
-                        </li>
-                        <li>
-                            <a href="https://www.healthline.com/">Healthline</a>
-                            <p>Artículos sobre nutrición, bienestar y enfermedades comunes, redactados de forma clara y
-                                accesible.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.cdc.gov/">CDC</a>
-                            <p>Entidad oficial de referencia en salud pública, vacunación y recomendaciones sanitarias
-                                globales.
-                            </p>
-                        </li>
-                    </ul>
+                <summary>1)Recursos médicos</summary>
+                <ul>
+                    <li>
+                        <a href="https://www.medicamentosplm.com.co/">Medicamentos PLM</a>
+                        <p>Vademécum farmacéutico colombiano con información detallada sobre medicamentos: composición,
+                            dosis, contraindicaciones e interacciones.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.kenhub.com/es">Kenhub</a>
+                        <p>Atlas interactivo de anatomía y fisiología con ilustraciones en 3D, videos y cuestionarios de
+                            práctica.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.mayoclinic.org/es">Mayo Clinic</a>
+                        <p>Uno de los centros médicos más prestigiosos de Estados Unidos, con información confiable
+                            sobre
+                            enfermedades y tratamientos.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.webmd.com/">WebMD</a>
+                        <p>Buscador de síntomas y guías de salud, aunque su contenido está principalmente en inglés.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.healthline.com/">Healthline</a>
+                        <p>Artículos sobre nutrición, bienestar y enfermedades comunes, redactados de forma clara y
+                            accesible.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.cdc.gov/">CDC</a>
+                        <p>Entidad oficial de referencia en salud pública, vacunación y recomendaciones sanitarias
+                            globales.
+                        </p>
+                    </li>
+                </ul>
                 </details>
                 <details class="subcategoria">
-                    <summary>2)Recursos de investigación</summary>
-                    <ul>
-                        <li>
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/">PubMed</a>
-                            <p>Base de datos de artículos científicos y estudios médicos, ideal para investigación y
-                                referencias
-                                académicas.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.sciencedirect.com/">ScienceDirect</a>
-                            <p>Plataforma de acceso a revistas científicas y artículos de investigación en diversas
-                                áreas de
-                                la
-                                medicina y ciencias de la salud.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.nature.com/">Nature</a>
-                            <p>Revista científica de renombre internacional que publica investigaciones originales en
-                                medicina,
-                                biología y ciencias naturales.</p>
-                        </li>
-                    </ul>
+                <summary>2)Recursos de investigación</summary>
+                <ul>
+                    <li>
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/">PubMed</a>
+                        <p>Base de datos de artículos científicos y estudios médicos, ideal para investigación y
+                            referencias
+                            académicas.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.sciencedirect.com/">ScienceDirect</a>
+                        <p>Plataforma de acceso a revistas científicas y artículos de investigación en diversas áreas de
+                            la
+                            medicina y ciencias de la salud.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.nature.com/">Nature</a>
+                        <p>Revista científica de renombre internacional que publica investigaciones originales en
+                            medicina,
+                            biología y ciencias naturales.</p>
+                    </li>
+                </ul>
                 </details>
                 <details class="subcategoria">
-                    <summary>3)Recursos educativos</summary>
-                    <ul>
-                        <li>
-                            <a href="https://www.khanacademy.org/">Khan Academy</a>
-                            <p>Plataforma de aprendizaje en línea que ofrece cursos gratuitos sobre una amplia gama de
-                                temas, incluyendo salud y medicina.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.coursera.org/">Coursera</a>
-                            <p>Ofrece cursos en línea de universidades y organizaciones reconocidas, incluyendo temas de
-                                medicina y ciencias de la salud.</p>
+                <summary>3)Recursos educativos</summary>
+                <ul>
+                    <li>
+                        <a href="https://www.khanacademy.org/">Khan Academy</a>
+                        <p>Plataforma de aprendizaje en línea que ofrece cursos gratuitos sobre una amplia gama de
+                            temas, incluyendo salud y medicina.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.coursera.org/">Coursera</a>
+                        <p>Ofrece cursos en línea de universidades y organizaciones reconocidas, incluyendo temas de
+                            medicina y ciencias de la salud.</p>
 
-                        </li>
-                        <li>
-                            <a href="https://www.edx.org/">edX</a>
-                            <p>Plataforma de educación en línea que ofrece cursos de instituciones académicas de
-                                prestigio,
-                                incluyendo medicina y ciencias de la salud.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.edx.org/">edX</a>
+                        <p>Plataforma de educación en línea que ofrece cursos de instituciones académicas de prestigio,
+                            incluyendo medicina y ciencias de la salud.</p>
 
-                        </li>
-                        <li>
-                            <a href="https://www.medicalnewstoday.com/">Medical News Today</a>
-                            <p>Proporciona noticias y artículos sobre salud, medicina y bienestar, con información
-                                basada en
-                                evidencia.</p>
-                        </li>
-                    </ul>
+                    </li>
+                    <li>
+                        <a href="https://www.medicalnewstoday.com/">Medical News Today</a>
+                        <p>Proporciona noticias y artículos sobre salud, medicina y bienestar, con información basada en
+                            evidencia.</p>
+                    </li>
+                </ul>
                 </details>
                 <details class="subcategoria">
-                    <summary>4)Programas de salud</summary>
-                    <ul>
-                        <li>
-                            <a href="https://www.myfitnesspal.com/">MyFitnessPal</a>
-                            <p>Aplicación para seguimiento de dieta y ejercicio, con base de datos de alimentos y planes
-                                personalizados.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.headspace.com/">Headspace</a>
-                            <p>Aplicación de meditación y mindfulness, con programas guiados para reducir el estrés y
-                                mejorar
-                                la salud mental.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.sleepcycle.com/">Sleep Cycle</a>
-                            <p>Aplicación que analiza patrones de sueño y ofrece alarmas inteligentes para despertar en
-                                el
-                                momento óptimo.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.fitbit.com/">Fitbit</a>
-                            <p>Dispositivos y aplicación para seguimiento de actividad física, sueño y salud en general.
-                            </p>
-                        </li>
-                    </ul>
+                <summary>4)Programas de salud</summary>
+                <ul>
+                    <li>
+                        <a href="https://www.myfitnesspal.com/">MyFitnessPal</a>
+                        <p>Aplicación para seguimiento de dieta y ejercicio, con base de datos de alimentos y planes
+                            personalizados.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.headspace.com/">Headspace</a>
+                        <p>Aplicación de meditación y mindfulness, con programas guiados para reducir el estrés y
+                            mejorar
+                            la salud mental.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.sleepcycle.com/">Sleep Cycle</a>
+                        <p>Aplicación que analiza patrones de sueño y ofrece alarmas inteligentes para despertar en el
+                            momento óptimo.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.fitbit.com/">Fitbit</a>
+                        <p>Dispositivos y aplicación para seguimiento de actividad física, sueño y salud en general.</p>
+                    </li>
+                </ul>
                 </details>
             </div>
 
             <div class="categoria" data-categoria="recetas">
                 <h2>Recetas</h2>
                 <details class="subcategoria">
-                    <summary>1)Recetas en español</summary>
-                    <ul>
-                        <li>
-                            <a href="https://www.recetasgratis.net/">Recetas Gratis</a>
-                            <p>Comunidad hispanohablante con miles de recetas clasificadas por tipo de plato,
-                                ingrediente y
-                                ocasión special.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.allrecipes.com/">Allrecipes</a>
-                            <p>Cada receta incluye reseñas, calificaciones y fotos de otros usuarios que ya la
-                                prepararon.
-                            </p>
-                        </li>
-                        <li>
-                            <a href="https://www.foodnetwork.com/">Food Network</a>
-                            <p>Recetas creadas por chefs reconocidos internacionalmente y contenido de sus programas de
-                                cocina.
-                            </p>
-                        </li>
-                        <li>
-                            <a href="https://www.bbcgoodfood.com/">BBC Good Food</a>
-                            <p>Enfoque en técnicas culinarias bien explicadas y planificación semanal de comidas
-                                saludables.
-                            </p>
-                        </li>
-                        <li>
-                            <a href="https://www.tasteofhome.com/">Taste of Home</a>
-                            <p>Recetas caseras y tradicionales de Estados Unidos, con platos familiares fáciles de
-                                preparar.
-                            </p>
-                        </li>
-                        <li>
-                            <a href="https://www.epicurious.com/">Epicurious</a>
-                            <p>Recetas de chefs profesionales, con filtros por ingredientes, tiempo y nivel de
-                                dificultad.
-                            </p>
-                        </li>
-                    </ul>
+                <summary>1)Recetas en español</summary>
+                <ul>
+                    <li>
+                        <a href="https://www.recetasgratis.net/">Recetas Gratis</a>
+                        <p>Comunidad hispanohablante con miles de recetas clasificadas por tipo de plato, ingrediente y
+                            ocasión special.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.allrecipes.com/">Allrecipes</a>
+                        <p>Cada receta incluye reseñas, calificaciones y fotos de otros usuarios que ya la prepararon.
+                        </p>
+                    </li>
+                    <li>
+                        <a href="https://www.foodnetwork.com/">Food Network</a>
+                        <p>Recetas creadas por chefs reconocidos internacionalmente y contenido de sus programas de
+                            cocina.
+                        </p>
+                    </li>
+                    <li>
+                        <a href="https://www.bbcgoodfood.com/">BBC Good Food</a>
+                        <p>Enfoque en técnicas culinarias bien explicadas y planificación semanal de comidas saludables.
+                        </p>
+                    </li>
+                    <li>
+                        <a href="https://www.tasteofhome.com/">Taste of Home</a>
+                        <p>Recetas caseras y tradicionales de Estados Unidos, con platos familiares fáciles de preparar.
+                        </p>
+                    </li>
+                    <li>
+                        <a href="https://www.epicurious.com/">Epicurious</a>
+                        <p>Recetas de chefs profesionales, con filtros por ingredientes, tiempo y nivel de dificultad.
+                        </p>
+                    </li>
+                </ul>
                 </details>
                 <details class="subcategoria">
-                    <summary>desayunos</summary>
-                    <ul>
-                        <li>
-                            <a href="https://www.allrecipes.com/recipes/78/breakfast-and-brunch/">Allrecipes -
-                                Desayunos</a>
-                            <p>Recetas de desayunos y brunch, desde opciones rápidas hasta platos más elaborados.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.foodnetwork.com/recipes/packages/recipes-for-breakfast">Food Network
-                                - Desayunos</a>
-                            <p>Recetas de desayunos y brunch, incluyendo opciones dulces y saladas.</p>
+                <summary>desayunos</summary>
+                <ul>
+                    <li>
+                        <a href="https://www.allrecipes.com/recipes/78/breakfast-and-brunch/">Allrecipes - Desayunos</a>
+                        <p>Recetas de desayunos y brunch, desde opciones rápidas hasta platos más elaborados.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.foodnetwork.com/recipes/packages/recipes-for-breakfast">Food Network
+                            - Desayunos</a>
+                        <p>Recetas de desayunos y brunch, incluyendo opciones dulces y saladas.</p>
 
-                        </li>
-                        <li>
-                            <a href="https://www.bbcgoodfood.com/recipes/collection/breakfast">BBC Good Food -
-                                Desayunos</a>
-                            <p>Recetas de desayunos y brunch, con opciones saludables y tradicionales.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.bbcgoodfood.com/recipes/collection/breakfast">BBC Good Food -
+                            Desayunos</a>
+                        <p>Recetas de desayunos y brunch, con opciones saludables y tradicionales.</p>
 
-                        </li>
-                        <li>
-                            <a href="https://www.tasteofhome.com/recipes/breakfast/">Taste of Home - Desayunos</a>
-                            <p>Recetas de desayunos y brunch, con platos caseros y familiares.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.epicurious.com/recipes-menus/breakfast">Epicurious - Desayunos</a>
-                            <p>Recetas de desayunos y brunch, con opciones creativas y gourmet.</p>
-                        </li>
-                    </ul>
+                    </li>
+                    <li>
+                        <a href="https://www.tasteofhome.com/recipes/breakfast/">Taste of Home - Desayunos</a>
+                        <p>Recetas de desayunos y brunch, con platos caseros y familiares.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.epicurious.com/recipes-menus/breakfast">Epicurious - Desayunos</a>
+                        <p>Recetas de desayunos y brunch, con opciones creativas y gourmet.</p>
+                    </li>
+                </ul>
                 </details>
                 <details class="subcategoria">
-                    <summary>almuerzos</summary>
-                    <ul>
-                        <li>
-                            <a href="https://www.allrecipes.com/recipes/79/lunch/">Allrecipes - Almuerzos</a>
-                            <p>Recetas de almuerzos, desde opciones rápidas hasta platos más elaborados.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.foodnetwork.com/recipes/packages/recipes-for-lunch">Food Network -
-                                Almuerzos</a>
-                            <p>Recetas de almuerzos, incluyendo opciones saludables y tradicionales.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.bbcgoodfood.com/recipes/collection/lunch">BBC Good Food - Almuerzos</a>
-                            <p>Recetas de almuerzos, con opciones saludables y tradicionales.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.tasteofhome.com/recipes/lunch/">Taste of Home - Almuerzos</a>
-                            <p>Recetas de almuerzos, con platos caseros y familiares.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.epicurious.com/recipes-menus/lunch">Epicurious - Almuerzos</a>
-                            <p>Recetas de almuerzos, con opciones creativas y gourmet.</p>
-                        </li>
-                    </ul>
+                <summary>almuerzos</summary>
+                <ul>
+                    <li>
+                        <a href="https://www.allrecipes.com/recipes/79/lunch/">Allrecipes - Almuerzos</a>
+                        <p>Recetas de almuerzos, desde opciones rápidas hasta platos más elaborados.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.foodnetwork.com/recipes/packages/recipes-for-lunch">Food Network -
+                            Almuerzos</a>
+                        <p>Recetas de almuerzos, incluyendo opciones saludables y tradicionales.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.bbcgoodfood.com/recipes/collection/lunch">BBC Good Food - Almuerzos</a>
+                        <p>Recetas de almuerzos, con opciones saludables y tradicionales.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.tasteofhome.com/recipes/lunch/">Taste of Home - Almuerzos</a>
+                        <p>Recetas de almuerzos, con platos caseros y familiares.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.epicurious.com/recipes-menus/lunch">Epicurious - Almuerzos</a>
+                        <p>Recetas de almuerzos, con opciones creativas y gourmet.</p>
+                    </li>
+                </ul>
                 </details>
                 <details class="subcategoria">
-                    <summary>cenas</summary>
-                    <ul>
-                        <li>
-                            <a href="https://www.allrecipes.com/recipes/80/dinner/">Allrecipes - Cenas</a>
-                            <p>Recetas de cenas, desde opciones rápidas hasta platos más elaborados.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.foodnetwork.com/recipes/packages/recipes-for-dinner">Food Network -
-                                Cenas</a>
-                            <p>Recetas de cenas, incluyendo opciones saludables y tradicionales.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.bbcgoodfood.com/recipes/collection/dinner">BBC Good Food - Cenas</a>
-                            <p>Recetas de cenas, con opciones saludables y tradicionales.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.tasteofhome.com/recipes/dinner/">Taste of Home - Cenas</a>
-                            <p>Recetas de cenas, con platos caseros y familiares.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.epicurious.com/recipes-menus/dinner">Epicurious - Cenas</a>
-                            <p>Recetas de cenas, con opciones creativas y gourmet.</p>
-                        </li>
-                    </ul>
+                <summary>cenas</summary>
+                <ul>
+                    <li>
+                        <a href="https://www.allrecipes.com/recipes/80/dinner/">Allrecipes - Cenas</a>
+                        <p>Recetas de cenas, desde opciones rápidas hasta platos más elaborados.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.foodnetwork.com/recipes/packages/recipes-for-dinner">Food Network -
+                            Cenas</a>
+                        <p>Recetas de cenas, incluyendo opciones saludables y tradicionales.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.bbcgoodfood.com/recipes/collection/dinner">BBC Good Food - Cenas</a>
+                        <p>Recetas de cenas, con opciones saludables y tradicionales.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.tasteofhome.com/recipes/dinner/">Taste of Home - Cenas</a>
+                        <p>Recetas de cenas, con platos caseros y familiares.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.epicurious.com/recipes-menus/dinner">Epicurious - Cenas</a>
+                        <p>Recetas de cenas, con opciones creativas y gourmet.</p>
+                    </li>
+                </ul>
                 </details>
                 <details class="subcategoria">
-                    <summary>bocadillos</summary>
-                    <ul>
-                        <li>
-                            <a href="https://www.allrecipes.com/recipes/81/snacks/">Allrecipes - Bocadillos</a>
-                            <p>Recetas de bocadillos, desde opciones rápidas hasta platos más elaborados.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.foodnetwork.com/recipes/packages/recipes-for-snacks">Food Network -
-                                Bocadillos</a>
-                            <p>Recetas de bocadillos, incluyendo opciones saludables y tradicionales.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.bbcgoodfood.com/recipes/collection/snacks">BBC Good Food -
-                                Bocadillos</a>
-                            <p>Recetas de bocadillos, con opciones saludables y tradicionales.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.tasteofhome.com/recipes/snacks/">Taste of Home - Bocadillos</a>
-                            <p>Recetas de bocadillos, con platos caseros y familiares.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.epicurious.com/recipes-menus/snacks">Epicurious - Bocadillos</a>
-                            <p>Recetas de bocadillos, con opciones creativas y gourmet.</p>
-                        </li>
-                    </ul>
+                <summary>bocadillos</summary>
+                <ul>
+                    <li>
+                        <a href="https://www.allrecipes.com/recipes/81/snacks/">Allrecipes - Bocadillos</a>
+                        <p>Recetas de bocadillos, desde opciones rápidas hasta platos más elaborados.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.foodnetwork.com/recipes/packages/recipes-for-snacks">Food Network -
+                            Bocadillos</a>
+                        <p>Recetas de bocadillos, incluyendo opciones saludables y tradicionales.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.bbcgoodfood.com/recipes/collection/snacks">BBC Good Food - Bocadillos</a>
+                        <p>Recetas de bocadillos, con opciones saludables y tradicionales.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.tasteofhome.com/recipes/snacks/">Taste of Home - Bocadillos</a>
+                        <p>Recetas de bocadillos, con platos caseros y familiares.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.epicurious.com/recipes-menus/snacks">Epicurious - Bocadillos</a>
+                        <p>Recetas de bocadillos, con opciones creativas y gourmet.</p>
+                    </li>
+                </ul>
                 </details>
                 <details class="subcategoria">
-                    <summary>Bebidas</summary>
-                    <ul>
-                        <li>
-                            <a href="https://www.allrecipes.com/recipes/85/drinks/">Allrecipes - Bebidas</a>
-                            <p>Recetas de bebidas, desde opciones rápidas hasta cócteles más elaborados.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.foodnetwork.com/recipes/packages/recipes-for-drinks">Food Network -
-                                Bebidas</a>
-                            <p>Recetas de bebidas, incluyendo opciones saludables y tradicionales.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.bbcgoodfood.com/recipes/collection/drinks">BBC Good Food - Bebidas</a>
-                            <p>Recetas de bebidas, con opciones saludables y tradicionales.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.tasteofhome.com/recipes/drinks/">Taste of Home - Bebidas</a>
-                            <p>Recetas de bebidas, con platos caseros y familiares.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.epicurious.com/recipes-menus/drinks">Epicurious - Bebidas</a>
-                            <p>Recetas de bebidas, con opciones creativas y gourmet.</p>
-                        </li>
-                    </ul>
+                <summary>Bebidas</summary>
+                <ul>
+                    <li>
+                        <a href="https://www.allrecipes.com/recipes/85/drinks/">Allrecipes - Bebidas</a>
+                        <p>Recetas de bebidas, desde opciones rápidas hasta cócteles más elaborados.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.foodnetwork.com/recipes/packages/recipes-for-drinks">Food Network -
+                            Bebidas</a>
+                        <p>Recetas de bebidas, incluyendo opciones saludables y tradicionales.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.bbcgoodfood.com/recipes/collection/drinks">BBC Good Food - Bebidas</a>
+                        <p>Recetas de bebidas, con opciones saludables y tradicionales.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.tasteofhome.com/recipes/drinks/">Taste of Home - Bebidas</a>
+                        <p>Recetas de bebidas, con platos caseros y familiares.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.epicurious.com/recipes-menus/drinks">Epicurious - Bebidas</a>
+                        <p>Recetas de bebidas, con opciones creativas y gourmet.</p>
+                    </li>
+                </ul>
                 </details>
             </div>
 
             <div class="categoria" data-categoria="noticieros">
                 <h2>Noticieros</h2>
                 <details class="subcategoria">
-                    <summary>1)Colombia</summary>
-                    <ul>
-                        <li>
-                            <a href="https://www.noticiascaracol.com/">Noticias Caracol</a>
-                            <p>Noticias nacionales e internacionales, con cobertura en vivo y contenido multimedia.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.canalrcn.com/">Canal RCN</a>
-                            <p>Noticias, entretenimiento y deportes, con transmisiones en vivo y contenido exclusivo.
-                            </p>
-                        </li>
-                        <li>
-                            <a href="https://www.canal1.com.co/">Canal 1</a>
-                            <p>Noticias, entretenimiento y programas de interés general, con cobertura nacional e
-                                internacional.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.canalcapital.gov.co/">Canal Capital</a>
-                            <p>Noticias, cultura y entretenimiento, con enfoque en la ciudad de Bogotá y la región
-                                circundante.</p>
-                        </li>
-                    </ul>
+                <summary>1)Colombia</summary>
+                <ul>
+                    <li>
+                        <a href="https://www.noticiascaracol.com/">Noticias Caracol</a>
+                        <p>Noticias nacionales e internacionales, con cobertura en vivo y contenido multimedia.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.canalrcn.com/">Canal RCN</a>
+                        <p>Noticias, entretenimiento y deportes, con transmisiones en vivo y contenido exclusivo.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.canal1.com.co/">Canal 1</a>
+                        <p>Noticias, entretenimiento y programas de interés general, con cobertura nacional e
+                            internacional.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.canalcapital.gov.co/">Canal Capital</a>
+                        <p>Noticias, cultura y entretenimiento, con enfoque en la ciudad de Bogotá y la región
+                            circundante.</p>
+                    </li>
+                </ul>
                 </details>
                 <details class="subcategoria">
-                    <summary>2) Venezuela</summary>
-                    <ul>
-                        <li>
-                            <a href="https://www.ntn24.com/">NTN24</a>
-                            <p>Noticias internacionales con enfoque en América Latina, incluyendo cobertura de Venezuela
-                                y
-                                otros países de la región.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.globovision.com/">Globovisión</a>
-                            <p>Canal de noticias venezolano con cobertura nacional e internacional, incluyendo política,
-                                economía y deportes.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.el-nacional.com/">El Nacional</a>
-                            <p>Periódico venezolano con noticias nacionales e internacionales, opinión y análisis
-                                político.
-                            </p>
-                        </li>
-                        <li>
-                            <a href="https://www.elnuevodia.com/">El Nuevo Día</a>
-                            <p>Periódico venezolano con noticias locales, nacionales e internacionales, incluyendo
-                                política,
-                                economía y cultura.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.lapatilla.com/">La Patilla</a>
-                            <p>Portal de noticias venezolano con cobertura de política, economía, sociedad y
-                                entretenimiento.
-                            </p>
-                        </li>
-                    </ul>
+                <summary>2) Venezuela</summary>
+                <ul>
+                    <li>
+                        <a href="https://www.ntn24.com/">NTN24</a>
+                        <p>Noticias internacionales con enfoque en América Latina, incluyendo cobertura de Venezuela y
+                            otros países de la región.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.globovision.com/">Globovisión</a>
+                        <p>Canal de noticias venezolano con cobertura nacional e internacional, incluyendo política,
+                            economía y deportes.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.el-nacional.com/">El Nacional</a>
+                        <p>Periódico venezolano con noticias nacionales e internacionales, opinión y análisis político.
+                        </p>
+                    </li>
+                    <li>
+                        <a href="https://www.elnuevodia.com/">El Nuevo Día</a>
+                        <p>Periódico venezolano con noticias locales, nacionales e internacionales, incluyendo política,
+                            economía y cultura.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.lapatilla.com/">La Patilla</a>
+                        <p>Portal de noticias venezolano con cobertura de política, economía, sociedad y
+                            entretenimiento.
+                        </p>
+                    </li>
+                </ul>
                 </details>
                 <details class="subcategoria">
-                    <summary>3) Ecuador</summary>
-                    <ul>
-                        <li>
-                            <a href="https://www.elcomercio.com/">El Comercio</a>
-                            <p>Periódico ecuatoriano con noticias nacionales e internacionales, opinión y análisis
-                                político.
-                            </p>
-                        </li>
-                        <li>
-                            <a href="https://www.eluniverso.com/">El Universo</a>
-                            <p>Periódico ecuatoriano con noticias locales, nacionales e internacionales, incluyendo
-                                política,
-                                economía y cultura.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.lahora.com.ec/">La Hora</a>
-                            <p>Periódico ecuatoriano con noticias locales, nacionales e internacionales, incluyendo
-                                política,
-                                economía y cultura.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.eltelegrafo.com.ec/">El Telégrafo</a>
-                            <p>Periódico ecuatoriano con noticias locales, nacionales e internacionales, incluyendo
-                                política,
-                                economía y cultura.</p>
-                        </li>
-                    </ul>
+                <summary>3) Ecuador</summary>
+                <ul>
+                    <li>
+                        <a href="https://www.elcomercio.com/">El Comercio</a>
+                        <p>Periódico ecuatoriano con noticias nacionales e internacionales, opinión y análisis político.
+                        </p>
+                    </li>
+                    <li>
+                        <a href="https://www.eluniverso.com/">El Universo</a>
+                        <p>Periódico ecuatoriano con noticias locales, nacionales e internacionales, incluyendo
+                            política,
+                            economía y cultura.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.lahora.com.ec/">La Hora</a>
+                        <p>Periódico ecuatoriano con noticias locales, nacionales e internacionales, incluyendo
+                            política,
+                            economía y cultura.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.eltelegrafo.com.ec/">El Telégrafo</a>
+                        <p>Periódico ecuatoriano con noticias locales, nacionales e internacionales, incluyendo
+                            política,
+                            economía y cultura.</p>
+                    </li>
+                </ul>
                 </details>
                 <details class="subcategoria">
-                    <summary>4) México</summary>
-                    <ul>
-                        <li>
-                            <a href="https://www.eluniversal.com.mx/">El Universal</a>
-                            <p>Periódico mexicano con noticias nacionales e internacionales, opinión y análisis
-                                político.
-                            </p>
-                        </li>
-                        <li>
-                            <a href="https://www.excelsior.com.mx/">Excélsior</a>
-                            <p>Periódico mexicano con noticias locales, nacionales e internacionales, incluyendo
-                                política,
-                                economía y cultura.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.milenio.com/">Milenio</a>
-                            <p>Periódico mexicano con noticias locales, nacionales e internacionales, incluyendo
-                                política,
-                                economía y cultura.</p>
-                        </li>
-                    </ul>
+                <summary>4) México</summary>
+                <ul>
+                    <li>
+                        <a href="https://www.eluniversal.com.mx/">El Universal</a>
+                        <p>Periódico mexicano con noticias nacionales e internacionales, opinión y análisis político.
+                        </p>
+                    </li>
+                    <li>
+                        <a href="https://www.excelsior.com.mx/">Excélsior</a>
+                        <p>Periódico mexicano con noticias locales, nacionales e internacionales, incluyendo política,
+                            economía y cultura.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.milenio.com/">Milenio</a>
+                        <p>Periódico mexicano con noticias locales, nacionales e internacionales, incluyendo política,
+                            economía y cultura.</p>
+                    </li>
+                </ul>
                 </details>
                 <details class="subcategoria">
-                    <summary>5) Argentina</summary>
-                    <ul>
-                        <li>
-                            <a href="https://www.lanacion.com.ar/">La Nación</a>
-                            <p>Periódico argentino con noticias nacionales e internacionales, opinión y análisis
-                                político.
-                            </p>
-                        </li>
-                        <li>
-                            <a href="https://www.clarin.com/">Clarín</a>
-                            <p>Periódico argentino con noticias locales, nacionales e internacionales, incluyendo
-                                política,
-                                economía y cultura.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.pagina12.com.ar/">Página/12</a>
-                            <p>Periódico argentino con noticias locales, nacionales e internacionales, incluyendo
-                                política,
-                                economía y cultura.</p>
-                        </li>
-                    </ul>
+                <summary>5) Argentina</summary>
+                <ul>
+                    <li>
+                        <a href="https://www.lanacion.com.ar/">La Nación</a>
+                        <p>Periódico argentino con noticias nacionales e internacionales, opinión y análisis político.
+                        </p>
+                    </li>
+                    <li>
+                        <a href="https://www.clarin.com/">Clarín</a>
+                        <p>Periódico argentino con noticias locales, nacionales e internacionales, incluyendo política,
+                            economía y cultura.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.pagina12.com.ar/">Página/12</a>
+                        <p>Periódico argentino con noticias locales, nacionales e internacionales, incluyendo política,
+                            economía y cultura.</p>
+                    </li>
+                </ul>
                 </details>
                 <details class="subcategoria">
-                    <summary>6) Chile</summary>
-                    <ul>
-                        <li>
-                            <a href="https://www.latercera.com/">La Tercera</a>
-                            <p>Periódico chileno con noticias nacionales e internacionales, opinión y análisis político.
-                            </p>
-                        </li>
-                        <li>
-                            <a href="https://www.elmostrador.cl/">El Mostrador</a>
-                            <p>Periódico chileno con noticias locales, nacionales e internacionales, incluyendo
-                                política,
-                                economía y cultura.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.emol.com/">Emol</a>
-                            <p>Portal de noticias chileno con cobertura de política, economía, sociedad y
-                                entretenimiento.
-                            </p>
-                        </li>
-                    </ul>
+                <summary>6) Chile</summary>
+                <ul>
+                    <li>
+                        <a href="https://www.latercera.com/">La Tercera</a>
+                        <p>Periódico chileno con noticias nacionales e internacionales, opinión y análisis político.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.elmostrador.cl/">El Mostrador</a>
+                        <p>Periódico chileno con noticias locales, nacionales e internacionales, incluyendo política,
+                            economía y cultura.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.emol.com/">Emol</a>
+                        <p>Portal de noticias chileno con cobertura de política, economía, sociedad y entretenimiento.
+                        </p>
+                    </li>
+                </ul>
                 </details>
                 <details class="subcategoria">
-                    <summary>7) Perú</summary>
-                    <ul>
-                        <li>
-                            <a href="https://elcomercio.pe/">El Comercio</a>
-                            <p>Periódico peruano con noticias nacionales e internacionales, opinión y análisis político.
-                            </p>
-                        </li>
-                        <li>
-                            <a href="https://rpp.pe/">RPP Noticias</a>
-                            <p>Portal de noticias peruano con cobertura de política, economía, sociedad y
-                                entretenimiento.
-                            </p>
-                        </li>
-                        <li>
-                            <a href="https://www.larepublica.pe/">La República</a>
-                            <p>Periódico peruano con noticias locales, nacionales e internacionales, incluyendo
-                                política,
-                                economía y cultura.</p>
-                        </li>
-                    </ul>
+                <summary>7) Perú</summary>
+                <ul>
+                    <li>
+                        <a href="https://elcomercio.pe/">El Comercio</a>
+                        <p>Periódico peruano con noticias nacionales e internacionales, opinión y análisis político.</p>
+                    </li>
+                    <li>
+                        <a href="https://rpp.pe/">RPP Noticias</a>
+                        <p>Portal de noticias peruano con cobertura de política, economía, sociedad y entretenimiento.
+                        </p>
+                    </li>
+                    <li>
+                        <a href="https://www.larepublica.pe/">La República</a>
+                        <p>Periódico peruano con noticias locales, nacionales e internacionales, incluyendo política,
+                            economía y cultura.</p>
+                    </li>
+                </ul>
                 </details>
                 <details class="subcategoria">
-                    <summary>8) El Salvador</summary>
-                    <ul>
-                        <li>
-                            <a href="https://www.elsalvador.com/">El Diario de Hoy</a>
-                            <p>Periódico salvadoreño con noticias nacionales e internacionales, opinión y análisis
-                                político.
-                            </p>
-                        </li>
-                        <li>
-                            <a href="https://www.laprensagrafica.com/">La Prensa Gráfica</a>
-                            <p>Periódico salvadoreño con noticias locales, nacionales e internacionales, incluyendo
-                                política,
-                                economía y cultura.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.elgrafico.com/">El Gráfico</a>
-                            <p>Portal de noticias salvadoreño con cobertura de deportes, entretenimiento y sociedad.</p>
-                        </li>
-                    </ul>
+                <summary>8) El Salvador</summary>
+                <ul>
+                    <li>
+                        <a href="https://www.elsalvador.com/">El Diario de Hoy</a>
+                        <p>Periódico salvadoreño con noticias nacionales e internacionales, opinión y análisis político.
+                        </p>
+                    </li>
+                    <li>
+                        <a href="https://www.laprensagrafica.com/">La Prensa Gráfica</a>
+                        <p>Periódico salvadoreño con noticias locales, nacionales e internacionales, incluyendo
+                            política,
+                            economía y cultura.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.elgrafico.com/">El Gráfico</a>
+                        <p>Portal de noticias salvadoreño con cobertura de deportes, entretenimiento y sociedad.</p>
+                    </li>
+                </ul>
                 </details>
                 <details class="subcategoria">
-                    <summary>Internacionales</summary>
-                    <ul>
-                        <li>
-                            <a href="https://www.bbc.com/mundo">BBC Mundo</a>
-                            <p>Servicio de noticias en español de la BBC, con cobertura internacional y análisis de
-                                actualidad.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.cnn.com/">CNN</a>
-                            <p>Cadena de noticias estadounidense con cobertura internacional, incluyendo política,
-                                economía y
-                                entretenimiento.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.aljazeera.com/">Al Jazeera</a>
-                            <p>Cadena de noticias internacional con sede en Qatar, con cobertura global y enfoque en
-                                Oriente
-                                Medio.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.reuters.com/">Reuters</a>
-                            <p>Agencia de noticias internacional con cobertura global, incluyendo política, economía y
-                                negocios.</p>
-                        </li>
-                    </ul>
+                <summary>Internacionales</summary>
+                <ul>
+                    <li>
+                        <a href="https://www.bbc.com/mundo">BBC Mundo</a>
+                        <p>Servicio de noticias en español de la BBC, con cobertura internacional y análisis de
+                            actualidad.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.cnn.com/">CNN</a>
+                        <p>Cadena de noticias estadounidense con cobertura internacional, incluyendo política,
+                            economía y
+                            entretenimiento.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.aljazeera.com/">Al Jazeera</a>
+                        <p>Cadena de noticias internacional con sede en Qatar, con cobertura global y enfoque en
+                            Oriente
+                            Medio.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.reuters.com/">Reuters</a>
+                        <p>Agencia de noticias internacional con cobertura global, incluyendo política, economía y
+                            negocios.</p>
+                    </li>
+                </ul>
                 </details>
             </div>
 
@@ -1103,169 +1227,158 @@
             <div class="categoria" data-categoria="deportes">
                 <h3>Deportes</h3>
                 <details class="subcategoria">
-                    <summary>1)Futbol</summary>
-                    <ul>
-                        <li>
-                            <a href="https://www.fifa.com/">FIFA</a>
-                            <p>La página oficial de la Federación Internacional de Fútbol Asociación, con noticias,
-                                resultados y
-                                eventos de fútbol a nivel mundial.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.uefa.com/">UEFA</a>
-                            <p>La página oficial de la Unión de Asociaciones Europeas de Fútbol, con información sobre
-                                competiciones europeas y noticias del fútbol europeo.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.laliga.com/">LaLiga</a>
-                            <p>La página oficial de la Liga de Fútbol Profesional de España, con noticias, resultados y
-                                estadísticas de los equipos y jugadores.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.premierleague.com/">Premier League</a>
-                            <p>La página oficial de la Premier League de Inglaterra, con noticias, resultados y
-                                estadísticas
-                                de los equipos y jugadores.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.bundesliga.com/en/">Bundesliga</a>
-                            <p>La página oficial de la Bundesliga de Alemania, con noticias, resultados y estadísticas
-                                de
-                                los
-                                equipos y jugadores.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.seriea.com/">Serie A</a>
-                            <p>La página oficial de la Serie A de Italia, con noticias, resultados y estadísticas de los
-                                equipos y jugadores.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.ligue1.com/">Ligue 1</a>
-                            <p>La página oficial de la Ligue 1 de Francia, con noticias, resultados y estadísticas de
-                                los
-                                equipos y jugadores.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.winsports.co/">WinSports</a>
-                            <p>La página oficial de la Confederación de Norteamérica, Centroamérica y el Caribe de
-                                Fútbol,
-                                con
-                                información sobre competiciones regionales y noticias del fútbol en la región.</p>
-                        </li>
-                    </ul>
+                <summary>1)Futbol</summary>
+                <ul>
+                    <li>
+                        <a href="https://www.fifa.com/">FIFA</a>
+                        <p>La página oficial de la Federación Internacional de Fútbol Asociación, con noticias,
+                            resultados y
+                            eventos de fútbol a nivel mundial.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.uefa.com/">UEFA</a>
+                        <p>La página oficial de la Unión de Asociaciones Europeas de Fútbol, con información sobre
+                            competiciones europeas y noticias del fútbol europeo.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.laliga.com/">LaLiga</a>
+                        <p>La página oficial de la Liga de Fútbol Profesional de España, con noticias, resultados y
+                            estadísticas de los equipos y jugadores.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.premierleague.com/">Premier League</a>
+                        <p>La página oficial de la Premier League de Inglaterra, con noticias, resultados y estadísticas
+                            de los equipos y jugadores.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.bundesliga.com/en/">Bundesliga</a>
+                        <p>La página oficial de la Bundesliga de Alemania, con noticias, resultados y estadísticas de
+                            los
+                            equipos y jugadores.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.seriea.com/">Serie A</a>
+                        <p>La página oficial de la Serie A de Italia, con noticias, resultados y estadísticas de los
+                            equipos y jugadores.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.ligue1.com/">Ligue 1</a>
+                        <p>La página oficial de la Ligue 1 de Francia, con noticias, resultados y estadísticas de los
+                            equipos y jugadores.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.winsports.co/">WinSports</a>
+                        <p>La página oficial de la Confederación de Norteamérica, Centroamérica y el Caribe de Fútbol,
+                            con
+                            información sobre competiciones regionales y noticias del fútbol en la región.</p>
+                    </li>
+                </ul>
                 </details>
                 <details class="subcategoria">
-                    <summary>2)basketball</summary>
-                    <ul>
-                        <li>
-                            <a href="https://www.nba.com/">NBA</a>
-                            <p>La página oficial de la National Basketball Association, con noticias, resultados y
-                                estadísticas
-                                de los equipos y jugadores.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.fiba.basketball/">FIBA</a>
-                            <p>La página oficial de la Federación Internacional de Baloncesto, con información sobre
-                                competiciones internacionales y noticias del baloncesto mundial.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.euroleague.net/">EuroLeague</a>
-                            <p>La página oficial de la Euroliga de Baloncesto, con noticias, resultados y estadísticas
-                                de
-                                los
-                                equipos y jugadores europeos.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.nba.com/nba-g-league">NBA G League</a>
-                            <p>La página oficial de la NBA G League, con noticias, resultados y estadísticas de los
-                                equipos
-                                y
-                                jugadores de la liga de desarrollo de la NBA.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.wnba.com/">WNBA</a>
-                            <p>La página oficial de la Women's National Basketball Association, con noticias, resultados
-                                y
-                                estadísticas de los equipos y jugadoras de la liga femenina de baloncesto.</p>
-                        </li>
-                    </ul>
+                <summary>2)basketball</summary>
+                <ul>
+                    <li>
+                        <a href="https://www.nba.com/">NBA</a>
+                        <p>La página oficial de la National Basketball Association, con noticias, resultados y
+                            estadísticas
+                            de los equipos y jugadores.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.fiba.basketball/">FIBA</a>
+                        <p>La página oficial de la Federación Internacional de Baloncesto, con información sobre
+                            competiciones internacionales y noticias del baloncesto mundial.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.euroleague.net/">EuroLeague</a>
+                        <p>La página oficial de la Euroliga de Baloncesto, con noticias, resultados y estadísticas de
+                            los
+                            equipos y jugadores europeos.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.nba.com/nba-g-league">NBA G League</a>
+                        <p>La página oficial de la NBA G League, con noticias, resultados y estadísticas de los equipos
+                            y
+                            jugadores de la liga de desarrollo de la NBA.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.wnba.com/">WNBA</a>
+                        <p>La página oficial de la Women's National Basketball Association, con noticias, resultados y
+                            estadísticas de los equipos y jugadoras de la liga femenina de baloncesto.</p>
+                    </li>
+                </ul>
                 </details>
                 <details class="subcategoria">
-                    <summary>3) beisbol</summary>
-                    <ul>
-                        <li>
-                            <a href="https://www.mlb.com/">MLB</a>
-                            <p>La página oficial de la Major League Baseball, con noticias, resultados y estadísticas de
-                                los
-                                equipos y jugadores de béisbol profesional en Estados Unidos.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.npb.jp/">NPB</a>
-                            <p>La página oficial de la Nippon Professional Baseball, con noticias, resultados y
-                                estadísticas
-                                de los equipos y jugadores de béisbol profesional en Japón.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.koreabaseball.com/">KBO</a>
-                            <p>La página oficial de la Korea Baseball Organization, con noticias, resultados y
-                                estadísticas
-                                de los equipos y jugadores de béisbol profesional en Corea del Sur.</p>
-                        </li>
-                    </ul>
+                <summary>3) beisbol</summary>
+                <ul>
+                    <li>
+                        <a href="https://www.mlb.com/">MLB</a>
+                        <p>La página oficial de la Major League Baseball, con noticias, resultados y estadísticas de los
+                            equipos y jugadores de béisbol profesional en Estados Unidos.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.npb.jp/">NPB</a>
+                        <p>La página oficial de la Nippon Professional Baseball, con noticias, resultados y estadísticas
+                            de los equipos y jugadores de béisbol profesional en Japón.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.koreabaseball.com/">KBO</a>
+                        <p>La página oficial de la Korea Baseball Organization, con noticias, resultados y estadísticas
+                            de los equipos y jugadores de béisbol profesional en Corea del Sur.</p>
+                    </li>
+                </ul>
                 </details>
                 <details class="subcategoria">
-                    <summary>4) f1</summary>
-                    <ul>
-                        <li>
-                            <a href="https://www.formula1.com/">Formula 1</a>
-                            <p>La página oficial de la Fórmula 1, con noticias, resultados y estadísticas de los equipos
-                                y
-                                pilotos de la categoría reina del automovilismo.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.fia.com/">FIA</a>
-                            <p>La página oficial de la Federación Internacional del Automóvil, con información sobre
-                                regulaciones,
-                                competiciones y noticias del automovilismo mundial.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.indycar.com/">IndyCar</a>
-                            <p>La página oficial de la IndyCar Series, con noticias, resultados y estadísticas de los
-                                equipos
-                                y
-                                pilotos de la categoría de monoplazas en Estados Unidos.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.nascar.com/">NASCAR</a>
-                            <p>La página oficial de la National Association for Stock Car Auto Racing, con noticias,
-                                resultados
-                                y
-                                estadísticas de los equipos y pilotos de carreras de autos stock en Estados Unidos.</p>
-                        </li>
-                    </ul>
+                <summary>4) f1</summary>
+                <ul>
+                    <li>
+                        <a href="https://www.formula1.com/">Formula 1</a>
+                        <p>La página oficial de la Fórmula 1, con noticias, resultados y estadísticas de los equipos y
+                            pilotos de la categoría reina del automovilismo.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.fia.com/">FIA</a>
+                        <p>La página oficial de la Federación Internacional del Automóvil, con información sobre
+                            regulaciones,
+                            competiciones y noticias del automovilismo mundial.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.indycar.com/">IndyCar</a>
+                        <p>La página oficial de la IndyCar Series, con noticias, resultados y estadísticas de los
+                            equipos
+                            y
+                            pilotos de la categoría de monoplazas en Estados Unidos.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.nascar.com/">NASCAR</a>
+                        <p>La página oficial de la National Association for Stock Car Auto Racing, con noticias,
+                            resultados
+                            y
+                            estadísticas de los equipos y pilotos de carreras de autos stock en Estados Unidos.</p>
+                    </li>
+                </ul>
                 </details>
                 <details class="subcategoria">
-                    <summary>5)box</summary>
-                    <ul>
-                        <li>
-                            <a href="https://www.wbcboxing.com/">WBC</a>
-                            <p>La página oficial del Consejo Mundial de Boxeo, con noticias, resultados y rankings de
-                                boxeo
-                                profesional a nivel mundial.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.wba-boxing.com/">WBA</a>
-                            <p>La página oficial de la Asociación Mundial de Boxeo, con noticias, resultados y rankings
-                                de
-                                boxeo profesional a nivel mundial.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.ibf-usba-boxing.com/">IBF</a>
-                            <p>La página oficial de la Federación Internacional de Boxeo, con noticias, resultados y
-                                rankings
-                                de boxeo profesional a nivel mundial.</p>
-                        </li>
-                    </ul>
+                <summary>5)box</summary>
+                <ul>
+                    <li>
+                        <a href="https://www.wbcboxing.com/">WBC</a>
+                        <p>La página oficial del Consejo Mundial de Boxeo, con noticias, resultados y rankings de
+                            boxeo
+                            profesional a nivel mundial.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.wba-boxing.com/">WBA</a>
+                        <p>La página oficial de la Asociación Mundial de Boxeo, con noticias, resultados y rankings
+                            de
+                            boxeo profesional a nivel mundial.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.ibf-usba-boxing.com/">IBF</a>
+                        <p>La página oficial de la Federación Internacional de Boxeo, con noticias, resultados y
+                            rankings
+                            de boxeo profesional a nivel mundial.</p>
+                    </li>
+                </ul>
                 </details>
             </div>
 
@@ -1309,80 +1422,73 @@
             <div class="categoria" data-categoria="emuladores">
                 <h2>Emuladores</h2>
                 <details class="subcategoria">
-                    <summary>1) PS Emuladores</summary>
-                    <ul>
-                        <li>
-                            <a href="https://www.filehorse.com/es/download-pcsx2-ps2-emulator/">PCSX2</a>
-                            <p>Comunidad de entusiastas de PlayStation que ofrece emuladores, herramientas y tutoriales
-                                para
-                                consolas PlayStation 2.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.emulator-zone.com/doc.php/psx/pcsx.html">PCSX</a>
-                            <p>Emulador de PlayStation 1 que permite jugar a los clásicos de la consola en PC con
-                                soporte
-                                para
-                                plugins y configuraciones avanzadas.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.rpcs3.net/">RPCS3</a>
-                            <p>Emulador de PlayStation 3 que permite ejecutar juegos de PS3 en PC con soporte para
-                                gráficos
-                                avanzados y configuraciones personalizadas.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.ppsspp.org/">PPSSPP</a>
-                            <p>Emulador de PlayStation Portable (PSP) que permite jugar a los juegos de PSP en PC y
-                                dispositivos
-                                móviles con soporte para alta resolución y controles personalizables.</p>
-                        </li>
-                    </ul>
+                <summary>1) PS Emuladores</summary>
+                <ul>
+                    <li>
+                        <a href="https://www.filehorse.com/es/download-pcsx2-ps2-emulator/">PCSX2</a>
+                        <p>Comunidad de entusiastas de PlayStation que ofrece emuladores, herramientas y tutoriales para
+                            consolas PlayStation 2.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.emulator-zone.com/doc.php/psx/pcsx.html">PCSX</a>
+                        <p>Emulador de PlayStation 1 que permite jugar a los clásicos de la consola en PC con soporte
+                            para
+                            plugins y configuraciones avanzadas.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.rpcs3.net/">RPCS3</a>
+                        <p>Emulador de PlayStation 3 que permite ejecutar juegos de PS3 en PC con soporte para gráficos
+                            avanzados y configuraciones personalizadas.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.ppsspp.org/">PPSSPP</a>
+                        <p>Emulador de PlayStation Portable (PSP) que permite jugar a los juegos de PSP en PC y
+                            dispositivos
+                            móviles con soporte para alta resolución y controles personalizables.</p>
+                    </li>
+                </ul>
                 </details>
 
                 <details class="subcategoria">
-                    <summary>2)Nintendo emulador</summary>
-                    <ul>
-                        <li>
-                            <a href="https://www.citra-emu.org/">Citra</a>
-                            <p>Emulador de Nintendo 3DS que permite jugar a los juegos de 3DS en PC con soporte para
-                                gráficos
-                                mejorados y funciones de red.</p>
-                        </li>
-                        <li>
-                            <a href="https://yuzu-emu.org/">Yuzu</a>
-                            <p>Emulador de Nintendo Switch que permite jugar a los juegos de Switch en PC con soporte
-                                para
-                                alta
-                                resolución y funciones de red.</p>
-                        </li>
-                        <li>
-                            <a href="https://ryujinx.org/">Ryujinx</a>
-                            <p>Otro emulador de Nintendo Switch que ofrece compatibilidad con una amplia gama de juegos
-                                y
-                                características avanzadas.</p>
-                        </li>
-                        <li>
-                            <a href="https://www.dolphin-emu.org/">Dolphin</a>
-                            <p>Emulador de Nintendo GameCube y Wii que permite jugar a los juegos de estas consolas en
-                                PC
-                                con
-                                soporte para alta resolución y mejoras gráficas.</p>
-                        </li>
-                        <li>
-                            <a
-                                href="https://www-pj64--emu-com.translate.goog/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tcl,sc">Project64</a>
-                            <p>Emulador de Nintendo 64 que permite jugar a los juegos de N64 en PC con soporte para
-                                plugins
-                                y configuraciones avanzadas.</p>
+                <summary>2)Nintendo emulador</summary>
+                <ul>
+                    <li>
+                        <a href="https://www.citra-emu.org/">Citra</a>
+                        <p>Emulador de Nintendo 3DS que permite jugar a los juegos de 3DS en PC con soporte para
+                            gráficos
+                            mejorados y funciones de red.</p>
+                    </li>
+                    <li>
+                        <a href="https://yuzu-emu.org/">Yuzu</a>
+                        <p>Emulador de Nintendo Switch que permite jugar a los juegos de Switch en PC con soporte para
+                            alta
+                            resolución y funciones de red.</p>
+                    </li>
+                    <li>
+                        <a href="https://ryujinx.org/">Ryujinx</a>
+                        <p>Otro emulador de Nintendo Switch que ofrece compatibilidad con una amplia gama de juegos y
+                            características avanzadas.</p>
+                    </li>
+                    <li>
+                        <a href="https://www.dolphin-emu.org/">Dolphin</a>
+                        <p>Emulador de Nintendo GameCube y Wii que permite jugar a los juegos de estas consolas en PC
+                            con
+                            soporte para alta resolución y mejoras gráficas.</p>
+                    </li>
+                    <li>
+                        <a
+                            href="https://www-pj64--emu-com.translate.goog/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tcl,sc">Project64</a>
+                        <p>Emulador de Nintendo 64 que permite jugar a los juegos de N64 en PC con soporte para plugins
+                            y configuraciones avanzadas.</p>
 
-                        </li>
-                        <li>
-                            <a href="https://www.mupen64plus.org/">Mupen64Plus</a>
-                            <p>Otro emulador de Nintendo 64 que ofrece compatibilidad con una amplia gama de juegos y
-                                características avanzadas.</p>
-                        </li>
+                    </li>
+                    <li>
+                        <a href="https://www.mupen64plus.org/">Mupen64Plus</a>
+                        <p>Otro emulador de Nintendo 64 que ofrece compatibilidad con una amplia gama de juegos y
+                            características avanzadas.</p>
+                    </li>
 
-                    </ul>
+                </ul>
                 </details>
             </div>
 
@@ -1396,6 +1502,57 @@
             <input type="text" id="inputBuscar" placeholder="Escribe el nombre de una página o categoría..."
                 onkeyup="buscarPagina()">
             <ul id="resultadosBusqueda"></ul>
+        </div>
+
+        <!-- ===================== MINIJUEGOS ===================== -->
+        <div id="minijuegos" class="seccion" style="display: none;">
+            <h2>Minijuegos</h2>
+
+            <div id="tabsJuegos">
+                <button class="activo" onclick="mostrarJuego('sudoku', this)">🔢 Sudoku</button>
+                <button onclick="mostrarJuego('wordle', this)">🔤 Palabra del día</button>
+                <button onclick="mostrarJuego('rps', this)">✂️ Piedra, papel o tijera</button>
+                <button onclick="mostrarJuego('memorama', this)">🧠 Memorama</button>
+            </div>
+
+            <!-- SUDOKU -->
+            <div id="juego-sudoku" class="juego activo">
+                <p id="mensajeSudoku"></p>
+                <div id="tableroSudoku"></div>
+                <div class="accionesJuego">
+                    <button onclick="verificarSudoku()">Verificar</button>
+                    <button onclick="reiniciarSudoku()">Reiniciar</button>
+                    <button onclick="resolverSudoku()">Ver solución</button>
+                </div>
+            </div>
+
+            <!-- PALABRA DEL DÍA (WORDLE) -->
+            <div id="juego-wordle" class="juego">
+                <p id="mensajeWordle">Adivina la palabra de 5 letras. Tienes 6 intentos.</p>
+                <div id="tableroWordle"></div>
+                <input type="text" id="inputWordle" maxlength="5" placeholder="5 letras">
+                <button onclick="intentarWordle()">Adivinar</button>
+            </div>
+
+            <!-- PIEDRA, PAPEL O TIJERA -->
+            <div id="juego-rps" class="juego">
+                <p id="marcadorRPS">Ganadas: 0 &nbsp;|&nbsp; Perdidas: 0 &nbsp;|&nbsp; Empates: 0</p>
+                <div class="accionesJuego">
+                    <button onclick="jugarRPS('piedra')">🪨 Piedra</button>
+                    <button onclick="jugarRPS('papel')">📄 Papel</button>
+                    <button onclick="jugarRPS('tijera')">✂️ Tijera</button>
+                </div>
+                <p id="resultadoRPS"></p>
+            </div>
+
+            <!-- MEMORAMA -->
+            <div id="juego-memorama" class="juego">
+                <p id="mensajeMemorama">Encuentra todas las parejas.</p>
+                <div id="tableroMemorama"></div>
+                <div class="accionesJuego">
+                    <button onclick="reiniciarMemorama()">Reiniciar</button>
+                </div>
+            </div>
         </div>
 
         <!-- ===================== PROBLEMAS ===================== -->
@@ -1437,9 +1594,7 @@
     </main>
 
     <footer>
-        &copy; 2026 Weblink+ Todos los derechos reservados. | Diseñado por Prada Soft Studios. Te agradecemos que
-        visites nuestra página oficial de <a href="https://github.com/josuepradatorres12-collab"
-            target="_blank">GitHub</a>
+        &copy; 2024 Prada Soft Studios. All rights reserved.
     </footer>
 
     <button id="botonSubir" onclick="subirArriba()">↑</button>
@@ -1769,6 +1924,290 @@
                 resultados.appendChild(li);
             });
         }
+        // ===================== MINIJUEGOS =====================
+
+        function mostrarJuego(id, boton) {
+            document.querySelectorAll('#tabsJuegos button').forEach(b => b.classList.remove('activo'));
+            boton.classList.add('activo');
+            document.querySelectorAll('.juego').forEach(j => j.classList.remove('activo'));
+            document.getElementById('juego-' + id).classList.add('activo');
+        }
+
+        // ---------- SUDOKU ----------
+        // 0 = celda vacía. El mismo puzzle cambia cada día, igual que el destacado.
+        const sudokuPuzzles = [
+            {
+                puzzle: [
+                    [5,3,0, 0,7,0, 0,0,0],
+                    [6,0,0, 1,9,5, 0,0,0],
+                    [0,9,8, 0,0,0, 0,6,0],
+                    [8,0,0, 0,6,0, 0,0,3],
+                    [4,0,0, 8,0,3, 0,0,1],
+                    [7,0,0, 0,2,0, 0,0,6],
+                    [0,6,0, 0,0,0, 2,8,0],
+                    [0,0,0, 4,1,9, 0,0,5],
+                    [0,0,0, 0,8,0, 0,7,9]
+                ],
+                solucion: [
+                    [5,3,4, 6,7,8, 9,1,2],
+                    [6,7,2, 1,9,5, 3,4,8],
+                    [1,9,8, 3,4,2, 5,6,7],
+                    [8,5,9, 7,6,1, 4,2,3],
+                    [4,2,6, 8,5,3, 7,9,1],
+                    [7,1,3, 9,2,4, 8,5,6],
+                    [9,6,1, 5,3,7, 2,8,4],
+                    [2,8,7, 4,1,9, 6,3,5],
+                    [3,4,5, 2,8,6, 1,7,9]
+                ]
+            }
+        ];
+
+        // Usa el mismo puzzle por ahora (agrega más al arreglo sudokuPuzzles para variar por día)
+        const indiceSudoku = diaDelAño % sudokuPuzzles.length;
+        const sudokuActual = sudokuPuzzles[indiceSudoku];
+
+        function construirTableroSudoku() {
+            const tablero = document.getElementById('tableroSudoku');
+            tablero.innerHTML = '';
+            for (let fila = 0; fila < 9; fila++) {
+                for (let col = 0; col < 9; col++) {
+                    const valor = sudokuActual.puzzle[fila][col];
+                    const input = document.createElement('input');
+                    input.maxLength = 1;
+                    input.dataset.fila = fila;
+                    input.dataset.col = col;
+                    if (valor !== 0) {
+                        input.value = valor;
+                        input.disabled = true;
+                    }
+                    if (col === 2 || col === 5) input.classList.add('borde-derecho');
+                    if (fila === 2 || fila === 5) input.classList.add('borde-abajo');
+                    input.addEventListener('input', () => {
+                        input.value = input.value.replace(/[^1-9]/g, '').slice(0, 1);
+                    });
+                    tablero.appendChild(input);
+                }
+            }
+        }
+        construirTableroSudoku();
+
+        function verificarSudoku() {
+            const inputs = document.querySelectorAll('#tableroSudoku input');
+            let completo = true;
+            let correcto = true;
+            inputs.forEach(input => {
+                const fila = parseInt(input.dataset.fila);
+                const col = parseInt(input.dataset.col);
+                const esperado = sudokuActual.solucion[fila][col];
+                const valor = parseInt(input.value);
+                input.classList.remove('error');
+                if (!input.value) completo = false;
+                if (input.value && valor !== esperado) {
+                    input.classList.add('error');
+                    correcto = false;
+                }
+            });
+            const mensaje = document.getElementById('mensajeSudoku');
+            if (!completo) {
+                mensaje.textContent = 'Faltan casillas por llenar.';
+            } else if (correcto) {
+                mensaje.textContent = '¡Sudoku resuelto correctamente! 🎉';
+            } else {
+                mensaje.textContent = 'Hay errores marcados en rojo.';
+            }
+        }
+
+        function reiniciarSudoku() {
+            construirTableroSudoku();
+            document.getElementById('mensajeSudoku').textContent = '';
+        }
+
+        function resolverSudoku() {
+            const inputs = document.querySelectorAll('#tableroSudoku input');
+            inputs.forEach(input => {
+                const fila = parseInt(input.dataset.fila);
+                const col = parseInt(input.dataset.col);
+                input.value = sudokuActual.solucion[fila][col];
+                input.classList.remove('error');
+            });
+            document.getElementById('mensajeSudoku').textContent = 'Esta es la solución completa.';
+        }
+
+        // ---------- PALABRA DEL DÍA (WORDLE) ----------
+        const palabrasWordle = [
+            'CASAS', 'PERRO', 'GATOS', 'LIBRO', 'VERDE', 'PLAYA', 'NOCHE',
+            'FUEGO', 'AGUAS', 'PIEDRA'.slice(0,5), 'MUNDO', 'FIESTA'.slice(0,5),
+            'CIELO', 'FLORS'.slice(0,5), 'DULCE', 'RATON', 'TIGRE', 'NUBES'
+        ];
+        const palabraDelDia = palabrasWordle[diaDelAño % palabrasWordle.length];
+        let intentosWordle = 0;
+        const maxIntentosWordle = 6;
+        let juegoWordleTerminado = false;
+
+        function construirTableroWordle() {
+            const tablero = document.getElementById('tableroWordle');
+            tablero.innerHTML = '';
+            for (let i = 0; i < maxIntentosWordle; i++) {
+                const fila = document.createElement('div');
+                fila.className = 'fila-wordle';
+                fila.id = 'fila-wordle-' + i;
+                for (let j = 0; j < 5; j++) {
+                    const celda = document.createElement('div');
+                    celda.className = 'celda-wordle';
+                    fila.appendChild(celda);
+                }
+                tablero.appendChild(fila);
+            }
+        }
+        construirTableroWordle();
+
+        function intentarWordle() {
+            if (juegoWordleTerminado) return;
+            const input = document.getElementById('inputWordle');
+            const intento = normalizar(input.value).toUpperCase().replace(/[^A-Z]/g, '');
+            const mensaje = document.getElementById('mensajeWordle');
+
+            if (intento.length !== 5) {
+                mensaje.textContent = 'La palabra debe tener exactamente 5 letras.';
+                return;
+            }
+
+            const fila = document.getElementById('fila-wordle-' + intentosWordle);
+            const objetivo = normalizar(palabraDelDia).toUpperCase();
+            const letrasObjetivo = objetivo.split('');
+            const resultado = new Array(5).fill('ausente');
+
+            // Primero marcar las correctas
+            for (let i = 0; i < 5; i++) {
+                if (intento[i] === letrasObjetivo[i]) {
+                    resultado[i] = 'correcta';
+                    letrasObjetivo[i] = null;
+                }
+            }
+            // Luego marcar las presentes en otra posición
+            for (let i = 0; i < 5; i++) {
+                if (resultado[i] === 'correcta') continue;
+                const idx = letrasObjetivo.indexOf(intento[i]);
+                if (idx !== -1) {
+                    resultado[i] = 'presente';
+                    letrasObjetivo[idx] = null;
+                }
+            }
+
+            const celdas = fila.querySelectorAll('.celda-wordle');
+            celdas.forEach((celda, i) => {
+                celda.textContent = intento[i];
+                celda.classList.add(resultado[i]);
+            });
+
+            intentosWordle++;
+            input.value = '';
+
+            if (intento === objetivo) {
+                mensaje.textContent = `¡Correcto! La palabra era ${palabraDelDia}. 🎉`;
+                juegoWordleTerminado = true;
+            } else if (intentosWordle >= maxIntentosWordle) {
+                mensaje.textContent = `Se acabaron los intentos. La palabra era ${palabraDelDia}.`;
+                juegoWordleTerminado = true;
+            } else {
+                mensaje.textContent = `Intento ${intentosWordle} de ${maxIntentosWordle}.`;
+            }
+        }
+
+        // ---------- PIEDRA, PAPEL O TIJERA ----------
+        let ganadasRPS = 0, perdidasRPS = 0, empatesRPS = 0;
+
+        function jugarRPS(eleccion) {
+            const opciones = ['piedra', 'papel', 'tijera'];
+            const cpu = opciones[Math.floor(Math.random() * 3)];
+            const resultado = document.getElementById('resultadoRPS');
+            const emojis = { piedra: '🪨', papel: '📄', tijera: '✂️' };
+
+            let texto = `Elegiste ${emojis[eleccion]} vs ${emojis[cpu]} de la máquina. `;
+
+            if (eleccion === cpu) {
+                empatesRPS++;
+                texto += '¡Empate!';
+            } else if (
+                (eleccion === 'piedra' && cpu === 'tijera') ||
+                (eleccion === 'papel' && cpu === 'piedra') ||
+                (eleccion === 'tijera' && cpu === 'papel')
+            ) {
+                ganadasRPS++;
+                texto += '¡Ganaste! 🎉';
+            } else {
+                perdidasRPS++;
+                texto += 'Perdiste.';
+            }
+
+            resultado.textContent = texto;
+            document.getElementById('marcadorRPS').textContent =
+                `Ganadas: ${ganadasRPS} | Perdidas: ${perdidasRPS} | Empates: ${empatesRPS}`;
+        }
+
+        // ---------- MEMORAMA ----------
+        const simbolosMemorama = ['🍕','🎮','🚀','🎸','🐱','🌵','⚽','🎧'];
+        let cartasVolteadas = [];
+        let paresEncontrados = 0;
+        let bloqueoMemorama = false;
+
+        function crearMemorama() {
+            const tablero = document.getElementById('tableroMemorama');
+            tablero.innerHTML = '';
+            cartasVolteadas = [];
+            paresEncontrados = 0;
+            bloqueoMemorama = false;
+            document.getElementById('mensajeMemorama').textContent = 'Encuentra todas las parejas.';
+
+            const mazo = [...simbolosMemorama, ...simbolosMemorama]
+                .sort(() => Math.random() - 0.5);
+
+            mazo.forEach((simbolo, i) => {
+                const carta = document.createElement('div');
+                carta.className = 'carta-memorama';
+                carta.dataset.simbolo = simbolo;
+                carta.dataset.indice = i;
+                carta.textContent = simbolo;
+                carta.addEventListener('click', () => voltearCarta(carta));
+                tablero.appendChild(carta);
+            });
+        }
+
+        function voltearCarta(carta) {
+            if (bloqueoMemorama) return;
+            if (carta.classList.contains('volteada') || carta.classList.contains('encontrada')) return;
+            if (cartasVolteadas.length === 2) return;
+
+            carta.classList.add('volteada');
+            cartasVolteadas.push(carta);
+
+            if (cartasVolteadas.length === 2) {
+                const [a, b] = cartasVolteadas;
+                if (a.dataset.simbolo === b.dataset.simbolo) {
+                    a.classList.add('encontrada');
+                    b.classList.add('encontrada');
+                    cartasVolteadas = [];
+                    paresEncontrados++;
+                    if (paresEncontrados === simbolosMemorama.length) {
+                        document.getElementById('mensajeMemorama').textContent = '¡Completaste el memorama! 🎉';
+                    }
+                } else {
+                    bloqueoMemorama = true;
+                    setTimeout(() => {
+                        a.classList.remove('volteada');
+                        b.classList.remove('volteada');
+                        cartasVolteadas = [];
+                        bloqueoMemorama = false;
+                    }, 800);
+                }
+            }
+        }
+
+        function reiniciarMemorama() {
+            crearMemorama();
+        }
+        crearMemorama();
+
     </script>
 </body>
 
