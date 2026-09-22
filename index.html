@@ -124,6 +124,185 @@
             color: #555;
         }
 
+        /* Minijuegos */
+        #tabsJuegos {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        #tabsJuegos button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 20px;
+            background-color: #444;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #tabsJuegos button.activo {
+            background-color: #333;
+            font-weight: bold;
+        }
+
+        .juego {
+            display: none;
+        }
+
+        .juego.activo {
+            display: block;
+        }
+
+        #tableroSudoku {
+            display: grid;
+            grid-template-columns: repeat(9, 36px);
+            grid-template-rows: repeat(9, 36px);
+            gap: 1px;
+            background-color: #333;
+            width: fit-content;
+            margin-bottom: 15px;
+        }
+
+        #tableroSudoku input {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            font-size: 1.1em;
+            border: none;
+            box-sizing: border-box;
+        }
+
+        #tableroSudoku input:disabled {
+            background-color: #ddd;
+            font-weight: bold;
+            color: #222;
+        }
+
+        #tableroSudoku input.borde-derecho {
+            border-right: 3px solid #333;
+        }
+
+        #tableroSudoku input.borde-abajo {
+            border-bottom: 3px solid #333;
+        }
+
+        #tableroSudoku input.error {
+            background-color: #ffcdd2;
+        }
+
+        .accionesJuego {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .accionesJuego button {
+            padding: 8px 14px;
+            border: none;
+            border-radius: 20px;
+            background-color: #444;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #mensajeSudoku,
+        #mensajeWordle {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        #tableroWordle {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 15px;
+        }
+
+        .fila-wordle {
+            display: flex;
+            gap: 6px;
+        }
+
+        .celda-wordle {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3em;
+            font-weight: bold;
+            text-transform: uppercase;
+            background-color: #eee;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .celda-wordle.correcta {
+            background-color: #6aaa64;
+            color: #fff;
+            border-color: #6aaa64;
+        }
+
+        .celda-wordle.presente {
+            background-color: #c9b458;
+            color: #fff;
+            border-color: #c9b458;
+        }
+
+        .celda-wordle.ausente {
+            background-color: #787c7e;
+            color: #fff;
+            border-color: #787c7e;
+        }
+
+        #inputWordle {
+            padding: 8px;
+            font-size: 1em;
+            text-transform: uppercase;
+            margin-right: 8px;
+        }
+
+        #marcadorRPS,
+        #resultadoRPS {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        #tableroMemorama {
+            display: grid;
+            grid-template-columns: repeat(4, 70px);
+            grid-template-rows: repeat(4, 70px);
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .carta-memorama {
+            width: 70px;
+            height: 70px;
+            background-color: #444;
+            color: transparent;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8em;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .carta-memorama.volteada,
+        .carta-memorama.encontrada {
+            background-color: #fff;
+            color: #000;
+            border: 2px solid #444;
+        }
+
+        .carta-memorama.encontrada {
+            background-color: #c8e6c9;
+            border-color: #6aaa64;
+            cursor: default;
+        }
+
         #botonSubir {
             position: fixed;
             bottom: 70px;
@@ -259,6 +438,7 @@
     <nav>
         <a onclick="mostrarSeccion('inicio')">Inicio</a>
         <a onclick="mostrarSeccion('buscador')">Buscador</a>
+        <a onclick="mostrarSeccion('minijuegos')">Minijuegos</a>
         <a onclick="mostrarSeccion('problemas')">Problemas</a>
     </nav>
 
@@ -1398,6 +1578,57 @@
             <ul id="resultadosBusqueda"></ul>
         </div>
 
+        <!-- ===================== MINIJUEGOS ===================== -->
+        <div id="minijuegos" class="seccion" style="display: none;">
+            <h2>Minijuegos</h2>
+
+            <div id="tabsJuegos">
+                <button class="activo" onclick="mostrarJuego('sudoku', this)">🔢 Sudoku</button>
+                <button onclick="mostrarJuego('wordle', this)">🔤 Palabra del día</button>
+                <button onclick="mostrarJuego('rps', this)">✂️ Piedra, papel o tijera</button>
+                <button onclick="mostrarJuego('memorama', this)">🧠 Memorama</button>
+            </div>
+
+            <!-- SUDOKU -->
+            <div id="juego-sudoku" class="juego activo">
+                <p id="mensajeSudoku"></p>
+                <div id="tableroSudoku"></div>
+                <div class="accionesJuego">
+                    <button onclick="verificarSudoku()">Verificar</button>
+                    <button onclick="reiniciarSudoku()">Reiniciar</button>
+                    <button onclick="resolverSudoku()">Ver solución</button>
+                </div>
+            </div>
+
+            <!-- PALABRA DEL DÍA (WORDLE) -->
+            <div id="juego-wordle" class="juego">
+                <p id="mensajeWordle">Adivina la palabra de 5 letras. Tienes 6 intentos.</p>
+                <div id="tableroWordle"></div>
+                <input type="text" id="inputWordle" maxlength="5" placeholder="5 letras">
+                <button onclick="intentarWordle()">Adivinar</button>
+            </div>
+
+            <!-- PIEDRA, PAPEL O TIJERA -->
+            <div id="juego-rps" class="juego">
+                <p id="marcadorRPS">Ganadas: 0 &nbsp;|&nbsp; Perdidas: 0 &nbsp;|&nbsp; Empates: 0</p>
+                <div class="accionesJuego">
+                    <button onclick="jugarRPS('piedra')">🪨 Piedra</button>
+                    <button onclick="jugarRPS('papel')">📄 Papel</button>
+                    <button onclick="jugarRPS('tijera')">✂️ Tijera</button>
+                </div>
+                <p id="resultadoRPS"></p>
+            </div>
+
+            <!-- MEMORAMA -->
+            <div id="juego-memorama" class="juego">
+                <p id="mensajeMemorama">Encuentra todas las parejas.</p>
+                <div id="tableroMemorama"></div>
+                <div class="accionesJuego">
+                    <button onclick="reiniciarMemorama()">Reiniciar</button>
+                </div>
+            </div>
+        </div>
+
         <!-- ===================== PROBLEMAS ===================== -->
         <div id="problemas" class="seccion" style="display: none;">
             <h2>Problemas comunes</h2>
@@ -1437,7 +1668,7 @@
     </main>
 
     <footer>
-        &copy; 2026 Weblink+ Todos los derechos reservados. | Diseñado por Prada Soft Studios. Te agradecemos que
+        &copy;2026 Weblink+ Todos los derechos reservados. | Diseñado por Prada Soft Studios. Te agradecemos que
         visites nuestra página oficial de <a href="https://github.com/josuepradatorres12-collab"
             target="_blank">GitHub</a>
     </footer>
@@ -1769,6 +2000,290 @@
                 resultados.appendChild(li);
             });
         }
+        // ===================== MINIJUEGOS =====================
+
+        function mostrarJuego(id, boton) {
+            document.querySelectorAll('#tabsJuegos button').forEach(b => b.classList.remove('activo'));
+            boton.classList.add('activo');
+            document.querySelectorAll('.juego').forEach(j => j.classList.remove('activo'));
+            document.getElementById('juego-' + id).classList.add('activo');
+        }
+
+        // ---------- SUDOKU ----------
+        // 0 = celda vacía. El mismo puzzle cambia cada día, igual que el destacado.
+        const sudokuPuzzles = [
+            {
+                puzzle: [
+                    [5, 3, 0, 0, 7, 0, 0, 0, 0],
+                    [6, 0, 0, 1, 9, 5, 0, 0, 0],
+                    [0, 9, 8, 0, 0, 0, 0, 6, 0],
+                    [8, 0, 0, 0, 6, 0, 0, 0, 3],
+                    [4, 0, 0, 8, 0, 3, 0, 0, 1],
+                    [7, 0, 0, 0, 2, 0, 0, 0, 6],
+                    [0, 6, 0, 0, 0, 0, 2, 8, 0],
+                    [0, 0, 0, 4, 1, 9, 0, 0, 5],
+                    [0, 0, 0, 0, 8, 0, 0, 7, 9]
+                ],
+                solucion: [
+                    [5, 3, 4, 6, 7, 8, 9, 1, 2],
+                    [6, 7, 2, 1, 9, 5, 3, 4, 8],
+                    [1, 9, 8, 3, 4, 2, 5, 6, 7],
+                    [8, 5, 9, 7, 6, 1, 4, 2, 3],
+                    [4, 2, 6, 8, 5, 3, 7, 9, 1],
+                    [7, 1, 3, 9, 2, 4, 8, 5, 6],
+                    [9, 6, 1, 5, 3, 7, 2, 8, 4],
+                    [2, 8, 7, 4, 1, 9, 6, 3, 5],
+                    [3, 4, 5, 2, 8, 6, 1, 7, 9]
+                ]
+            }
+        ];
+
+        // Usa el mismo puzzle por ahora (agrega más al arreglo sudokuPuzzles para variar por día)
+        const indiceSudoku = diaDelAño % sudokuPuzzles.length;
+        const sudokuActual = sudokuPuzzles[indiceSudoku];
+
+        function construirTableroSudoku() {
+            const tablero = document.getElementById('tableroSudoku');
+            tablero.innerHTML = '';
+            for (let fila = 0; fila < 9; fila++) {
+                for (let col = 0; col < 9; col++) {
+                    const valor = sudokuActual.puzzle[fila][col];
+                    const input = document.createElement('input');
+                    input.maxLength = 1;
+                    input.dataset.fila = fila;
+                    input.dataset.col = col;
+                    if (valor !== 0) {
+                        input.value = valor;
+                        input.disabled = true;
+                    }
+                    if (col === 2 || col === 5) input.classList.add('borde-derecho');
+                    if (fila === 2 || fila === 5) input.classList.add('borde-abajo');
+                    input.addEventListener('input', () => {
+                        input.value = input.value.replace(/[^1-9]/g, '').slice(0, 1);
+                    });
+                    tablero.appendChild(input);
+                }
+            }
+        }
+        construirTableroSudoku();
+
+        function verificarSudoku() {
+            const inputs = document.querySelectorAll('#tableroSudoku input');
+            let completo = true;
+            let correcto = true;
+            inputs.forEach(input => {
+                const fila = parseInt(input.dataset.fila);
+                const col = parseInt(input.dataset.col);
+                const esperado = sudokuActual.solucion[fila][col];
+                const valor = parseInt(input.value);
+                input.classList.remove('error');
+                if (!input.value) completo = false;
+                if (input.value && valor !== esperado) {
+                    input.classList.add('error');
+                    correcto = false;
+                }
+            });
+            const mensaje = document.getElementById('mensajeSudoku');
+            if (!completo) {
+                mensaje.textContent = 'Faltan casillas por llenar.';
+            } else if (correcto) {
+                mensaje.textContent = '¡Sudoku resuelto correctamente! 🎉';
+            } else {
+                mensaje.textContent = 'Hay errores marcados en rojo.';
+            }
+        }
+
+        function reiniciarSudoku() {
+            construirTableroSudoku();
+            document.getElementById('mensajeSudoku').textContent = '';
+        }
+
+        function resolverSudoku() {
+            const inputs = document.querySelectorAll('#tableroSudoku input');
+            inputs.forEach(input => {
+                const fila = parseInt(input.dataset.fila);
+                const col = parseInt(input.dataset.col);
+                input.value = sudokuActual.solucion[fila][col];
+                input.classList.remove('error');
+            });
+            document.getElementById('mensajeSudoku').textContent = 'Esta es la solución completa.';
+        }
+
+        // ---------- PALABRA DEL DÍA (WORDLE) ----------
+        const palabrasWordle = [
+            'CASAS', 'PERRO', 'GATOS', 'LIBRO', 'VERDE', 'PLAYA', 'NOCHE',
+            'FUEGO', 'AGUAS', 'PIEDRA'.slice(0, 5), 'MUNDO', 'FIESTA'.slice(0, 5),
+            'CIELO', 'FLORS'.slice(0, 5), 'DULCE', 'RATON', 'TIGRE', 'NUBES'
+        ];
+        const palabraDelDia = palabrasWordle[diaDelAño % palabrasWordle.length];
+        let intentosWordle = 0;
+        const maxIntentosWordle = 6;
+        let juegoWordleTerminado = false;
+
+        function construirTableroWordle() {
+            const tablero = document.getElementById('tableroWordle');
+            tablero.innerHTML = '';
+            for (let i = 0; i < maxIntentosWordle; i++) {
+                const fila = document.createElement('div');
+                fila.className = 'fila-wordle';
+                fila.id = 'fila-wordle-' + i;
+                for (let j = 0; j < 5; j++) {
+                    const celda = document.createElement('div');
+                    celda.className = 'celda-wordle';
+                    fila.appendChild(celda);
+                }
+                tablero.appendChild(fila);
+            }
+        }
+        construirTableroWordle();
+
+        function intentarWordle() {
+            if (juegoWordleTerminado) return;
+            const input = document.getElementById('inputWordle');
+            const intento = normalizar(input.value).toUpperCase().replace(/[^A-Z]/g, '');
+            const mensaje = document.getElementById('mensajeWordle');
+
+            if (intento.length !== 5) {
+                mensaje.textContent = 'La palabra debe tener exactamente 5 letras.';
+                return;
+            }
+
+            const fila = document.getElementById('fila-wordle-' + intentosWordle);
+            const objetivo = normalizar(palabraDelDia).toUpperCase();
+            const letrasObjetivo = objetivo.split('');
+            const resultado = new Array(5).fill('ausente');
+
+            // Primero marcar las correctas
+            for (let i = 0; i < 5; i++) {
+                if (intento[i] === letrasObjetivo[i]) {
+                    resultado[i] = 'correcta';
+                    letrasObjetivo[i] = null;
+                }
+            }
+            // Luego marcar las presentes en otra posición
+            for (let i = 0; i < 5; i++) {
+                if (resultado[i] === 'correcta') continue;
+                const idx = letrasObjetivo.indexOf(intento[i]);
+                if (idx !== -1) {
+                    resultado[i] = 'presente';
+                    letrasObjetivo[idx] = null;
+                }
+            }
+
+            const celdas = fila.querySelectorAll('.celda-wordle');
+            celdas.forEach((celda, i) => {
+                celda.textContent = intento[i];
+                celda.classList.add(resultado[i]);
+            });
+
+            intentosWordle++;
+            input.value = '';
+
+            if (intento === objetivo) {
+                mensaje.textContent = `¡Correcto! La palabra era ${palabraDelDia}. 🎉`;
+                juegoWordleTerminado = true;
+            } else if (intentosWordle >= maxIntentosWordle) {
+                mensaje.textContent = `Se acabaron los intentos. La palabra era ${palabraDelDia}.`;
+                juegoWordleTerminado = true;
+            } else {
+                mensaje.textContent = `Intento ${intentosWordle} de ${maxIntentosWordle}.`;
+            }
+        }
+
+        // ---------- PIEDRA, PAPEL O TIJERA ----------
+        let ganadasRPS = 0, perdidasRPS = 0, empatesRPS = 0;
+
+        function jugarRPS(eleccion) {
+            const opciones = ['piedra', 'papel', 'tijera'];
+            const cpu = opciones[Math.floor(Math.random() * 3)];
+            const resultado = document.getElementById('resultadoRPS');
+            const emojis = { piedra: '🪨', papel: '📄', tijera: '✂️' };
+
+            let texto = `Elegiste ${emojis[eleccion]} vs ${emojis[cpu]} de la máquina. `;
+
+            if (eleccion === cpu) {
+                empatesRPS++;
+                texto += '¡Empate!';
+            } else if (
+                (eleccion === 'piedra' && cpu === 'tijera') ||
+                (eleccion === 'papel' && cpu === 'piedra') ||
+                (eleccion === 'tijera' && cpu === 'papel')
+            ) {
+                ganadasRPS++;
+                texto += '¡Ganaste! 🎉';
+            } else {
+                perdidasRPS++;
+                texto += 'Perdiste.';
+            }
+
+            resultado.textContent = texto;
+            document.getElementById('marcadorRPS').textContent =
+                `Ganadas: ${ganadasRPS} | Perdidas: ${perdidasRPS} | Empates: ${empatesRPS}`;
+        }
+
+        // ---------- MEMORAMA ----------
+        const simbolosMemorama = ['🍕', '🎮', '🚀', '🎸', '🐱', '🌵', '⚽', '🎧'];
+        let cartasVolteadas = [];
+        let paresEncontrados = 0;
+        let bloqueoMemorama = false;
+
+        function crearMemorama() {
+            const tablero = document.getElementById('tableroMemorama');
+            tablero.innerHTML = '';
+            cartasVolteadas = [];
+            paresEncontrados = 0;
+            bloqueoMemorama = false;
+            document.getElementById('mensajeMemorama').textContent = 'Encuentra todas las parejas.';
+
+            const mazo = [...simbolosMemorama, ...simbolosMemorama]
+                .sort(() => Math.random() - 0.5);
+
+            mazo.forEach((simbolo, i) => {
+                const carta = document.createElement('div');
+                carta.className = 'carta-memorama';
+                carta.dataset.simbolo = simbolo;
+                carta.dataset.indice = i;
+                carta.textContent = simbolo;
+                carta.addEventListener('click', () => voltearCarta(carta));
+                tablero.appendChild(carta);
+            });
+        }
+
+        function voltearCarta(carta) {
+            if (bloqueoMemorama) return;
+            if (carta.classList.contains('volteada') || carta.classList.contains('encontrada')) return;
+            if (cartasVolteadas.length === 2) return;
+
+            carta.classList.add('volteada');
+            cartasVolteadas.push(carta);
+
+            if (cartasVolteadas.length === 2) {
+                const [a, b] = cartasVolteadas;
+                if (a.dataset.simbolo === b.dataset.simbolo) {
+                    a.classList.add('encontrada');
+                    b.classList.add('encontrada');
+                    cartasVolteadas = [];
+                    paresEncontrados++;
+                    if (paresEncontrados === simbolosMemorama.length) {
+                        document.getElementById('mensajeMemorama').textContent = '¡Completaste el memorama! 🎉';
+                    }
+                } else {
+                    bloqueoMemorama = true;
+                    setTimeout(() => {
+                        a.classList.remove('volteada');
+                        b.classList.remove('volteada');
+                        cartasVolteadas = [];
+                        bloqueoMemorama = false;
+                    }, 800);
+                }
+            }
+        }
+
+        function reiniciarMemorama() {
+            crearMemorama();
+        }
+        crearMemorama();
+
     </script>
 </body>
 
