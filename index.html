@@ -125,6 +125,15 @@
         }
 
         /* Minijuegos */
+        #versionApp {
+            position: fixed;
+            bottom: 6px;
+            left: 10px;
+            color: #888;
+            font-size: 0.75em;
+            z-index: 5;
+        }
+
         #tabsJuegos {
             display: flex;
             gap: 8px;
@@ -1674,6 +1683,7 @@
     </footer>
 
     <button id="botonSubir" onclick="subirArriba()">↑</button>
+    <h5 id="versionApp">Versión: 1.5.4</h5>
 
     <script>
         // Cambiar entre secciones
@@ -2222,7 +2232,7 @@
         }
 
         // ---------- MEMORAMA ----------
-        const simbolosMemorama = ['🍕', '🎮', '🚀', '🎸', '🐱', '🌵', '⚽', '🎧'];
+        const simbolosMemorama = ['🍕', '🎮', '🚀', '🎸', '🐱', '🌵', '⚽', '🎧', '❤️', '🎨'];
         let cartasVolteadas = [];
         let paresEncontrados = 0;
         let bloqueoMemorama = false;
