@@ -6,8 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weblink+</title>
+    <meta property="og:title" content="Weblink+">
+    <meta property="og:description"
+        content="El enlace hacia todo lo que necesitas: informática, medicina, recetas, noticias, deportes, música, finanzas y más.">
+    <meta property="og:type" content="website">
+    <meta name="description"
+        content="Directorio de páginas web organizadas por categoría: informática, medicina, recetas, noticieros, entretenimiento, deportes, música, finanzas y más.">
     <link rel="manifest" href="manifest.json">
     <style>
+        #panelIndice {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            background: #fff;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        #panelIndice a {
+            background-color: #eee;
+            color: #333;
+            padding: 6px 10px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-size: 0.85em;
+        }
+
+        #panelIndice a:hover {
+            background-color: #ddd;
+        }
+
         #destacadoDelDia {
             background-color: #333;
             color: #fff;
@@ -271,6 +300,27 @@
             margin-right: 8px;
         }
 
+        #opcionesTrivia button {
+            display: block;
+            width: 100%;
+            text-align: left;
+            margin-bottom: 6px;
+        }
+
+        #opcionesTrivia button.correcta {
+            background-color: #6aaa64 !important;
+        }
+
+        #opcionesTrivia button.incorrecta {
+            background-color: #c0392b !important;
+        }
+
+        #preguntaTrivia {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
         #marcadorRPS,
         #resultadoRPS {
             font-weight: bold;
@@ -280,7 +330,7 @@
         #tableroMemorama {
             display: grid;
             grid-template-columns: repeat(4, 70px);
-            grid-template-rows: repeat(4, 70px);
+            grid-template-rows: repeat(5, 70px);
             gap: 8px;
             margin-bottom: 15px;
         }
@@ -459,6 +509,7 @@
             <p id="saludoHora"></p>
 
             <div id="barraUtilidades">
+                <button onclick="alternarIndice()">📑 Índice</button>
                 <button onclick="irSorpresa()">🎲 Sorpréndeme</button>
                 <button onclick="alternarVista()">🔲 Cambiar vista</button>
                 <select onchange="cambiarTema(this.value)">
@@ -473,16 +524,22 @@
 
             <div id="destacadoDelDia"></div>
 
+            <div id="panelIndice" style="display:none;"></div>
+
             <div id="filtrosCategoria">
                 <button class="activo" onclick="filtrarCategoria('todas', this)">Todas</button>
-                <button onclick="filtrarCategoria('informatica', this)">Informática</button>
-                <button onclick="filtrarCategoria('medicina', this)">Medicina</button>
-                <button onclick="filtrarCategoria('recetas', this)">Recetas</button>
-                <button onclick="filtrarCategoria('noticieros', this)">Noticieros</button>
-                <button onclick="filtrarCategoria('entretenimiento', this)">Entretenimiento</button>
-                <button onclick="filtrarCategoria('deportes', this)">Deportes</button>
-                <button onclick="filtrarCategoria('adultos', this)">Videos 18+</button>
-                <button onclick="filtrarCategoria('emuladores', this)">Emuladores</button>
+                <button onclick="filtrarCategoria('informatica', this)">Informática💻</button>
+                <button onclick="filtrarCategoria('medicina', this)">Medicina🏥</button>
+                <button onclick="filtrarCategoria('recetas', this)">Recetas🍳</button>
+                <button onclick="filtrarCategoria('noticieros', this)">Noticieros📰</button>
+                <button onclick="filtrarCategoria('entretenimiento', this)">Entretenimiento🎬</button>
+                <button onclick="filtrarCategoria('deportes', this)">Deportes⚽</button>
+                <button onclick="filtrarCategoria('adultos', this)">Videos 18+🔞</button>
+                <button onclick="filtrarCategoria('emuladores', this)">Emuladores🕹️</button>
+                <button onclick="filtrarCategoria('musica', this)">🎵 Música</button>
+                <button onclick="filtrarCategoria('finanzas', this)">💰 Finanzas</button>
+                <button onclick="filtrarCategoria('viajes', this)">✈️ Viajes</button>
+                <button onclick="filtrarCategoria('idiomas', this)">🗣️ Idiomas</button>
             </div>
 
             <div class="categoria" data-categoria="informatica">
@@ -1575,6 +1632,217 @@
                 </details>
             </div>
 
+            <div class="categoria" data-categoria="musica">
+                <h2>Música</h2>
+                <details class="subcategoria">
+                    <summary>1) Streaming</summary>
+                    <ul>
+                        <li>
+                            <a href="https://www.spotify.com/">Spotify</a>
+                            <p>Plataforma de streaming de música con millones de canciones, podcasts y listas de
+                                reproducción personalizadas.</p>
+                        </li>
+                        <li>
+                            <a href="https://music.youtube.com/">YouTube Music</a>
+                            <p>Servicio de música de Google, con videos musicales, remixes y listas generadas según tus
+                                gustos.</p>
+                        </li>
+                        <li>
+                            <a href="https://www.deezer.com/">Deezer</a>
+                            <p>Plataforma de streaming con catálogo amplio y recomendaciones basadas en tu historial de
+                                escucha.</p>
+                        </li>
+                        <li>
+                            <a href="https://soundcloud.com/">SoundCloud</a>
+                            <p>Ideal para descubrir artistas independientes, remixes y música que no siempre está en
+                                otras plataformas.</p>
+                        </li>
+                    </ul>
+                </details>
+                <details class="subcategoria">
+                    <summary>2) Letras y acordes</summary>
+                    <ul>
+                        <li>
+                            <a href="https://www.musixmatch.com/">Musixmatch</a>
+                            <p>Base de datos de letras de canciones sincronizadas, disponible también como extensión
+                                para reproductores.</p>
+                        </li>
+                        <li>
+                            <a href="https://www.ultimate-guitar.com/">Ultimate Guitar</a>
+                            <p>Acordes y tablaturas para guitarra de miles de canciones, con afinador y metrónomo
+                                incluidos.</p>
+                        </li>
+                    </ul>
+                </details>
+                <details class="subcategoria">
+                    <summary>3) Aprender a producir</summary>
+                    <ul>
+                        <li>
+                            <a href="https://www.musictheory.net/">musictheory.net</a>
+                            <p>Lecciones gratuitas de teoría musical, desde lo básico hasta armonía avanzada.</p>
+                        </li>
+                        <li>
+                            <a href="https://www.bandlab.com/">BandLab</a>
+                            <p>Estudio de grabación gratuito en el navegador, para componer, mezclar y compartir tu
+                                música.</p>
+                        </li>
+                    </ul>
+                </details>
+            </div>
+
+            <div class="categoria" data-categoria="finanzas">
+                <h2>Finanzas</h2>
+                <details class="subcategoria">
+                    <summary>1) Educación financiera</summary>
+                    <ul>
+                        <li>
+                            <a href="https://www.investopedia.com/">Investopedia</a>
+                            <p>Enciclopedia de finanzas e inversión, con explicaciones claras de conceptos económicos y
+                                de mercado.</p>
+                        </li>
+                        <li>
+                            <a href="https://www.khanacademy.org/economics-finance-domain">Khan Academy - Finanzas</a>
+                            <p>Cursos gratuitos sobre economía personal, ahorro, crédito e inversión básica.</p>
+                        </li>
+                    </ul>
+                </details>
+                <details class="subcategoria">
+                    <summary>2) Presupuesto y ahorro</summary>
+                    <ul>
+                        <li>
+                            <a href="https://www.mint.com/">Mint</a>
+                            <p>Aplicación para organizar gastos, ingresos y presupuestos personales en un solo lugar.
+                            </p>
+                        </li>
+                        <li>
+                            <a href="https://www.youneedabudget.com/">YNAB</a>
+                            <p>Metodología y app de presupuesto basada en asignar cada peso a una tarea específica antes
+                                de gastarlo.</p>
+                        </li>
+                    </ul>
+                </details>
+                <details class="subcategoria">
+                    <summary>3) Mercados e inversión</summary>
+                    <ul>
+                        <li>
+                            <a href="https://www.investing.com/">Investing.com</a>
+                            <p>Cotizaciones en tiempo real de acciones, criptomonedas, divisas y materias primas.</p>
+                        </li>
+                        <li>
+                            <a href="https://finance.yahoo.com/">Yahoo Finance</a>
+                            <p>Noticias financieras, gráficos históricos y datos fundamentales de empresas que cotizan
+                                en bolsa.</p>
+                        </li>
+                    </ul>
+                </details>
+            </div>
+
+            <div class="categoria" data-categoria="viajes">
+                <h2>Viajes</h2>
+                <details class="subcategoria">
+                    <summary>1) Buscadores de vuelos y hoteles</summary>
+                    <ul>
+                        <li>
+                            <a href="https://www.skyscanner.net/">Skyscanner</a>
+                            <p>Comparador de vuelos, hoteles y autos de alquiler, con alertas de precio incluidas.</p>
+                        </li>
+                        <li>
+                            <a href="https://www.booking.com/">Booking.com</a>
+                            <p>Reserva de hoteles, apartamentos y otras opciones de alojamiento en todo el mundo.</p>
+                        </li>
+                        <li>
+                            <a href="https://www.kayak.com/">Kayak</a>
+                            <p>Motor de búsqueda de viajes que compara precios de vuelos, hoteles y paquetes en una sola
+                                consulta.</p>
+                        </li>
+                        <li>
+                            <a href="https://www.airbnb.com/">Airbnb</a>
+                            <p>Plataforma para alquilar alojamientos y experiencias locales ofrecidas por anfitriones
+                                particulares.</p>
+                        </li>
+                    </ul>
+                </details>
+                <details class="subcategoria">
+                    <summary>2) Planificación e itinerarios</summary>
+                    <ul>
+                        <li>
+                            <a href="https://www.tripadvisor.com/">TripAdvisor</a>
+                            <p>Reseñas de hoteles, restaurantes y atracciones escritas por otros viajeros.</p>
+                        </li>
+                        <li>
+                            <a href="https://www.rome2rio.com/">Rome2Rio</a>
+                            <p>Muestra todas las formas de llegar de un punto a otro: vuelo, bus, tren o auto, con
+                                tiempos y precios estimados.</p>
+                        </li>
+                    </ul>
+                </details>
+                <details class="subcategoria">
+                    <summary>3) Documentación y requisitos</summary>
+                    <ul>
+                        <li>
+                            <a href="https://www.iatatravelcentre.com/">IATA Travel Centre</a>
+                            <p>Consulta requisitos de visa, pasaporte y salud para viajar a cualquier país del mundo.
+                            </p>
+                        </li>
+                    </ul>
+                </details>
+            </div>
+
+            <div class="categoria" data-categoria="idiomas">
+                <h2>Idiomas</h2>
+                <details class="subcategoria">
+                    <summary>1) Apps para aprender</summary>
+                    <ul>
+                        <li>
+                            <a href="https://www.duolingo.com/">Duolingo</a>
+                            <p>Aplicación gratuita y gamificada para aprender idiomas con lecciones cortas diarias.</p>
+                        </li>
+                        <li>
+                            <a href="https://www.babbel.com/">Babbel</a>
+                            <p>Cursos de idiomas enfocados en conversación práctica para situaciones de la vida real.
+                            </p>
+                        </li>
+                        <li>
+                            <a href="https://www.busuu.com/">Busuu</a>
+                            <p>Plataforma con lecciones estructuradas y corrección de ejercicios por hablantes
+                                nativos.</p>
+                        </li>
+                    </ul>
+                </details>
+                <details class="subcategoria">
+                    <summary>2) Diccionarios y traducción</summary>
+                    <ul>
+                        <li>
+                            <a href="https://www.wordreference.com/">WordReference</a>
+                            <p>Diccionario en línea con foros de dudas de traducción entre múltiples idiomas.</p>
+                        </li>
+                        <li>
+                            <a href="https://translate.google.com/">Google Traductor</a>
+                            <p>Traducción instantánea de texto, voz e imágenes entre más de cien idiomas.</p>
+                        </li>
+                        <li>
+                            <a href="https://www.deepl.com/">DeepL</a>
+                            <p>Traductor conocido por su precisión y naturalidad, especialmente entre idiomas
+                                europeos.</p>
+                        </li>
+                    </ul>
+                </details>
+                <details class="subcategoria">
+                    <summary>3) Practicar con nativos</summary>
+                    <ul>
+                        <li>
+                            <a href="https://www.italki.com/">italki</a>
+                            <p>Conecta con tutores y hablantes nativos para clases de conversación en línea.</p>
+                        </li>
+                        <li>
+                            <a href="https://www.tandem.net/">Tandem</a>
+                            <p>Aplicación de intercambio de idiomas donde practicas con hablantes nativos a cambio de
+                                ayudarles con el tuyo.</p>
+                        </li>
+                    </ul>
+                </details>
+            </div>
+
             <h1 style="text-align: center; margin-top: 40px;">Más funciones pronto...</h1>
         </div>
 
@@ -1596,6 +1864,7 @@
                 <button onclick="mostrarJuego('wordle', this)">🔤 Palabra del día</button>
                 <button onclick="mostrarJuego('rps', this)">✂️ Piedra, papel o tijera</button>
                 <button onclick="mostrarJuego('memorama', this)">🧠 Memorama</button>
+                <button onclick="mostrarJuego('trivia', this)">❓ Trivia</button>
             </div>
 
             <!-- SUDOKU -->
@@ -1636,6 +1905,15 @@
                     <button onclick="reiniciarMemorama()">Reiniciar</button>
                 </div>
             </div>
+
+            <!-- TRIVIA -->
+            <div id="juego-trivia" class="juego">
+                <p id="marcadorTrivia">Puntaje: 0 / 0</p>
+                <p id="preguntaTrivia"></p>
+                <div id="opcionesTrivia" class="accionesJuego"></div>
+                <button onclick="siguientePreguntaTrivia()" id="botonSiguienteTrivia" style="display:none;">Siguiente
+                    pregunta</button>
+            </div>
         </div>
 
         <!-- ===================== PROBLEMAS ===================== -->
@@ -1675,7 +1953,7 @@
         </div>
 
     </main>
-    <h5 id="versionApp">versión: 1.5.4</h5>
+
     <footer>
         &copy;2026 Weblink+ Todos los derechos reservados. | Diseñado por Prada Soft Studios. Te agradecemos que
         visites nuestra página oficial de <a href="https://github.com/josuepradatorres12-collab"
@@ -1683,7 +1961,7 @@
     </footer>
 
     <button id="botonSubir" onclick="subirArriba()">↑</button>
-  
+    <h5 id="versionApp">Versión: 1.5.4</h5>
 
     <script>
         // Cambiar entre secciones
@@ -1768,8 +2046,43 @@
             entretenimiento: "Entretenimiento",
             deportes: "Deportes",
             adultos: "Videos 18+",
-            emuladores: "Emuladores"
+            emuladores: "Emuladores",
+            musica: "Música",
+            finanzas: "Finanzas",
+            viajes: "Viajes",
+            idiomas: "Idiomas"
         };
+
+        // Índice flotante: salta directo a una categoría y la filtra
+        function botonDeCategoria(cat) {
+            return Array.from(document.querySelectorAll('#filtrosCategoria button'))
+                .find(b => (b.getAttribute('onclick') || '').includes(`'${cat}'`));
+        }
+
+        function irACategoria(cat) {
+            const boton = botonDeCategoria(cat);
+            if (boton) filtrarCategoria(cat, boton);
+            const bloque = document.querySelector(`.categoria[data-categoria="${cat}"]`);
+            if (bloque) bloque.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            document.getElementById('panelIndice').style.display = 'none';
+        }
+
+        function alternarIndice() {
+            const panel = document.getElementById('panelIndice');
+            if (panel.style.display === 'none') {
+                panel.innerHTML = '';
+                Object.keys(nombresCategorias).forEach(cat => {
+                    const link = document.createElement('a');
+                    link.href = '#';
+                    link.textContent = nombresCategorias[cat];
+                    link.onclick = (e) => { e.preventDefault(); irACategoria(cat); };
+                    panel.appendChild(link);
+                });
+                panel.style.display = 'flex';
+            } else {
+                panel.style.display = 'none';
+            }
+        }
 
         // Quita tildes para comparar sin importar acentos (ej: "informatica" === "informática")
         function normalizar(texto) {
@@ -1913,6 +2226,35 @@
             { nombre: "Dolphin", url: "https://www.dolphin-emu.org/", categoria: "emuladores" },
             { nombre: "Project64", url: "https://www-pj64--emu-com.translate.goog/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tcl,sc", categoria: "emuladores" },
             { nombre: "Mupen64Plus", url: "https://www.mupen64plus.org/", categoria: "emuladores" },
+            { nombre: "Spotify", url: "https://www.spotify.com/", categoria: "musica" },
+            { nombre: "YouTube Music", url: "https://music.youtube.com/", categoria: "musica" },
+            { nombre: "Deezer", url: "https://www.deezer.com/", categoria: "musica" },
+            { nombre: "SoundCloud", url: "https://soundcloud.com/", categoria: "musica" },
+            { nombre: "Musixmatch", url: "https://www.musixmatch.com/", categoria: "musica" },
+            { nombre: "Ultimate Guitar", url: "https://www.ultimate-guitar.com/", categoria: "musica" },
+            { nombre: "musictheory.net", url: "https://www.musictheory.net/", categoria: "musica" },
+            { nombre: "BandLab", url: "https://www.bandlab.com/", categoria: "musica" },
+            { nombre: "Investopedia", url: "https://www.investopedia.com/", categoria: "finanzas" },
+            { nombre: "Khan Academy - Finanzas", url: "https://www.khanacademy.org/economics-finance-domain", categoria: "finanzas" },
+            { nombre: "Mint", url: "https://www.mint.com/", categoria: "finanzas" },
+            { nombre: "YNAB", url: "https://www.youneedabudget.com/", categoria: "finanzas" },
+            { nombre: "Investing.com", url: "https://www.investing.com/", categoria: "finanzas" },
+            { nombre: "Yahoo Finance", url: "https://finance.yahoo.com/", categoria: "finanzas" },
+            { nombre: "Skyscanner", url: "https://www.skyscanner.net/", categoria: "viajes" },
+            { nombre: "Booking.com", url: "https://www.booking.com/", categoria: "viajes" },
+            { nombre: "Kayak", url: "https://www.kayak.com/", categoria: "viajes" },
+            { nombre: "Airbnb", url: "https://www.airbnb.com/", categoria: "viajes" },
+            { nombre: "TripAdvisor", url: "https://www.tripadvisor.com/", categoria: "viajes" },
+            { nombre: "Rome2Rio", url: "https://www.rome2rio.com/", categoria: "viajes" },
+            { nombre: "IATA Travel Centre", url: "https://www.iatatravelcentre.com/", categoria: "viajes" },
+            { nombre: "Duolingo", url: "https://www.duolingo.com/", categoria: "idiomas" },
+            { nombre: "Babbel", url: "https://www.babbel.com/", categoria: "idiomas" },
+            { nombre: "Busuu", url: "https://www.busuu.com/", categoria: "idiomas" },
+            { nombre: "WordReference", url: "https://www.wordreference.com/", categoria: "idiomas" },
+            { nombre: "Google Traductor", url: "https://translate.google.com/", categoria: "idiomas" },
+            { nombre: "DeepL", url: "https://www.deepl.com/", categoria: "idiomas" },
+            { nombre: "italki", url: "https://www.italki.com/", categoria: "idiomas" },
+            { nombre: "Tandem", url: "https://www.tandem.net/", categoria: "idiomas" },
         ];
 
         // Destacado del día: cambia automáticamente según la fecha, igual para todos los visitantes ese día
