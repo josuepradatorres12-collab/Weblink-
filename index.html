@@ -485,6 +485,56 @@
             width: 100%;
             bottom: 0;
         }
+
+        .aviso-legal {
+            background: #fff3cd;
+            color: #5c4a00;
+            padding: 10px 12px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        #modalClave {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+        }
+
+        #modalClave .cajaClave {
+            background: #fff;
+            color: #222;
+            padding: 20px;
+            border-radius: 10px;
+            width: min(320px, 90%);
+            text-align: center;
+        }
+
+        #modalClave input {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+
+        #modalClave button {
+            padding: 6px 14px;
+            border: none;
+            border-radius: 15px;
+            background: #444;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #errorClave {
+            color: #c62828;
+            min-height: 1.2em;
+            font-size: 0.9em;
+        }
     </style>
 </head>
 
@@ -540,6 +590,7 @@
                 <button onclick="filtrarCategoria('finanzas', this)">💰 Finanzas</button>
                 <button onclick="filtrarCategoria('viajes', this)">✈️ Viajes</button>
                 <button onclick="filtrarCategoria('idiomas', this)">🗣️ Idiomas</button>
+                <button onclick="filtrarCategoria('juegos', this)">Juegos Online🎮</button>
             </div>
 
             <div class="categoria" data-categoria="informatica">
@@ -582,6 +633,19 @@
                             <a href="https://www.khanacademy.org/">Khan Academy</a>
                             <p>Plataforma educativa sin fines de lucro con lecciones en video y ejercicios interactivos.
                             </p>
+                        </li>
+                        <li>
+                            <a href="https://platzi.com/">Platzi</a>
+                            <p>Cursos en español de programación, diseño, datos y negocios con rutas de aprendizaje.</p>
+                        </li>
+                        <li>
+                            <a href="https://www.sena.edu.co/">SENA</a>
+                            <p>Formación técnica y tecnológica gratuita en Colombia, con cursos virtuales y
+                                presenciales.</p>
+                        </li>
+                        <li>
+                            <a href="https://ocw.mit.edu/">MIT OpenCourseWare</a>
+                            <p>Materiales de cursos del MIT disponibles gratis para estudiar a tu ritmo.</p>
                         </li>
                     </ul>
                 </details>
@@ -876,6 +940,14 @@
                                 basada en
                                 evidencia.</p>
                         </li>
+                        <li>
+                            <a href="https://medlineplus.gov/spanish/">MedlinePlus en español</a>
+                            <p>Información de salud confiable de la Biblioteca Nacional de Medicina de EE. UU.</p>
+                        </li>
+                        <li>
+                            <a href="https://www.who.int/es">Organización Mundial de la Salud</a>
+                            <p>Datos, guías y noticias sobre salud pública a nivel mundial.</p>
+                        </li>
                     </ul>
                 </details>
                 <details class="subcategoria">
@@ -948,10 +1020,18 @@
                                 dificultad.
                             </p>
                         </li>
+                        <li>
+                            <a href="https://www.directoalpaladar.com/">Directo al Paladar</a>
+                            <p>Recetas explicadas paso a paso, con ideas para cocinar a diario.</p>
+                        </li>
+                        <li>
+                            <a href="https://cookpad.com/es">Cookpad</a>
+                            <p>Comunidad donde la gente comparte sus recetas caseras.</p>
+                        </li>
                     </ul>
                 </details>
                 <details class="subcategoria">
-                    <summary>desayunos</summary>
+                    <summary>2) desayunos</summary>
                     <ul>
                         <li>
                             <a href="https://www.allrecipes.com/recipes/78/breakfast-and-brunch/">Allrecipes -
@@ -981,7 +1061,7 @@
                     </ul>
                 </details>
                 <details class="subcategoria">
-                    <summary>almuerzos</summary>
+                    <summary>3)almuerzos</summary>
                     <ul>
                         <li>
                             <a href="https://www.allrecipes.com/recipes/79/lunch/">Allrecipes - Almuerzos</a>
@@ -1007,7 +1087,7 @@
                     </ul>
                 </details>
                 <details class="subcategoria">
-                    <summary>cenas</summary>
+                    <summary>4) cenas</summary>
                     <ul>
                         <li>
                             <a href="https://www.allrecipes.com/recipes/80/dinner/">Allrecipes - Cenas</a>
@@ -1033,7 +1113,7 @@
                     </ul>
                 </details>
                 <details class="subcategoria">
-                    <summary>bocadillos</summary>
+                    <summary>5) bocadillos</summary>
                     <ul>
                         <li>
                             <a href="https://www.allrecipes.com/recipes/81/snacks/">Allrecipes - Bocadillos</a>
@@ -1060,7 +1140,7 @@
                     </ul>
                 </details>
                 <details class="subcategoria">
-                    <summary>Bebidas</summary>
+                    <summary>6) Bebidas</summary>
                     <ul>
                         <li>
                             <a href="https://www.allrecipes.com/recipes/85/drinks/">Allrecipes - Bebidas</a>
@@ -1090,7 +1170,7 @@
             <div class="categoria" data-categoria="noticieros">
                 <h2>Noticieros</h2>
                 <details class="subcategoria">
-                    <summary>1)Colombia</summary>
+                    <summary>1) Colombia</summary>
                     <ul>
                         <li>
                             <a href="https://www.noticiascaracol.com/">Noticias Caracol</a>
@@ -1312,38 +1392,218 @@
                             <p>Agencia de noticias internacional con cobertura global, incluyendo política, economía y
                                 negocios.</p>
                         </li>
+                        <li>
+                            <a href="https://www.dw.com/es/">DW Español</a>
+                            <p>Noticias, análisis y reportajes de la cadena alemana Deutsche Welle.</p>
+                        </li>
+                        <li>
+                            <a href="https://www.france24.com/es/">France 24</a>
+                            <p>Cobertura internacional en español, en directo las 24 horas.</p>
+                        </li>
                     </ul>
                 </details>
             </div>
 
             <div class="categoria" data-categoria="entretenimiento">
-                <h2>Entretenimiento</h2>
-                <ul>
-                    <li>
-                        <a href="https://pluto.tv/latam/">Pluto TV</a>
-                        <p>Streaming gratuito con canales en vivo y contenido a la carta: películas, series, deportes y
-                            más.
-                        </p>
-                    </li>
-                    <li>
-                        <a href="https://www.crunchyroll.com/es/">Crunchyroll</a>
-                        <p>Servicio especializado en anime, con simulcasts y contenido exclusivo.</p>
-                    </li>
-                    <li>
-                        <a href="https://tubitv.com/espanol">Tubi TV</a>
-                        <p>Streaming gratuito con clásicos, estrenos recientes y contenido internacional en español.</p>
-                    </li>
-                    <li>
-                        <a href="https://www.vix.com/">Vix</a>
-                        <p>Streaming gratuito en español: películas, series, telenovelas y programas de entretenimiento.
-                        </p>
-                    </li>
-                    <li>
-                        <a href="https://www.rtve.es/play/internacional/portada/">RTVE</a>
-                        <p>Ideal si te interesa el cine europeo o español, documentales de calidad y contenido cultural.
-                        </p>
-                    </li>
-                </ul>
+                <details>
+
+                    <summary>1)Streaming</summary>
+
+                    <ul>
+                        <li>
+                            <a href="https://pluto.tv/latam/">Pluto TV</a>
+                            <p>Streaming gratuito con canales en vivo y contenido a la carta: películas, series,
+                                deportes y
+                                más.
+                            </p>
+                        </li>
+                        <li>
+                            <a href="https://www.crunchyroll.com/es/">Crunchyroll</a>
+                            <p>Servicio especializado en anime, con simulcasts y contenido exclusivo.</p>
+                        </li>
+                        <li>
+                            <a href="https://tubitv.com/espanol">Tubi TV</a>
+                            <p>Streaming gratuito con clásicos, estrenos recientes y contenido internacional en español.
+                            </p>
+                        </li>
+                        <li>
+                            <a href="https://www.vix.com/">Vix</a>
+                            <p>Streaming gratuito en español: películas, series, telenovelas y programas de
+                                entretenimiento.
+                            </p>
+                        </li>
+                        <li>
+                            <a href="https://www.rtve.es/play/internacional/portada/">RTVE</a>
+                            <p>Ideal si te interesa el cine europeo o español, documentales de calidad y contenido
+                                cultural.
+                            </p>
+                        </li>
+                        <li>
+                            <a href="https://www.disneyplus.com/">Disney+</a>
+                            <p>Catálogo de Disney, Pixar, Marvel, Star Wars y National Geographic, además de series y
+                                producciones originales.</p>
+                        </li>
+                        <li>
+                            <a href="https://www.max.com/">Max</a>
+                            <p>Streaming con series de HBO, películas de Warner Bros. y producciones originales.</p>
+                        </li>
+                    </ul>
+                </details>
+
+                <details class="subcategoria">
+                    <summary>2) Anime</summary>
+                    <ul>
+                        <li>
+                            <a href="https://www.crunchyroll.com/es/">Crunchyroll</a>
+                            <p>Una de las plataformas más famosas para ver los mejores animes de todo el mundo, con
+                                simulcasts al día siguiente de su emisión en Japón.</p>
+                        </li>
+                        <li>
+                            <a href="https://www.funimation.com/">Funimation</a>
+                            <p>Catálogo especializado en anime doblado y subtitulado, con clásicos y estrenos de
+                                temporada.</p>
+                        </li>
+                        <li>
+                            <a href="https://hidive.com/">HIDIVE</a>
+                            <p>Servicio de streaming de anime con simulcasts, clásicos y opción de ver sin anuncios.</p>
+                        </li>
+                    </ul>
+                </details>
+                <details class="subcategoria">
+                    <summary>3) Podcasts</summary>
+                    <ul>
+                        <li>
+                            <a href="https://podcasts.apple.com/">Apple Podcasts</a>
+                            <p>Directorio y reproductor de podcasts de todos los géneros, disponible en iOS y web.</p>
+                        </li>
+                        <li>
+                            <a href="https://www.ivoox.com/">iVoox</a>
+                            <p>Plataforma de podcasts en español, con contenido de noticias, humor, historia y
+                                entretenimiento.</p>
+                        </li>
+                        <li>
+                            <a href="https://open.spotify.com/genre/podcasts">Spotify Podcasts</a>
+                            <p>Sección de podcasts dentro de Spotify, con producciones originales y de creadores
+                                independientes.</p>
+                        </li>
+                    </ul>
+                </details>
+                <details class="subcategoria">
+                    <summary>4) Series y documentales</summary>
+                    <ul>
+                        <li>
+                            <a href="https://www.imdb.com/">IMDb</a>
+                            <p>Base de datos de películas y series con reseñas, calificaciones y tráilers, útil para
+                                decidir qué ver.</p>
+                        </li>
+                        <li>
+                            <a href="https://www.justwatch.com/">JustWatch</a>
+                            <p>Buscador que te dice en qué plataforma de streaming está disponible una película o serie
+                                específica.</p>
+                        </li>
+                        <li>
+                            <a href="https://www.filmaffinity.com/es/">Filmaffinity</a>
+                            <p>Críticas, notas y recomendaciones de películas y series.</p>
+                        </li>
+                        <li>
+                            <a href="https://letterboxd.com/">Letterboxd</a>
+                            <p>Red social para llevar el registro de lo que ves y descubrir películas.</p>
+                        </li>
+                    </ul>
+                </details>
+            </div>
+
+            <div class="categoria" data-categoria="juegos">
+                <h2>Juegos Online</h2>
+                <details class="subcategoria">
+                    <summary>1) Juegos de navegador</summary>
+                    <ul>
+                        <li>
+                            <a href="https://www.miniclip.com/games/en/">Miniclip</a>
+                            <p>Plataforma con una amplia variedad de juegos en línea, desde acción hasta deportes y
+                                rompecabezas.</p>
+                        </li>
+                        <li>
+                            <a href="https://www.kongregate.com/">Kongregate</a>
+                            <p>Portal de juegos en línea con miles de títulos gratuitos, incluyendo juegos de rol,
+                                estrategia y arcade.</p>
+                        </li>
+                        <li>
+                            <a href="https://www.addictinggames.com/">Addicting Games</a>
+                            <p>Ofrece una gran selección de juegos en línea gratuitos, desde clásicos hasta nuevos
+                                lanzamientos.</p>
+                        </li>
+                    </ul>
+                </details>
+                <details class="subcategoria">
+                    <summary>2) Juegos multijugador</summary>
+                    <ul>
+                        <li>
+                            <a href="https://www.roblox.com/">Roblox</a>
+                            <p>Plataforma de juegos en línea donde los usuarios pueden crear y jugar a millones de
+                                juegos generados por la comunidad.</p>
+                        </li>
+                        <li>
+                            <a href="https://www.minecraft.net/">Minecraft</a>
+                            <p>Juego de construcción y aventura en un mundo abierto, con modos multijugador y
+                                servidores personalizados.</p>
+                        </li>
+                        <li>
+                            <a href="https://www.fortnite.com/">Fortnite</a>
+                            <p>Juego de batalla real en línea con construcción, eventos en vivo y actualizaciones
+                                frecuentes.</p>
+                        </li>
+                    </ul>
+                </details>
+                <details class="subcategoria">
+                    <summary>3) Juegos de estrategia</summary>
+                    <ul>
+                        <li>
+                            <a href="https://www.ageofempires.com/">Age of Empires</a>
+                            <p>Juego de estrategia en tiempo real donde los jugadores construyen civilizaciones y
+                                participan en batallas históricas.</p>
+                        </li>
+                        <li>
+                            <a href="https://www.starcraft.com/">StarCraft</a>
+                            <p>Juego de estrategia en tiempo real ambientado en un universo de ciencia ficción,
+                                con campañas y multijugador competitivo.</p>
+                        </li>
+                        <li>
+                            <a href="https://www.totalwar.com/">Total War</a>
+                            <p>Serie de juegos de estrategia que combina gestión de imperios y batallas tácticas en
+                                tiempo real.</p>
+                        </li>
+                    </ul>
+                </details>
+                <details class="subcategoria">
+                    <summary>4) Juegos de rol</summary>
+                    <ul>
+                        <li>
+                            <a href="https://www.finalfantasy.com/">Final Fantasy</a>
+                            <p>Serie de juegos de rol en línea con historias épicas y personajes icónicos.</p>
+                        </li>
+                        <li>
+                            <a href="https://www.worldofwarcraft.com/">World of Warcraft</a>
+                            <p>Juego de rol en línea en un mundo de fantasía épica, con contenido expansivo y comunidad
+                                activa.</p>
+                        </li>
+                    </ul>
+                </details>
+                <details class="subcategoria">
+                    <summary>5) Páginas contra el aburrimiento</summary>
+                    <ul>
+                        <li>
+                            <a href="https://eaglercraft.com/es">EaglerCraft</a>
+                            <p>Un proyecto de código abierto que permite jugar Minecraft en un navegador web.</p>
+                        </li>
+                        <li>
+                            <a href="https://www.coolmathgames.com/">Cool Math Games</a>
+                            <p>Juegos educativos y de lógica para todas las edades, con una amplia variedad de
+                                categorías.</p>
+                        </li>
+
+                    </ul>
+                </details>
             </div>
 
             <div class="categoria" data-categoria="deportes">
@@ -1353,18 +1613,21 @@
                     <ul>
                         <li>
                             <a href="https://www.fifa.com/">FIFA</a>
-                            <p>La página oficial de la Federación Internacional de Fútbol Asociación, con noticias,
+                            <p>La página oficial de la Federación Internacional de Fútbol Asociación, con
+                                noticias,
                                 resultados y
                                 eventos de fútbol a nivel mundial.</p>
                         </li>
                         <li>
                             <a href="https://www.uefa.com/">UEFA</a>
-                            <p>La página oficial de la Unión de Asociaciones Europeas de Fútbol, con información sobre
+                            <p>La página oficial de la Unión de Asociaciones Europeas de Fútbol, con información
+                                sobre
                                 competiciones europeas y noticias del fútbol europeo.</p>
                         </li>
                         <li>
                             <a href="https://www.laliga.com/">LaLiga</a>
-                            <p>La página oficial de la Liga de Fútbol Profesional de España, con noticias, resultados y
+                            <p>La página oficial de la Liga de Fútbol Profesional de España, con noticias,
+                                resultados y
                                 estadísticas de los equipos y jugadores.</p>
                         </li>
                         <li>
@@ -1375,28 +1638,41 @@
                         </li>
                         <li>
                             <a href="https://www.bundesliga.com/en/">Bundesliga</a>
-                            <p>La página oficial de la Bundesliga de Alemania, con noticias, resultados y estadísticas
+                            <p>La página oficial de la Bundesliga de Alemania, con noticias, resultados y
+                                estadísticas
                                 de
                                 los
                                 equipos y jugadores.</p>
                         </li>
                         <li>
                             <a href="https://www.seriea.com/">Serie A</a>
-                            <p>La página oficial de la Serie A de Italia, con noticias, resultados y estadísticas de los
+                            <p>La página oficial de la Serie A de Italia, con noticias, resultados y
+                                estadísticas de los
                                 equipos y jugadores.</p>
                         </li>
                         <li>
                             <a href="https://www.ligue1.com/">Ligue 1</a>
-                            <p>La página oficial de la Ligue 1 de Francia, con noticias, resultados y estadísticas de
+                            <p>La página oficial de la Ligue 1 de Francia, con noticias, resultados y
+                                estadísticas de
                                 los
                                 equipos y jugadores.</p>
                         </li>
                         <li>
                             <a href="https://www.winsports.co/">WinSports</a>
-                            <p>La página oficial de la Confederación de Norteamérica, Centroamérica y el Caribe de
+                            <p>La página oficial de la Confederación de Norteamérica, Centroamérica y el Caribe
+                                de
                                 Fútbol,
                                 con
-                                información sobre competiciones regionales y noticias del fútbol en la región.</p>
+                                información sobre competiciones regionales y noticias del fútbol en la región.
+                            </p>
+                        </li>
+                        <li>
+                            <a href="https://www.transfermarkt.es/">Transfermarkt</a>
+                            <p>Valores de mercado, fichajes y estadísticas de jugadores y clubes.</p>
+                        </li>
+                        <li>
+                            <a href="https://www.sofascore.com/es/">Sofascore</a>
+                            <p>Resultados en vivo, estadísticas y alineaciones de fútbol y otros deportes.</p>
                         </li>
                     </ul>
                 </details>
@@ -1405,32 +1681,37 @@
                     <ul>
                         <li>
                             <a href="https://www.nba.com/">NBA</a>
-                            <p>La página oficial de la National Basketball Association, con noticias, resultados y
+                            <p>La página oficial de la National Basketball Association, con noticias, resultados
+                                y
                                 estadísticas
                                 de los equipos y jugadores.</p>
                         </li>
                         <li>
                             <a href="https://www.fiba.basketball/">FIBA</a>
-                            <p>La página oficial de la Federación Internacional de Baloncesto, con información sobre
+                            <p>La página oficial de la Federación Internacional de Baloncesto, con información
+                                sobre
                                 competiciones internacionales y noticias del baloncesto mundial.</p>
                         </li>
                         <li>
                             <a href="https://www.euroleague.net/">EuroLeague</a>
-                            <p>La página oficial de la Euroliga de Baloncesto, con noticias, resultados y estadísticas
+                            <p>La página oficial de la Euroliga de Baloncesto, con noticias, resultados y
+                                estadísticas
                                 de
                                 los
                                 equipos y jugadores europeos.</p>
                         </li>
                         <li>
                             <a href="https://www.nba.com/nba-g-league">NBA G League</a>
-                            <p>La página oficial de la NBA G League, con noticias, resultados y estadísticas de los
+                            <p>La página oficial de la NBA G League, con noticias, resultados y estadísticas de
+                                los
                                 equipos
                                 y
                                 jugadores de la liga de desarrollo de la NBA.</p>
                         </li>
                         <li>
                             <a href="https://www.wnba.com/">WNBA</a>
-                            <p>La página oficial de la Women's National Basketball Association, con noticias, resultados
+                            <p>La página oficial de la Women's National Basketball Association, con noticias,
+                                resultados
                                 y
                                 estadísticas de los equipos y jugadoras de la liga femenina de baloncesto.</p>
                         </li>
@@ -1441,7 +1722,8 @@
                     <ul>
                         <li>
                             <a href="https://www.mlb.com/">MLB</a>
-                            <p>La página oficial de la Major League Baseball, con noticias, resultados y estadísticas de
+                            <p>La página oficial de la Major League Baseball, con noticias, resultados y
+                                estadísticas de
                                 los
                                 equipos y jugadores de béisbol profesional en Estados Unidos.</p>
                         </li>
@@ -1464,29 +1746,34 @@
                     <ul>
                         <li>
                             <a href="https://www.formula1.com/">Formula 1</a>
-                            <p>La página oficial de la Fórmula 1, con noticias, resultados y estadísticas de los equipos
+                            <p>La página oficial de la Fórmula 1, con noticias, resultados y estadísticas de los
+                                equipos
                                 y
                                 pilotos de la categoría reina del automovilismo.</p>
                         </li>
                         <li>
                             <a href="https://www.fia.com/">FIA</a>
-                            <p>La página oficial de la Federación Internacional del Automóvil, con información sobre
+                            <p>La página oficial de la Federación Internacional del Automóvil, con información
+                                sobre
                                 regulaciones,
                                 competiciones y noticias del automovilismo mundial.</p>
                         </li>
                         <li>
                             <a href="https://www.indycar.com/">IndyCar</a>
-                            <p>La página oficial de la IndyCar Series, con noticias, resultados y estadísticas de los
+                            <p>La página oficial de la IndyCar Series, con noticias, resultados y estadísticas
+                                de los
                                 equipos
                                 y
                                 pilotos de la categoría de monoplazas en Estados Unidos.</p>
                         </li>
                         <li>
                             <a href="https://www.nascar.com/">NASCAR</a>
-                            <p>La página oficial de la National Association for Stock Car Auto Racing, con noticias,
+                            <p>La página oficial de la National Association for Stock Car Auto Racing, con
+                                noticias,
                                 resultados
                                 y
-                                estadísticas de los equipos y pilotos de carreras de autos stock en Estados Unidos.</p>
+                                estadísticas de los equipos y pilotos de carreras de autos stock en Estados
+                                Unidos.</p>
                         </li>
                     </ul>
                 </details>
@@ -1495,19 +1782,22 @@
                     <ul>
                         <li>
                             <a href="https://www.wbcboxing.com/">WBC</a>
-                            <p>La página oficial del Consejo Mundial de Boxeo, con noticias, resultados y rankings de
+                            <p>La página oficial del Consejo Mundial de Boxeo, con noticias, resultados y
+                                rankings de
                                 boxeo
                                 profesional a nivel mundial.</p>
                         </li>
                         <li>
                             <a href="https://www.wba-boxing.com/">WBA</a>
-                            <p>La página oficial de la Asociación Mundial de Boxeo, con noticias, resultados y rankings
+                            <p>La página oficial de la Asociación Mundial de Boxeo, con noticias, resultados y
+                                rankings
                                 de
                                 boxeo profesional a nivel mundial.</p>
                         </li>
                         <li>
                             <a href="https://www.ibf-usba-boxing.com/">IBF</a>
-                            <p>La página oficial de la Federación Internacional de Boxeo, con noticias, resultados y
+                            <p>La página oficial de la Federación Internacional de Boxeo, con noticias,
+                                resultados y
                                 rankings
                                 de boxeo profesional a nivel mundial.</p>
                         </li>
@@ -1515,18 +1805,20 @@
                 </details>
             </div>
 
-            <div class="categoria" data-categoria="adultos">
+            <div class="categoria" data-categoria="adultos" style="display:none;">
                 <h2>ESTAS PAGINAS SON PARA MAYORES DE 18 AÑOS SI ENTRA ES SU RESPONSABILIDAD</h2>
                 <h3>Videos 18+</h3>
                 <ul>
                     <li>
                         <a href="https://www.pornhub.com/">Pornhub</a>
-                        <p>Uno de los sitios de contenido para adultos más grandes del mundo, con una amplia variedad de
+                        <p>Uno de los sitios de contenido para adultos más grandes del mundo, con una amplia
+                            variedad de
                             categorías.</p>
                     </li>
                     <li>
                         <a href="https://www.xvideos.com/">XVideos</a>
-                        <p>Plataforma popular con videos para adultos, incluyendo contenido amateur y profesional.</p>
+                        <p>Plataforma popular con videos para adultos, incluyendo contenido amateur y
+                            profesional.</p>
                     </li>
                     <li>
                         <a href="https://www.xhamster.com/">xHamster</a>
@@ -1540,12 +1832,14 @@
                     </li>
                     <li>
                         <a href="https://www.youjizz.com/">YouJizz</a>
-                        <p>Plataforma de videos para adultos con contenido variado y opciones de búsqueda por categoría.
+                        <p>Plataforma de videos para adultos con contenido variado y opciones de búsqueda por
+                            categoría.
                         </p>
                     </li>
                     <li>
                         <a href="https://www.XNXX.com/">XNXX</a>
-                        <p>Ofrece una amplia selección de videos para adultos, con contenido en alta definición y
+                        <p>Ofrece una amplia selección de videos para adultos, con contenido en alta definición
+                            y
                             diversas
                             categorías.</p>
                     </li>
@@ -1554,80 +1848,91 @@
 
             <div class="categoria" data-categoria="emuladores">
                 <h2>Emuladores</h2>
+                <p class="aviso-legal">Los emuladores son programas legales. Para usarlos debes emplear tus propios
+                    juegos (copias de tus discos originales) y la BIOS o firmware extraídos de tu propia consola.
+                    Weblink+ no enlaza a páginas de descarga de juegos.</p>
                 <details class="subcategoria">
-                    <summary>1) PS Emuladores</summary>
+                    <summary>1) PlayStation</summary>
                     <ul>
                         <li>
-                            <a href="https://www.filehorse.com/es/download-pcsx2-ps2-emulator/">PCSX2</a>
-                            <p>Comunidad de entusiastas de PlayStation que ofrece emuladores, herramientas y tutoriales
-                                para
-                                consolas PlayStation 2.</p>
+                            <a href="https://www.duckstation.org/">DuckStation (PS1)</a>
+                            <p>Emulador de PlayStation 1 moderno y muy activo, con mejoras de resolución. Necesitas la
+                                BIOS de tu propia consola.</p>
                         </li>
                         <li>
-                            <a href="https://www.emulator-zone.com/doc.php/psx/pcsx.html">PCSX</a>
-                            <p>Emulador de PlayStation 1 que permite jugar a los clásicos de la consola en PC con
-                                soporte
-                                para
-                                plugins y configuraciones avanzadas.</p>
+                            <a href="https://pcsx2.net/">PCSX2 (PS2)</a>
+                            <p>Emulador oficial de PlayStation 2, de código abierto y con actualizaciones constantes.
+                                Usa la BIOS de tu consola y tus propios discos.</p>
                         </li>
                         <li>
-                            <a href="https://www.rpcs3.net/">RPCS3</a>
-                            <p>Emulador de PlayStation 3 que permite ejecutar juegos de PS3 en PC con soporte para
-                                gráficos
-                                avanzados y configuraciones personalizadas.</p>
+                            <a href="https://rpcs3.net/">RPCS3 (PS3)</a>
+                            <p>Emulador de PlayStation 3 de código abierto, con lista de compatibilidad por juego.</p>
                         </li>
                         <li>
-                            <a href="https://www.ppsspp.org/">PPSSPP</a>
-                            <p>Emulador de PlayStation Portable (PSP) que permite jugar a los juegos de PSP en PC y
-                                dispositivos
-                                móviles con soporte para alta resolución y controles personalizables.</p>
+                            <a href="https://www.ppsspp.org/">PPSSPP (PSP)</a>
+                            <p>Emulador de PSP para PC y celulares, con soporte de alta resolución.</p>
                         </li>
                     </ul>
                 </details>
-
                 <details class="subcategoria">
-                    <summary>2)Nintendo emulador</summary>
+                    <summary>2) Xbox</summary>
                     <ul>
                         <li>
-                            <a href="https://www.citra-emu.org/">Citra</a>
-                            <p>Emulador de Nintendo 3DS que permite jugar a los juegos de 3DS en PC con soporte para
-                                gráficos
-                                mejorados y funciones de red.</p>
+                            <a href="https://xemu.app/">Xemu (Xbox original)</a>
+                            <p>Emulador de código abierto de la Xbox original. Requiere archivos extraídos de tu propia
+                                consola.</p>
                         </li>
                         <li>
-                            <a href="https://yuzu-emu.org/">Yuzu</a>
-                            <p>Emulador de Nintendo Switch que permite jugar a los juegos de Switch en PC con soporte
-                                para
-                                alta
-                                resolución y funciones de red.</p>
+                            <a href="https://xenia.jp/">Xenia (Xbox 360)</a>
+                            <p>Emulador de Xbox 360 para PC, con lista de juegos compatibles. Úsalo con tus propios
+                                juegos.</p>
+                        </li>
+                    </ul>
+                </details>
+                <details class="subcategoria">
+                    <summary>3) Nintendo</summary>
+                    <ul>
+                        <li>
+                            <a href="https://dolphin-emu.org/">Dolphin (GameCube y Wii)</a>
+                            <p>Emulador de GameCube y Wii de código abierto, muy completo y estable.</p>
                         </li>
                         <li>
-                            <a href="https://ryujinx.org/">Ryujinx</a>
-                            <p>Otro emulador de Nintendo Switch que ofrece compatibilidad con una amplia gama de juegos
-                                y
-                                características avanzadas.</p>
+                            <a href="https://melonds.kuribo64.net/">melonDS (Nintendo DS)</a>
+                            <p>Emulador de Nintendo DS preciso y de código abierto.</p>
                         </li>
                         <li>
-                            <a href="https://www.dolphin-emu.org/">Dolphin</a>
-                            <p>Emulador de Nintendo GameCube y Wii que permite jugar a los juegos de estas consolas en
-                                PC
-                                con
-                                soporte para alta resolución y mejoras gráficas.</p>
+                            <a href="https://mgba.io/">mGBA (Game Boy Advance)</a>
+                            <p>Emulador de Game Boy, Game Boy Color y Game Boy Advance, ligero y rápido.</p>
                         </li>
                         <li>
-                            <a
-                                href="https://www-pj64--emu-com.translate.goog/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tcl,sc">Project64</a>
-                            <p>Emulador de Nintendo 64 que permite jugar a los juegos de N64 en PC con soporte para
-                                plugins
-                                y configuraciones avanzadas.</p>
-
+                            <a href="https://www.mupen64plus.org/">Mupen64Plus (Nintendo 64)</a>
+                            <p>Emulador de Nintendo 64 de código abierto y multiplataforma.</p>
                         </li>
                         <li>
-                            <a href="https://www.mupen64plus.org/">Mupen64Plus</a>
-                            <p>Otro emulador de Nintendo 64 que ofrece compatibilidad con una amplia gama de juegos y
-                                características avanzadas.</p>
+                            <a href="https://www.pj64-emu.com/">Project64 (Nintendo 64)</a>
+                            <p>Emulador de Nintendo 64 para Windows, fácil de configurar.</p>
                         </li>
-
+                        <li>
+                            <a href="https://azahar-emu.org/">Azahar (Nintendo 3DS)</a>
+                            <p>Emulador de código abierto de Nintendo 3DS para PC y Android.</p>
+                        </li>
+                    </ul>
+                </details>
+                <details class="subcategoria">
+                    <summary>4) Varios sistemas</summary>
+                    <ul>
+                        <li>
+                            <a href="https://www.retroarch.com/">RetroArch</a>
+                            <p>Programa gratuito que reúne emuladores de consolas clásicas en una sola interfaz.</p>
+                        </li>
+                        <li>
+                            <a href="https://retropie.org.uk/">RetroPie</a>
+                            <p>Sistema gratuito para convertir una Raspberry Pi o un PC en una consola retro.</p>
+                        </li>
+                        <li>
+                            <a href="https://lutris.net/">Lutris</a>
+                            <p>Plataforma de juegos para Linux que organiza emuladores y juegos de varias tiendas.</p>
+                        </li>
                     </ul>
                 </details>
             </div>
@@ -1644,17 +1949,20 @@
                         </li>
                         <li>
                             <a href="https://music.youtube.com/">YouTube Music</a>
-                            <p>Servicio de música de Google, con videos musicales, remixes y listas generadas según tus
+                            <p>Servicio de música de Google, con videos musicales, remixes y listas generadas
+                                según tus
                                 gustos.</p>
                         </li>
                         <li>
                             <a href="https://www.deezer.com/">Deezer</a>
-                            <p>Plataforma de streaming con catálogo amplio y recomendaciones basadas en tu historial de
+                            <p>Plataforma de streaming con catálogo amplio y recomendaciones basadas en tu
+                                historial de
                                 escucha.</p>
                         </li>
                         <li>
                             <a href="https://soundcloud.com/">SoundCloud</a>
-                            <p>Ideal para descubrir artistas independientes, remixes y música que no siempre está en
+                            <p>Ideal para descubrir artistas independientes, remixes y música que no siempre
+                                está en
                                 otras plataformas.</p>
                         </li>
                     </ul>
@@ -1664,13 +1972,19 @@
                     <ul>
                         <li>
                             <a href="https://www.musixmatch.com/">Musixmatch</a>
-                            <p>Base de datos de letras de canciones sincronizadas, disponible también como extensión
+                            <p>Base de datos de letras de canciones sincronizadas, disponible también como
+                                extensión
                                 para reproductores.</p>
                         </li>
                         <li>
                             <a href="https://www.ultimate-guitar.com/">Ultimate Guitar</a>
-                            <p>Acordes y tablaturas para guitarra de miles de canciones, con afinador y metrónomo
+                            <p>Acordes y tablaturas para guitarra de miles de canciones, con afinador y
+                                metrónomo
                                 incluidos.</p>
+                        </li>
+                        <li>
+                            <a href="https://genius.com/">Genius</a>
+                            <p>Letras de canciones con explicaciones y contexto de cada tema.</p>
                         </li>
                     </ul>
                 </details>
@@ -1679,11 +1993,13 @@
                     <ul>
                         <li>
                             <a href="https://www.musictheory.net/">musictheory.net</a>
-                            <p>Lecciones gratuitas de teoría musical, desde lo básico hasta armonía avanzada.</p>
+                            <p>Lecciones gratuitas de teoría musical, desde lo básico hasta armonía avanzada.
+                            </p>
                         </li>
                         <li>
                             <a href="https://www.bandlab.com/">BandLab</a>
-                            <p>Estudio de grabación gratuito en el navegador, para componer, mezclar y compartir tu
+                            <p>Estudio de grabación gratuito en el navegador, para componer, mezclar y compartir
+                                tu
                                 música.</p>
                         </li>
                     </ul>
@@ -1697,11 +2013,13 @@
                     <ul>
                         <li>
                             <a href="https://www.investopedia.com/">Investopedia</a>
-                            <p>Enciclopedia de finanzas e inversión, con explicaciones claras de conceptos económicos y
+                            <p>Enciclopedia de finanzas e inversión, con explicaciones claras de conceptos
+                                económicos y
                                 de mercado.</p>
                         </li>
                         <li>
-                            <a href="https://www.khanacademy.org/economics-finance-domain">Khan Academy - Finanzas</a>
+                            <a href="https://www.khanacademy.org/economics-finance-domain">Khan Academy -
+                                Finanzas</a>
                             <p>Cursos gratuitos sobre economía personal, ahorro, crédito e inversión básica.</p>
                         </li>
                     </ul>
@@ -1711,12 +2029,14 @@
                     <ul>
                         <li>
                             <a href="https://www.mint.com/">Mint</a>
-                            <p>Aplicación para organizar gastos, ingresos y presupuestos personales en un solo lugar.
+                            <p>Aplicación para organizar gastos, ingresos y presupuestos personales en un solo
+                                lugar.
                             </p>
                         </li>
                         <li>
                             <a href="https://www.youneedabudget.com/">YNAB</a>
-                            <p>Metodología y app de presupuesto basada en asignar cada peso a una tarea específica antes
+                            <p>Metodología y app de presupuesto basada en asignar cada peso a una tarea
+                                específica antes
                                 de gastarlo.</p>
                         </li>
                     </ul>
@@ -1726,12 +2046,22 @@
                     <ul>
                         <li>
                             <a href="https://www.investing.com/">Investing.com</a>
-                            <p>Cotizaciones en tiempo real de acciones, criptomonedas, divisas y materias primas.</p>
+                            <p>Cotizaciones en tiempo real de acciones, criptomonedas, divisas y materias
+                                primas.</p>
                         </li>
                         <li>
                             <a href="https://finance.yahoo.com/">Yahoo Finance</a>
-                            <p>Noticias financieras, gráficos históricos y datos fundamentales de empresas que cotizan
+                            <p>Noticias financieras, gráficos históricos y datos fundamentales de empresas que
+                                cotizan
                                 en bolsa.</p>
+                        </li>
+                        <li>
+                            <a href="https://es.investing.com/">Investing.com</a>
+                            <p>Cotizaciones, divisas, materias primas y calendario económico.</p>
+                        </li>
+                        <li>
+                            <a href="https://es.tradingview.com/">TradingView</a>
+                            <p>Gráficos interactivos y análisis técnico de mercados.</p>
                         </li>
                     </ul>
                 </details>
@@ -1744,20 +2074,24 @@
                     <ul>
                         <li>
                             <a href="https://www.skyscanner.net/">Skyscanner</a>
-                            <p>Comparador de vuelos, hoteles y autos de alquiler, con alertas de precio incluidas.</p>
+                            <p>Comparador de vuelos, hoteles y autos de alquiler, con alertas de precio
+                                incluidas.</p>
                         </li>
                         <li>
                             <a href="https://www.booking.com/">Booking.com</a>
-                            <p>Reserva de hoteles, apartamentos y otras opciones de alojamiento en todo el mundo.</p>
+                            <p>Reserva de hoteles, apartamentos y otras opciones de alojamiento en todo el
+                                mundo.</p>
                         </li>
                         <li>
                             <a href="https://www.kayak.com/">Kayak</a>
-                            <p>Motor de búsqueda de viajes que compara precios de vuelos, hoteles y paquetes en una sola
+                            <p>Motor de búsqueda de viajes que compara precios de vuelos, hoteles y paquetes en
+                                una sola
                                 consulta.</p>
                         </li>
                         <li>
                             <a href="https://www.airbnb.com/">Airbnb</a>
-                            <p>Plataforma para alquilar alojamientos y experiencias locales ofrecidas por anfitriones
+                            <p>Plataforma para alquilar alojamientos y experiencias locales ofrecidas por
+                                anfitriones
                                 particulares.</p>
                         </li>
                     </ul>
@@ -1771,8 +2105,13 @@
                         </li>
                         <li>
                             <a href="https://www.rome2rio.com/">Rome2Rio</a>
-                            <p>Muestra todas las formas de llegar de un punto a otro: vuelo, bus, tren o auto, con
+                            <p>Muestra todas las formas de llegar de un punto a otro: vuelo, bus, tren o auto,
+                                con
                                 tiempos y precios estimados.</p>
+                        </li>
+                        <li>
+                            <a href="https://es.wikivoyage.org/">Wikivoyage</a>
+                            <p>Guía de viajes colaborativa y gratuita de destinos de todo el mundo.</p>
                         </li>
                     </ul>
                 </details>
@@ -1781,7 +2120,8 @@
                     <ul>
                         <li>
                             <a href="https://www.iatatravelcentre.com/">IATA Travel Centre</a>
-                            <p>Consulta requisitos de visa, pasaporte y salud para viajar a cualquier país del mundo.
+                            <p>Consulta requisitos de visa, pasaporte y salud para viajar a cualquier país del
+                                mundo.
                             </p>
                         </li>
                     </ul>
@@ -1795,11 +2135,13 @@
                     <ul>
                         <li>
                             <a href="https://www.duolingo.com/">Duolingo</a>
-                            <p>Aplicación gratuita y gamificada para aprender idiomas con lecciones cortas diarias.</p>
+                            <p>Aplicación gratuita y gamificada para aprender idiomas con lecciones cortas
+                                diarias.</p>
                         </li>
                         <li>
                             <a href="https://www.babbel.com/">Babbel</a>
-                            <p>Cursos de idiomas enfocados en conversación práctica para situaciones de la vida real.
+                            <p>Cursos de idiomas enfocados en conversación práctica para situaciones de la vida
+                                real.
                             </p>
                         </li>
                         <li>
@@ -1814,7 +2156,8 @@
                     <ul>
                         <li>
                             <a href="https://www.wordreference.com/">WordReference</a>
-                            <p>Diccionario en línea con foros de dudas de traducción entre múltiples idiomas.</p>
+                            <p>Diccionario en línea con foros de dudas de traducción entre múltiples idiomas.
+                            </p>
                         </li>
                         <li>
                             <a href="https://translate.google.com/">Google Traductor</a>
@@ -1824,6 +2167,14 @@
                             <a href="https://www.deepl.com/">DeepL</a>
                             <p>Traductor conocido por su precisión y naturalidad, especialmente entre idiomas
                                 europeos.</p>
+                        </li>
+                        <li>
+                            <a href="https://www.rae.es/">RAE</a>
+                            <p>Diccionario oficial de la lengua española y consultas de ortografía.</p>
+                        </li>
+                        <li>
+                            <a href="https://www.linguee.es/">Linguee</a>
+                            <p>Traducciones en contexto sacadas de textos reales.</p>
                         </li>
                     </ul>
                 </details>
@@ -1836,7 +2187,8 @@
                         </li>
                         <li>
                             <a href="https://www.tandem.net/">Tandem</a>
-                            <p>Aplicación de intercambio de idiomas donde practicas con hablantes nativos a cambio de
+                            <p>Aplicación de intercambio de idiomas donde practicas con hablantes nativos a
+                                cambio de
                                 ayudarles con el tuyo.</p>
                         </li>
                     </ul>
@@ -1921,7 +2273,8 @@
             <h2>Problemas comunes</h2>
             <details>
                 <summary>¿Por qué no cargan las páginas web?</summary>
-                <p>Puede deberse a una conexión a internet inestable, un problema con el servidor del sitio, o que
+                <p>Puede deberse a una conexión a internet inestable, un problema con el servidor del sitio, o
+                    que
                     tu
                     navegador tenga la caché saturada. Intenta recargar la página o revisar tu conexión.</p>
             </details>
@@ -1939,7 +2292,8 @@
             </details>
             <details>
                 <summary>¿Por qué me pide iniciar sesión?</summary>
-                <p>Algunas páginas requieren cuenta para acceder a ciertos contenidos, aunque el servicio general
+                <p>Algunas páginas requieren cuenta para acceder a ciertos contenidos, aunque el servicio
+                    general
                     sea
                     gratuito.</p>
             </details>
@@ -1960,6 +2314,18 @@
             target="_blank">GitHub</a>
     </footer>
 
+    <div id="modalClave">
+        <div class="cajaClave">
+            <h3>🔞 Sección restringida</h3>
+            <p>Escribe la clave para entrar.</p>
+            <input type="password" id="inputClave" placeholder="Clave" autocomplete="off"
+                onkeydown="if (event.key === 'Enter') verificarClave()">
+            <div id="errorClave"></div>
+            <button onclick="verificarClave()">Entrar</button>
+            <button onclick="cerrarClave()">Cancelar</button>
+        </div>
+    </div>
+
     <button id="botonSubir" onclick="subirArriba()">↑</button>
     <h5 id="versionApp">Versión: 1.5.4</h5>
 
@@ -1971,12 +2337,61 @@
         }
 
         // Filtrar bloques de categoría en Inicio
+        // ---- Clave para la sección 18+ ----
+        const CLAVE_HASH = "mmb40rod0h"; // hash de la clave; para cambiarla usa hashClave('nuevaClave') en la consola
+        let adultosDesbloqueado = false;
+        let botonAdultos = null;
+
+        function hashClave(t) {
+            let a = 0xdeadbeef, b = 0x41c6ce57;
+            for (let i = 0; i < t.length; i++) {
+                const c = t.charCodeAt(i);
+                a = Math.imul(a ^ c, 2654435761);
+                b = Math.imul(b ^ c, 1597334677);
+            }
+            a = Math.imul(a ^ (a >>> 16), 2246822507) ^ Math.imul(b ^ (b >>> 13), 3266489909);
+            b = Math.imul(b ^ (b >>> 16), 2246822507) ^ Math.imul(a ^ (a >>> 13), 3266489909);
+            return (4294967296 * (2097151 & b) + (a >>> 0)).toString(36);
+        }
+
+        function pedirClave(boton) {
+            botonAdultos = boton;
+            document.getElementById('errorClave').textContent = '';
+            document.getElementById('inputClave').value = '';
+            document.getElementById('modalClave').style.display = 'flex';
+            document.getElementById('inputClave').focus();
+        }
+
+        function cerrarClave() {
+            document.getElementById('modalClave').style.display = 'none';
+        }
+
+        function verificarClave() {
+            const valor = document.getElementById('inputClave').value;
+            if (hashClave(valor) === CLAVE_HASH) {
+                adultosDesbloqueado = true;
+                cerrarClave();
+                filtrarCategoria('adultos', botonAdultos);
+            } else {
+                document.getElementById('errorClave').textContent = 'Clave incorrecta.';
+            }
+        }
+
         function filtrarCategoria(categoria, boton) {
+            if (categoria === 'adultos' && !adultosDesbloqueado) {
+                pedirClave(boton);
+                return;
+            }
+            if (categoria !== 'adultos') adultosDesbloqueado = false;
+
             document.querySelectorAll('#filtrosCategoria button').forEach(b => b.classList.remove('activo'));
             boton.classList.add('activo');
 
             document.querySelectorAll('.categoria').forEach(bloque => {
-                if (categoria === 'todas' || bloque.dataset.categoria === categoria) {
+                const cat = bloque.dataset.categoria;
+                if (cat === 'adultos') {
+                    bloque.style.display = (categoria === 'adultos') ? 'block' : 'none';
+                } else if (categoria === 'todas' || cat === categoria) {
                     bloque.style.display = 'block';
                 } else {
                     bloque.style.display = 'none';
@@ -2045,7 +2460,7 @@
             noticieros: "Noticieros",
             entretenimiento: "Entretenimiento",
             deportes: "Deportes",
-            adultos: "Videos 18+",
+            juegos: "Juegos Online",
             emuladores: "Emuladores",
             musica: "Música",
             finanzas: "Finanzas",
@@ -2187,6 +2602,15 @@
             { nombre: "Tubi TV", url: "https://tubitv.com/espanol", categoria: "entretenimiento" },
             { nombre: "Vix", url: "https://www.vix.com/", categoria: "entretenimiento" },
             { nombre: "RTVE", url: "https://www.rtve.es/play/internacional/portada/", categoria: "entretenimiento" },
+            { nombre: "Disney+", url: "https://www.disneyplus.com/", categoria: "entretenimiento" },
+            { nombre: "Max", url: "https://www.max.com/", categoria: "entretenimiento" },
+            { nombre: "Funimation", url: "https://www.funimation.com/", categoria: "entretenimiento" },
+            { nombre: "HIDIVE", url: "https://hidive.com/", categoria: "entretenimiento" },
+            { nombre: "Apple Podcasts", url: "https://podcasts.apple.com/", categoria: "entretenimiento" },
+            { nombre: "iVoox", url: "https://www.ivoox.com/", categoria: "entretenimiento" },
+            { nombre: "Spotify Podcasts", url: "https://open.spotify.com/genre/podcasts", categoria: "entretenimiento" },
+            { nombre: "IMDb", url: "https://www.imdb.com/", categoria: "entretenimiento" },
+            { nombre: "JustWatch", url: "https://www.justwatch.com/", categoria: "entretenimiento" },
             { nombre: "FIFA", url: "https://www.fifa.com/", categoria: "deportes" },
             { nombre: "UEFA", url: "https://www.uefa.com/", categoria: "deportes" },
             { nombre: "LaLiga", url: "https://www.laliga.com/", categoria: "deportes" },
@@ -2210,22 +2634,6 @@
             { nombre: "WBC", url: "https://www.wbcboxing.com/", categoria: "deportes" },
             { nombre: "WBA", url: "https://www.wba-boxing.com/", categoria: "deportes" },
             { nombre: "IBF", url: "https://www.ibf-usba-boxing.com/", categoria: "deportes" },
-            { nombre: "Pornhub", url: "https://www.pornhub.com/", categoria: "adultos" },
-            { nombre: "XVideos", url: "https://www.xvideos.com/", categoria: "adultos" },
-            { nombre: "xHamster", url: "https://www.xhamster.com/", categoria: "adultos" },
-            { nombre: "RedTube", url: "https://www.redtube.com/", categoria: "adultos" },
-            { nombre: "YouJizz", url: "https://www.youjizz.com/", categoria: "adultos" },
-            { nombre: "XNXX", url: "https://www.XNXX.com/", categoria: "adultos" },
-            { nombre: "PCSX2", url: "https://www.filehorse.com/es/download-pcsx2-ps2-emulator/", categoria: "emuladores" },
-            { nombre: "PCSX", url: "https://www.emulator-zone.com/doc.php/psx/pcsx.html", categoria: "emuladores" },
-            { nombre: "RPCS3", url: "https://www.rpcs3.net/", categoria: "emuladores" },
-            { nombre: "PPSSPP", url: "https://www.ppsspp.org/", categoria: "emuladores" },
-            { nombre: "Citra", url: "https://www.citra-emu.org/", categoria: "emuladores" },
-            { nombre: "Yuzu", url: "https://yuzu-emu.org/", categoria: "emuladores" },
-            { nombre: "Ryujinx", url: "https://ryujinx.org/", categoria: "emuladores" },
-            { nombre: "Dolphin", url: "https://www.dolphin-emu.org/", categoria: "emuladores" },
-            { nombre: "Project64", url: "https://www-pj64--emu-com.translate.goog/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tcl,sc", categoria: "emuladores" },
-            { nombre: "Mupen64Plus", url: "https://www.mupen64plus.org/", categoria: "emuladores" },
             { nombre: "Spotify", url: "https://www.spotify.com/", categoria: "musica" },
             { nombre: "YouTube Music", url: "https://music.youtube.com/", categoria: "musica" },
             { nombre: "Deezer", url: "https://www.deezer.com/", categoria: "musica" },
@@ -2255,6 +2663,53 @@
             { nombre: "DeepL", url: "https://www.deepl.com/", categoria: "idiomas" },
             { nombre: "italki", url: "https://www.italki.com/", categoria: "idiomas" },
             { nombre: "Tandem", url: "https://www.tandem.net/", categoria: "idiomas" },
+            { nombre: "Miniclip", url: "https://www.miniclip.com/games/en/", categoria: "juegos" },
+            { nombre: "Kongregate", url: "https://www.kongregate.com/", categoria: "juegos" },
+            { nombre: "Addicting Games", url: "https://www.addictinggames.com/", categoria: "juegos" },
+            { nombre: "Roblox", url: "https://www.roblox.com/", categoria: "juegos" },
+            { nombre: "Minecraft", url: "https://www.minecraft.net/", categoria: "juegos" },
+            { nombre: "Fortnite", url: "https://www.fortnite.com/", categoria: "juegos" },
+            { nombre: "Age of Empires", url: "https://www.ageofempires.com/", categoria: "juegos" },
+            { nombre: "StarCraft", url: "https://www.starcraft.com/", categoria: "juegos" },
+            { nombre: "Total War", url: "https://www.totalwar.com/", categoria: "juegos" },
+            { nombre: "Final Fantasy", url: "https://www.finalfantasy.com/", categoria: "juegos" },
+            { nombre: "World of Warcraft", url: "https://www.worldofwarcraft.com/", categoria: "juegos" },
+            { nombre: "EaglerCraft", url: "https://eaglercraft.com/es", categoria: "juegos" },
+            { nombre: "Cool Math Games", url: "https://www.coolmathgames.com/", categoria: "juegos" },
+            { nombre: "DuckStation (PS1)", url: "https://www.duckstation.org/", categoria: "emuladores" },
+            { nombre: "PCSX2 (PS2)", url: "https://pcsx2.net/", categoria: "emuladores" },
+            { nombre: "RPCS3 (PS3)", url: "https://rpcs3.net/", categoria: "emuladores" },
+            { nombre: "PPSSPP (PSP)", url: "https://www.ppsspp.org/", categoria: "emuladores" },
+            { nombre: "Xemu (Xbox original)", url: "https://xemu.app/", categoria: "emuladores" },
+            { nombre: "Xenia (Xbox 360)", url: "https://xenia.jp/", categoria: "emuladores" },
+            { nombre: "Dolphin (GameCube y Wii)", url: "https://dolphin-emu.org/", categoria: "emuladores" },
+            { nombre: "melonDS (Nintendo DS)", url: "https://melonds.kuribo64.net/", categoria: "emuladores" },
+            { nombre: "mGBA (Game Boy Advance)", url: "https://mgba.io/", categoria: "emuladores" },
+            { nombre: "Mupen64Plus (Nintendo 64)", url: "https://www.mupen64plus.org/", categoria: "emuladores" },
+            { nombre: "Project64 (Nintendo 64)", url: "https://www.pj64-emu.com/", categoria: "emuladores" },
+            { nombre: "Azahar (Nintendo 3DS)", url: "https://azahar-emu.org/", categoria: "emuladores" },
+            { nombre: "RetroArch", url: "https://www.retroarch.com/", categoria: "emuladores" },
+            { nombre: "Platzi", url: "https://platzi.com/", categoria: "informatica" },
+            { nombre: "SENA", url: "https://www.sena.edu.co/", categoria: "informatica" },
+            { nombre: "MIT OpenCourseWare", url: "https://ocw.mit.edu/", categoria: "informatica" },
+            { nombre: "MedlinePlus en español", url: "https://medlineplus.gov/spanish/", categoria: "medicina" },
+            { nombre: "Organización Mundial de la Salud", url: "https://www.who.int/es", categoria: "medicina" },
+            { nombre: "Directo al Paladar", url: "https://www.directoalpaladar.com/", categoria: "recetas" },
+            { nombre: "Cookpad", url: "https://cookpad.com/es", categoria: "recetas" },
+            { nombre: "DW Español", url: "https://www.dw.com/es/", categoria: "noticieros" },
+            { nombre: "France 24", url: "https://www.france24.com/es/", categoria: "noticieros" },
+            { nombre: "Filmaffinity", url: "https://www.filmaffinity.com/es/", categoria: "entretenimiento" },
+            { nombre: "Letterboxd", url: "https://letterboxd.com/", categoria: "entretenimiento" },
+            { nombre: "Transfermarkt", url: "https://www.transfermarkt.es/", categoria: "deportes" },
+            { nombre: "Sofascore", url: "https://www.sofascore.com/es/", categoria: "deportes" },
+            { nombre: "Genius", url: "https://genius.com/", categoria: "musica" },
+            { nombre: "Investing.com", url: "https://es.investing.com/", categoria: "finanzas" },
+            { nombre: "TradingView", url: "https://es.tradingview.com/", categoria: "finanzas" },
+            { nombre: "Wikivoyage", url: "https://es.wikivoyage.org/", categoria: "viajes" },
+            { nombre: "RAE", url: "https://www.rae.es/", categoria: "idiomas" },
+            { nombre: "Linguee", url: "https://www.linguee.es/", categoria: "idiomas" },
+            { nombre: "RetroPie", url: "https://retropie.org.uk/", categoria: "emuladores" },
+            { nombre: "Lutris", url: "https://lutris.net/", categoria: "emuladores" },
         ];
 
         // Destacado del día: cambia automáticamente según la fecha, igual para todos los visitantes ese día
